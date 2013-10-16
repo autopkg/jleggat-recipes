@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest CreateUserPkg disk image and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.autopkg-recipes.CreateUserPkg.munki</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>CreateUserPkg</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>This utility creates packages that create local user accounts when installed.
+The packages can create users on 10.5-10.8, and they are compatible with all workflows that can install standard installer pkgs.
+Packages created using this utility encrypts the password as a salted SHA1 hash, which is how 10.5 and 10.6 normally stores it.
+
+Using a dictionary based attack they are reasonably easy to crack on modern machines, so make sure you pick a good, strong password.
+In 10.7 and up this is converted to PBKDF2 upon first login, which is much harder to crack, but the SHA1 hash can still be extracted from the package.
+
+If you enable automatic login the password is stored in a kcpassword file, which is merely obfuscated and not encrypted - extracting the password (no matter how strong) is trivial.</string>
+            <key>display_name</key>
+            <string>CreateUserPkg - Create packages to deploy Mac OS X user accounts</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.autopkg-recipes.CreateUserPkg.download</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
