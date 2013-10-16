@@ -94,7 +94,7 @@ class GPGToolsURLProvider(Processor):
 #
 #         print "The URL is: ", real_url
 
-        real_url = "".join((base_url, dmg_path))
+        real_url = urlparse.urljoin(url,quote(dmg_path))
         # Return URL.
         return real_url
 
