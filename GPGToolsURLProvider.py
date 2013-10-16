@@ -74,6 +74,7 @@ class GPGToolsURLProvider(Processor):
         url = m.group("filename") # unquote()
         print "The scanned URL is: ", url
         parse_object = urlparse(url)
+        print parse_object
         dmg_path = parse_object.path
         print "The file path is: ", dmg_path
         # Create the Request.
