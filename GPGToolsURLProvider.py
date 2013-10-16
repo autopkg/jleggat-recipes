@@ -76,12 +76,17 @@ class GPGToolsURLProvider(Processor):
         request = urllib2.Request(url)
         # Add your headers
         request.add_header('User-agent', 'Mozilla 5.10')
-        # Getting the response
-        response = urllib2.urlopen(request)
-        print "Response:", response
+        # Read real url.
+        try:
+            # Getting the response
+            response = urllib2.urlopen(request)
+            print "Response:", response
+            # Get the URL. This gets the real URL.
+            real_url = response.geturl()
+            response.close()
+        except BaseException as e:
+            raise ProcessorError("Can't read from %s: %s" % (url, e))
 
-        # Get the URL. This gets the real URL.
-        real_url = response.geturl()
         print "The URL is: ", real_url
 
         # Return URL.
