@@ -52,7 +52,7 @@ class GPGToolsURLProvider(Processor):
 
     def get_GPGTools_dmg_url(self, base_url, download_page):
 
-        index_url = "/".join((base_url, download_page))
+        index_url
         #print >>sys.stderr, index_url
 
         # Read HTML index.
@@ -78,22 +78,23 @@ class GPGToolsURLProvider(Processor):
         dmg_path = parse_object.path
         print "The file path is: ", dmg_path
         # Create the Request.
-        request = urllib2.Request(url)
-        # Add your headers
-        request.add_header('User-agent', 'Mozilla 5.10')
-        # Read real url.
-        try:
-            # Getting the response
-            response = urllib2.urlopen(request)
-            print "Response:", response
-            # Get the URL. This gets the real URL.
-            real_url = response.geturl()
-            response.close()
-        except BaseException as e:
-            raise ProcessorError("Can't read from %s: %s" % (url, e))
+#         request = urllib2.Request(url)
+#         # Add your headers
+#         request.add_header('User-agent', 'Mozilla 5.10')
+#         # Read real url.
+#         try:
+#             # Getting the response
+#             response = urllib2.urlopen(request)
+#             print "Response:", response
+#             # Get the URL. This gets the real URL.
+#             real_url = response.geturl()
+#             response.close()
+#         except BaseException as e:
+#             raise ProcessorError("Can't read from %s: %s" % (url, e))
+#
+#         print "The URL is: ", real_url
 
-        print "The URL is: ", real_url
-
+        real_url = "".join((base_url, dmg_path))
         # Return URL.
         return real_url
 
