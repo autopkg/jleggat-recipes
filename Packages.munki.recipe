@@ -38,7 +38,9 @@
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%pathname%/packages</string>
+                <string>%pathname%</string>
+                <key>munkiimport_pkgname</key>
+                <string>packages/Packages.pkg</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
