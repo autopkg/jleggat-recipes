@@ -70,7 +70,7 @@ class GPGToolsURLProvider(Processor):
                 % (index_url))
 
         # Return URL.
-        return urllib2.unquote(m.group("filename"))
+        return m.group("filename")
 
     def main(self):
         # Determine download_page and base_url.
