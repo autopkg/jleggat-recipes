@@ -23,7 +23,7 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["AudioSwitcherURLProvider"]
 
 
-BASE_URL = "http://www.spikesoft.net"
+BASE_URL = "https://www.macupdate.com"
 re_dmg = re.compile(r'a[^>]* href="(?P<url>[^"]+audioswitcher[^"]+\.dmg)"')
 
 class AudioSwitcherURLProvider(Processor):
@@ -71,7 +71,7 @@ class AudioSwitcherURLProvider(Processor):
 
     def main(self):
         # Determine download_page and base_url.
-        download_page = self.env.get("download_page", "downloads.php")
+        download_page = self.env.get("download_page", "app/mac/26433/audio-switcher")
         base_url = self.env.get("base_url", BASE_URL)
 
         self.env["url"] = self.get_AudioSwitcher_dmg_url(base_url, download_page)
