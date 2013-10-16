@@ -71,7 +71,7 @@ class GPGToolsURLProvider(Processor):
                 % (index_url))
 
 
-        url = unquote(m.group("filename"))
+        url = m.group("filename") # unquote()
         print "The scanned URL is: ", url
         parse_object = urlparse(url)
         dmg_path = parse_object.path
