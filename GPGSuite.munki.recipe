@@ -2,14 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the latest GPGSuite disk image and imports into Munki.</string>
-    <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.GPGSuite.munki</string>
     <key>Input</key>
     <dict>
-        <key>NAME</key>
-        <string>GPGSuite</string>
+        <key>IDENTIFIER</key>
+        <string>com.github.jleggat.autopkg-recipes.GPGSuite.munki</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps</string>
         <key>pkginfo</key>
@@ -29,16 +25,40 @@
         </dict>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.2.3</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.autopkg-recipes.GPGSuite.download</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>DmgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%pathname%</string>
+                <string>%dmg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
