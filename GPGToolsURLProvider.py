@@ -70,7 +70,8 @@ class GPGToolsURLProvider(Processor):
                 % (index_url))
 
 
-        url = m.group("filename")
+        url = urllib2.unquote(m.group("filename"))
+        print "The scanned URL is: ", url
         # Create the Request.
         request = urllib2.Request(url)
         # Add your headers
