@@ -17,6 +17,7 @@
 
 import re
 import urllib2
+import urlparse
 from urllib import unquote, quote
 from autopkglib import Processor, ProcessorError
 
@@ -72,7 +73,8 @@ class GPGToolsURLProvider(Processor):
 
         url = unquote(m.group("filename"))
         print "The scanned URL is: ", url
-        url = quote(url)
+        dmg_path = urlparse(url).path
+        print "The file path is: ", dmg_path
         # Create the Request.
         request = urllib2.Request(url)
         # Add your headers
