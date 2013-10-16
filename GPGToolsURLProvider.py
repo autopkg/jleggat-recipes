@@ -69,7 +69,14 @@ class GPGToolsURLProvider(Processor):
                 "Couldn't finddownload URL in %s"
                 % (index_url))
 
-        response = urllib2.urlopen(m.group("filename"))
+
+        url = m.group("filename")
+        # Create the Request.
+        request = urllib2.Request(url)
+        # Add your headers
+        request.add_header('User-agent', 'Mozilla 5.10')
+        # Getting the response
+        response = urllib2.urlopen(request)
         print "Response:", response
 
         # Get the URL. This gets the real URL.
