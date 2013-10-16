@@ -26,7 +26,7 @@ __all__ = ["GPGToolsURLProvider"]
 
 
 GPG_BASE_URL = "https://gpgtools.org"
-re_dmg = re.compile(r'a[^>]* href="(?P<filename>[^"]+\.dmg)"')
+re_dmg = re.compile(r'a[^>]* href="(?P<url>[^"]+\.dmg)"')
 
 
 class GPGToolsURLProvider(Processor):
@@ -70,33 +70,7 @@ class GPGToolsURLProvider(Processor):
                 "Couldn't finddownload URL in %s"
                 % (index_url))
 
-
-        url = unquote(m.group("filename"))
-        print "The scanned URL is: ", url
-        parse_object = urlparse.urlparse(url)
-        print parse_object
-        dmg_path = parse_object.path
-        print "The file path is: ", dmg_path
-        # Create the Request.
-#         request = urllib2.Request(url)
-#         # Add your headers
-#         request.add_header('User-agent', 'Mozilla 5.10')
-#         # Read real url.
-#         try:
-#             # Getting the response
-#             response = urllib2.urlopen(request)
-#             print "Response:", response
-#             # Get the URL. This gets the real URL.
-#             real_url = response.geturl()
-#             response.close()
-#         except BaseException as e:
-#             raise ProcessorError("Can't read from %s: %s" % (url, e))
-#
-#         print "The URL is: ", real_url
-
-        real_url = urlparse.urljoin(url,quote(dmg_path))
-        # Return URL.
-        return real_url
+        return urllib2.quote(m.group("url"), safe=":/%")
 
     def main(self):
         # Determine download_page and base_url.
