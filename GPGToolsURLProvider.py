@@ -60,7 +60,7 @@ class GPGToolsURLProvider(Processor):
             html = f.read()
             f.close()
         except BaseException as e:
-            raise ProcessorError("Can't download %s: %s" % (index_url, e))
+            raise ProcessorError("Can't parse download from %s: %s" % (index_url, e))
 
         # Search for download link.
         m = re_dmg.search(html)
