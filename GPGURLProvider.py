@@ -21,7 +21,7 @@ import urllib2
 from autopkglib import Processor, ProcessorError
 
 
-__all__ = ["GPGToolsURLProvider"]
+__all__ = ["GPGURLProvider"]
 
 
 GPG_BASE_URL = "https://gpgtools.org"
@@ -51,8 +51,7 @@ class GPGToolsURLProvider(Processor):
 
     def get_GPGTools_dmg_url(self, base_url, download_page):
 
-        index_url = "/".join(
-            (base_url, download_page))
+        index_url = "/".join((base_url, download_page))
         #print >>sys.stderr, index_url
 
         # Read HTML index.
@@ -78,8 +77,7 @@ class GPGToolsURLProvider(Processor):
         download_page = self.env.get("download_page", "index.html")
         base_url = self.env.get("base_url", GPG_BASE_URL)
 
-        self.env["url"] = self.get_GPGTools_dmg_url(
-                                        base_url, download_page)
+        self.env["url"] = self.get_GPGTools_dmg_url(base_url, download_page)
         self.output("Found URL %s" % self.env["url"])
 
 
