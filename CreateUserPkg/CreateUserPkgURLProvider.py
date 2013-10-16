@@ -70,7 +70,7 @@ class CreateUserPkgURLProvider(Processor):
                 "Couldn't finddownload URL in %s"
                 % (index_url))
 
-        return "".join((base_url, m.group("url")))
+        return "/".join((base_url, m.group("url")))
 
     def main(self):
         # Determine download_page and base_url.
