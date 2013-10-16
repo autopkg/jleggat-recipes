@@ -21,7 +21,7 @@ import urllib2
 from autopkglib import Processor, ProcessorError
 
 
-__all__ = ["GPGURLProvider"]
+__all__ = ["GPGToolsURLProvider"]
 
 
 GPG_BASE_URL = "https://gpgtools.org"

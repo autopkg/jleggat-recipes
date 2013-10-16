@@ -24,7 +24,7 @@
                 <string>index.html</string>
             </dict>
             <key>Processor</key>
-            <string>GPGURLProvider</string>
+            <string>GPGToolsURLProvider</string>
         </dict>
         <dict>
             <key>Arguments</key>
