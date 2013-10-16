@@ -16,13 +16,6 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>base_url</key>
-                <string>https://gpgtools.org</string>
-                <key>download_page</key>
-                <string>index.html</string>
-            </dict>
             <key>Processor</key>
             <string>GPGToolsURLProvider</string>
         </dict>
