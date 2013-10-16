@@ -69,8 +69,15 @@ class GPGToolsURLProvider(Processor):
                 "Couldn't finddownload URL in %s"
                 % (index_url))
 
+        response = urllib2.urlopen(m.group("filename"))
+        print "Response:", response
+
+        # Get the URL. This gets the real URL.
+        real_url = response.geturl()
+        print "The URL is: ", real_url
+
         # Return URL.
-        return m.group("filename")
+        return real_url
 
     def main(self):
         # Determine download_page and base_url.
