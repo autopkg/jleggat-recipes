@@ -52,7 +52,7 @@ class GPGToolsURLProvider(Processor):
 
     def get_GPGTools_dmg_url(self, base_url, download_page):
 
-        index_url
+        index_url = "/".join((base_url, download_page))
         #print >>sys.stderr, index_url
 
         # Read HTML index.
