@@ -27,7 +27,9 @@
 				<key>request_headers</key>
 				<dict>
 					<key>User-Agent</key>
-					<string>wget</string>
+					<string>Mozilla 5.10</string>
+					<key>Accept</key>
+					<string>text/html,application/octet-stream,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</string>
 				</dict>
             </dict>
             <key>Processor</key>
