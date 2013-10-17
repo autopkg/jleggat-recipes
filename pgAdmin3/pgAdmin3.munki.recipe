@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads pgAdmin3 and imports into Munki.</string>
+	<key>Input</key>
+	<dict>
+		<key>IDENTIFIER</key>
+		<string>com.github.jleggat.autopkg-recipes.pgAdmin3.munki</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps</string>
+		<key>NAME</key>
+		<string>pgAdmin3</string>
+		<key>APP_DESTINATION</key>
+		<string>/Applications</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>pgAdmin3 is a powerful network protocol analysis suite.</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>ScrapedTextURLProvider</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>http://www.pgadmin.org/download/macosx.php</string>
+					<key>re_pattern</key>
+					<string>pgAdmin v\d\.\d+\.\d</string>
+				</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath</string>
+					<string>%APP_DESTINATION%</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
