@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import datetime
 import re
 import urllib2
 
@@ -9,11 +8,11 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["ScrapedTextURLProvider"]
 
 class ScrapedTextURLProvider(Processor):
-        '''Provides URL to the latest UTC 3 version.'''
+        '''Provides URL to the latest version.'''
 
         input_variables = {
-                're_pattern': {
-                        'description': 'Regular expression (Python) to match against page.',
+                're_url': {
+                        'description': 'Regular expression (Python) to match URL against page.',
                         'required': True,
                 },
                 'url': {
@@ -29,7 +28,7 @@ class ScrapedTextURLProvider(Processor):
 
         description = __doc__
 
-        def get_url(self, url, re_pattern):
+        def get_url(self, url, re_url):
                 try:
                         f = urllib2.urlopen(url)
                         content = f.read()
@@ -37,16 +36,18 @@ class ScrapedTextURLProvider(Processor):
                 except BaseException as e:
                         raise ProcessorError('Could not retrieve URL: %s' % url)
 
+                re_pattern = re.compile(r'a[^>]* href="(?P<url>%s)"' % re_url)
                 m = re_pattern.search(content)
+                if not m:
+                    raise ProcessorError(
+                    "Couldn't finddownload URL in %s"
+                    % (url))
 
-                if m:
-                        return m.group(1)
-
-                raise ProcessorError('No matched files')
+                return m.group("url")
 
         def main(self):
-                re_pattern = re.compile(self.env['re_pattern'])
-                self.env['url'] = self.get_url(self.env['url'], re_pattern)
+                re_url = re.compile(self.env['re_url'])
+                self.env['url'] = self.get_url(self.env['url'], re_url)
                 self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':

@@ -17,8 +17,6 @@
 
 import re
 import urllib2
-import urlparse
-from urllib import unquote, quote
 from autopkglib import Processor, ProcessorError
 
 

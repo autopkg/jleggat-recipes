@@ -37,8 +37,8 @@
 				<dict>
 					<key>url</key>
 					<string>http://www.pgadmin.org/download/macosx.php</string>
-					<key>re_pattern</key>
-					<string>pgAdmin%20v\d\.\d+\.\d</string>
+					<key>re_url</key>
+					<string>[^"]+v[0-9_\.]*\/osx\/</string>
 				</dict>
 		</dict>
 		<dict>
