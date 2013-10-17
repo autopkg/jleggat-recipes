@@ -38,7 +38,7 @@
 					<key>url</key>
 					<string>http://www.pgadmin.org/download/macosx.php</string>
 					<key>re_url</key>
-					<string>[^"]+v[0-9_\.]*\/osx\/</string>
+					<string>[^"]+\/osx\/</string>
 				</dict>
 		</dict>
 		<dict>

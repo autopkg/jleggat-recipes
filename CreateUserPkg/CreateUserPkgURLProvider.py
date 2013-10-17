@@ -65,7 +65,7 @@ class CreateUserPkgURLProvider(Processor):
         m = re_dmg.search(html)
         if not m:
             raise ProcessorError(
-                "Couldn't finddownload URL in %s"
+                "Couldn't find download URL in %s"
                 % (index_url))
 
         return "/".join((index_url, m.group("url")))

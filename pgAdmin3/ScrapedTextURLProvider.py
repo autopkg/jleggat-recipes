@@ -37,10 +37,11 @@ class ScrapedTextURLProvider(Processor):
                         raise ProcessorError('Could not retrieve URL: %s' % url)
 
                 re_pattern = re.compile(r'a[^>]* href="(?P<url>%s)"' % re_url)
+                print re_pattern
                 m = re_pattern.search(content)
                 if not m:
                     raise ProcessorError(
-                    "Couldn't finddownload URL in %s"
+                    "Couldn't find download URL in %s"
                     % (url))
 
                 return m.group("url")
