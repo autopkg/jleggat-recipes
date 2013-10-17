@@ -8,7 +8,7 @@ __all__ = ["ScrapedTextURLProvider"]
 
 URL = "http://www.pgadmin.org/download/macosx.php"
 re_url = '[^"]+\/osx\/'
-re_dmg = '[^"]+\.dmg)'
+re_dmg = '[^"]+\.dmg'
 
 class ScrapedTextURLProvider(Processor):
         '''Provides URL to the latest version.'''
