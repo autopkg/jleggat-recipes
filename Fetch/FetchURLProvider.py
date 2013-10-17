@@ -9,7 +9,8 @@ __all__ = ["FetchURLProvider"]
 
 BASE_URL = 'http://www.fetchsoftworks.com'
 INDEX_PAGE = 'fetch/download'
-re_dmg = '[^"]+\.dmg'
+re_url = '[^"]+\.dmg'
+re_dmg = '[^"]+\.dmg\?direct=1'
 
 class FetchURLProvider(Processor):
         '''Provides URL to the latest version.'''
@@ -53,7 +54,7 @@ class FetchURLProvider(Processor):
                 return "".join((base_url, m.group("url")))
 
         def main(self):
-            dmg_url = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
+            dmg_url = self.get_url(BASE_URL, INDEX_PAGE, re_url)
             url_segments = urlparse(dmg_url)
             dmg_index = url_segments.path
             self.env['url'] = self.get_url(BASE_URL, dmg_index.lstrip("/"), re_dmg)
