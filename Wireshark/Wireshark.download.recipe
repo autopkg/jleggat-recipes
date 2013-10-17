@@ -13,7 +13,7 @@
 		<key>USER_AGENT</key>
         <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
 		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>\/osx\/Wireshark%20[0-9_\.]*%20Intel%2064\.dmg</string>
+		<string>Wireshark%20[0-9_\.]*%20Intel%2064\.dmg</string>
 		<key>SOURCEFORGE_PROJECT_ID</key>
 		<string>255</string>
     </dict>
