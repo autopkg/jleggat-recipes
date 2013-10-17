@@ -55,7 +55,8 @@ class FetchURLProvider(Processor):
         def main(self):
             dmg_url = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
             url_segments = urlparse(dmg_url)
-            self.env['url'] = self.get_url(url_segments.netloc, url_segments.path, re_dmg)
+            dmg_index = url_segments.path
+            self.env['url'] = self.get_url(url_segments.netloc, dmg_index.lstrip("/"), re_dmg)
             self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
