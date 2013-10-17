@@ -1,83 +1,59 @@
 #!/usr/bin/env python
-#
-# Copyright 2010 Per Olofsson, 2013 Greg Neagle, 2013 Jeremy Leggat
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 
 import re
 import urllib2
 from autopkglib import Processor, ProcessorError
 
-
 __all__ = ["AudioSwitcherURLProvider"]
-
-
-BASE_URL = "https://www.macupdate.com"
-re_dmg = re.compile(r'a[^>]* href="(?P<url>[^"]+audioswitcher[^"]+\.dmg)"')
+BASE_URL = 'http://www.spikesoft.net'
+INDEX_PAGE = 'downloads.php'
+re_dmg = '[^"]+\.dmg'
 
 class AudioSwitcherURLProvider(Processor):
-    description = "Provides URL to the latest AudioSwitcher release."
-    input_variables = {
-        "base_url": {
-            "required": False,
-            "description": "Default is '%s." % BASE_URL,
-        },
-        "download_page": {
-            "required": False,
-            "description":
-                    "page to find download on, default is 'index.html'.",
-        },
-    }
-    output_variables = {
-        "url": {
-            "description": "URL to the latest AudioSwitcher product release.",
-        },
-    }
+        '''Provides URL to the latest version.'''
 
-    __doc__ = description
+        input_variables = {
+			"base_url": {
+				"required": False,
+				"description": "Default is '%s." % BASE_URL,
+			},
+			"download_page": {
+				"required": False,
+				"description":
+						"page to find download on, default  is '%s." % INDEX_PAGE,
+			},
+        }
+        output_variables = {
+                'url': {
+                        'description': 'First matched sub-pattern from input found on the fetched page'
+                }
+        }
 
-    def get_AudioSwitcher_dmg_url(self, base_url, download_page):
+        description = __doc__
 
-        index_url = "/".join((base_url, download_page))
-        #print >>sys.stderr, index_url
+        def get_url(self, base_url, download_page, re_url):
+                index_url = "/".join((base_url, download_page))
+                try:
+                        f = urllib2.urlopen(index_url)
+                        content = f.read()
+                        f.close()
+                except BaseException as e:
+                        raise ProcessorError('Could not retrieve URL: %s' % index_url)
 
-        # Read HTML index.
-        try:
-            f = urllib2.urlopen(index_url)
-            html = f.read()
-            f.close()
-        except BaseException as e:
-            raise ProcessorError("Can't parse download from %s: %s" % (index_url, e))
+                re_pattern = re.compile(r'a[^>]* href="(?P<url>%s)"' % re_url)
 
-        # Search for download link.
-        m = re_dmg.search(html)
-        if not m:
-            raise ProcessorError(
-                "Couldn't finddownload URL in %s"
-                % (index_url))
+                m = re_pattern.search(content)
+                if not m:
+                    raise ProcessorError(
+                    "Couldn't find download URL in %s"
+                    % (index_url))
 
-        return "".join((base_url, m.group("url")))
+                return "".join((base_url, m.group("url")))
 
-    def main(self):
-        # Determine download_page and base_url.
-        download_page = self.env.get("download_page", "app/mac/26433/audio-switcher")
-        base_url = self.env.get("base_url", BASE_URL)
+        def main(self):
+            self.env['url'] = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
+            self.output('File URL %s' % self.env['url'])
 
-        self.env["url"] = self.get_AudioSwitcher_dmg_url(base_url, download_page)
-        self.output("Found URL %s" % self.env["url"])
-
-
-if __name__ == "__main__":
-    processor = AudioSwitcherURLProvider()
-    processor.execute_shell()
+if __name__ == '__main__':
+        processor = AudioSwitcherURLProvider()
+        processor.execute_shell()
