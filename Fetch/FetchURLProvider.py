@@ -2,6 +2,7 @@
 
 import re
 import urllib2
+from urlparse import urlparse
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["FetchURLProvider"]
@@ -52,7 +53,9 @@ class FetchURLProvider(Processor):
                 return "".join((base_url, m.group("url")))
 
         def main(self):
-            self.env['url'] = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
+            dmg_url = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
+            url_segments = urlparse(dmg_url)
+            self.env['url'] = self.get_url(url_segments.netloc, url_segments.path, re_dmg)
             self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
