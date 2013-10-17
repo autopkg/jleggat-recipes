@@ -25,6 +25,8 @@
 			<key>description</key>
 			<string>Fetch is a full-featured FTP, SFTP and FTPS (FTP with TLS/SSL) client with a simple and easy-to-use interface.</string>
 			<key>name</key>
+            <key>display_name</key>
+            <string>Fetch - Full featured file transfer client</string>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
