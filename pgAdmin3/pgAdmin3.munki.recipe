@@ -32,7 +32,7 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>ScrapedTextURLProvider</string>
+			<string>pgAdmin3URLProvider</string>
 		</dict>
 		<dict>
 			<key>Processor</key>

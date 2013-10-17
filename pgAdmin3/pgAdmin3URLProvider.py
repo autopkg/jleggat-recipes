@@ -4,13 +4,13 @@ import re
 import urllib2
 from autopkglib import Processor, ProcessorError
 
-__all__ = ["ScrapedTextURLProvider"]
+__all__ = ["pgAdmin3URLProvider"]
 
 URL = "http://www.pgadmin.org/download/macosx.php"
 re_url = '[^"]+\/osx\/'
 re_dmg = '[^"]+\.dmg'
 
-class ScrapedTextURLProvider(Processor):
+class pgAdmin3URLProvider(Processor):
         '''Provides URL to the latest version.'''
 
         input_variables = {
@@ -51,5 +51,5 @@ class ScrapedTextURLProvider(Processor):
             self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
-        processor = ScrapedTextURLProvider()
+        processor = pgAdmin3URLProvider()
         processor.execute_shell()
