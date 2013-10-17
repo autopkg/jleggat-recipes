@@ -32,7 +32,7 @@ class CreateUserPkgURLProvider(Processor):
     input_variables = {
         "base_url": {
             "required": False,
-            "description": "Default is '%s." % BASE_URL,
+            "description": "Default is '%s'." % BASE_URL,
         },
         "download_page": {
             "required": False,
