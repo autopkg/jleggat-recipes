@@ -7,7 +7,7 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["FetchURLProvider"]
 
-BASE_URL = 'http://fetchsoftworks.com'
+BASE_URL = 'http://www.fetchsoftworks.com'
 INDEX_PAGE = 'fetch/download'
 re_dmg = '[^"]+\.dmg'
 
@@ -56,7 +56,7 @@ class FetchURLProvider(Processor):
             dmg_url = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
             url_segments = urlparse(dmg_url)
             dmg_index = url_segments.path
-            self.env['url'] = self.get_url(url_segments.netloc, dmg_index.lstrip("/"), re_dmg)
+            self.env['url'] = self.get_url(BASE_URL, dmg_index.lstrip("/"), re_dmg)
             self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
