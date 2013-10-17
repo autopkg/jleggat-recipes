@@ -37,7 +37,7 @@ class ScrapedTextURLProvider(Processor):
                         raise ProcessorError('Could not retrieve URL: %s' % url)
 
                 re_pattern = re.compile(r'a[^>]* href="(?P<url>%s)"' % re_url)
-                print re_pattern
+                print re_url
                 m = re_pattern.search(content)
                 if not m:
                     raise ProcessorError(
