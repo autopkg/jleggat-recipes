@@ -38,7 +38,7 @@
 					<key>url</key>
 					<string>http://www.pgadmin.org/download/macosx.php</string>
 					<key>re_pattern</key>
-					<string>pgAdmin v\d\.\d+\.\d</string>
+					<string>pgAdmin%20v\d\.\d+\.\d</string>
 				</dict>
 		</dict>
 		<dict>
