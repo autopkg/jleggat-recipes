@@ -2,22 +2,21 @@
 
 import re
 import urllib2
-
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["ScrapedTextURLProvider"]
+
+URL = "http://www.pgadmin.org/download/macosx.php"
+re_url = '[^"]+\/osx\/'
+re_dmg = '[^"]+\.dmg)'
 
 class ScrapedTextURLProvider(Processor):
         '''Provides URL to the latest version.'''
 
         input_variables = {
-                're_url': {
-                        'description': 'Regular expression (Python) to match URL against page.',
-                        'required': True,
-                },
                 'url': {
-                        'description': 'URL of page to scrape',
-                        'required': True,
+                        'description': "URL of page to scrape, Default is '%s'." % BASE_URL,,
+                        'required': false,
                 },
         }
         output_variables = {
@@ -37,7 +36,7 @@ class ScrapedTextURLProvider(Processor):
                         raise ProcessorError('Could not retrieve URL: %s' % url)
 
                 re_pattern = re.compile(r'a[^>]* href="(?P<url>%s)"' % re_url)
-                print re_url
+
                 m = re_pattern.search(content)
                 if not m:
                     raise ProcessorError(
@@ -47,9 +46,9 @@ class ScrapedTextURLProvider(Processor):
                 return m.group("url")
 
         def main(self):
-                re_url = self.env['re_url']
-                self.env['url'] = self.get_url(self.env['url'], re_url)
-                self.output('File URL %s' % self.env['url'])
+            download_url = self.get_url(URL, re_url)
+            self.env['url'] = self.get_url(download_url, re_dmg)
+            self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
         processor = ScrapedTextURLProvider()

@@ -33,13 +33,6 @@
 		<dict>
 			<key>Processor</key>
 			<string>ScrapedTextURLProvider</string>
-				<key>Arguments</key>
-				<dict>
-					<key>url</key>
-					<string>http://www.pgadmin.org/download/macosx.php</string>
-					<key>re_url</key>
-					<string>[^"]+\/osx\/</string>
-				</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
