@@ -21,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>pgAdmin3 is a powerful network protocol analysis suite.</string>
+			<string>pgAdmin is the leading graphical Open Source management, development and administration tool for PostgreSQL.</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
