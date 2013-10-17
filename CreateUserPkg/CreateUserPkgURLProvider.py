@@ -21,13 +21,13 @@ class CreateUserPkgURLProvider(Processor):
 			"download_page": {
 				"required": False,
 				"description":
-						"page to find download on, default  is '%s." % INDEX_PAGE,
+					"page to find download on, default  is '%s." % INDEX_PAGE,
 			},
         }
         output_variables = {
-                'url': {
-                        'description': 'First matched sub-pattern from input found on the fetched page'
-                }
+			'url': {
+				'description': 'First matched sub-pattern from input found on the fetched page'
+			}
         }
 
         description = __doc__

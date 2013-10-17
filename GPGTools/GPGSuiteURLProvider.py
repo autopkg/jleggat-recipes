@@ -4,12 +4,13 @@ import re
 import urllib2
 from autopkglib import Processor, ProcessorError
 
-__all__ = ["AudioSwitcherURLProvider"]
-BASE_URL = 'http://www.spikesoft.net'
-INDEX_PAGE = 'downloads.php'
+__all__ = ["GPGSuiteURLProvider"]
+
+BASE_URL = 'https://gpgtools.org'
+INDEX_PAGE = 'index.html'
 re_dmg = '[^"]+\.dmg'
 
-class AudioSwitcherURLProvider(Processor):
+class GPGSuiteURLProvider(Processor):
         '''Provides URL to the latest version.'''
 
         input_variables = {
@@ -24,9 +25,9 @@ class AudioSwitcherURLProvider(Processor):
 			},
         }
         output_variables = {
-            'url': {
-                'description': 'First matched sub-pattern from input found on the fetched page'
-            }
+			'url': {
+				'description': 'First matched sub-pattern from input found on the fetched page'
+			}
         }
 
         description = __doc__
@@ -48,12 +49,12 @@ class AudioSwitcherURLProvider(Processor):
                     "Couldn't find download URL in %s"
                     % (index_url))
 
-                return "".join((base_url, m.group("url")))
+                return m.group("url")
 
         def main(self):
             self.env['url'] = self.get_url(BASE_URL, INDEX_PAGE, re_dmg)
             self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
-        processor = AudioSwitcherURLProvider()
+        processor = GPGSuiteURLProvider()
         processor.execute_shell()
