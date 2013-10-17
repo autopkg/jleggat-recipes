@@ -47,7 +47,7 @@ class ScrapedTextURLProvider(Processor):
                 return m.group("url")
 
         def main(self):
-                re_url = re.compile(self.env['re_url'])
+                re_url = self.env['re_url']
                 self.env['url'] = self.get_url(self.env['url'], re_url)
                 self.output('File URL %s' % self.env['url'])
 
