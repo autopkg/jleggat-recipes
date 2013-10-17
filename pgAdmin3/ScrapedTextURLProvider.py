@@ -15,7 +15,7 @@ class ScrapedTextURLProvider(Processor):
 
         input_variables = {
                 'url': {
-                        'description': "URL of page to scrape, Default is '%s'." % BASE_URL,,
+                        'description': "URL of page to scrape, Default is '%s'." % BASE_URL,
                         'required': false,
                 },
         }
