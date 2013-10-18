@@ -52,7 +52,8 @@ class MySQLURLProvider(Processor):
                 return "".join((base_url, m.group("url")))
 
         def main(self):
-            first = FILE_INDEX % VERSION
+            version  = self.env.get('VERSION')
+            first = FILE_INDEX % version
             dmg_url = self.get_url(URL, first, re_one)
             url_segments = urlparse(dmg_url)
             dmg_index = url_segments.path
