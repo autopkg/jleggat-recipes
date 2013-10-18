@@ -2,6 +2,7 @@
 
 import re
 import urllib2
+from urlparse import urlparse
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["MySQLURLProvider"]
