@@ -18,7 +18,7 @@
 import os
 import glob
 
-from MacVimlib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError
 
 
 __all__ = ["MacVimSourceFinder"]
@@ -33,7 +33,7 @@ class MacVimSourceFinder(Processor):
         },
     }
     output_variables = {
-        "MacVim_path": {
+        "macvim_path": {
             "description": "Root path of expanded MacVim archive.",
         },
     }
