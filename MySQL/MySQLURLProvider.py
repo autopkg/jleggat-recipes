@@ -58,7 +58,7 @@ class MySQLURLProvider(Processor):
             first = FILE_INDEX % version
             dmg_url = self.get_url(URL, first, re_one)
             url_segments = urlparse(dmg_url)
-            dmg_index = url_segments.path + url_segments.query
+            dmg_index = "?".join(url_segments.path, url_segments.query)
             self.env['url'] = self.get_url(URL, dmg_index.lstrip("/"), re_two)
             self.output('File URL %s' % self.env['url'])
 
