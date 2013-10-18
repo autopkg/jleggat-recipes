@@ -77,7 +77,7 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
             <key>Arguments</key>
             <dict>
                 <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%-build</string>
+                <string>%RECIPE_CACHE_DIR%/build/%NAME%</string>
                 <key>pkgdirs</key>
                 <dict>
                     <key>Applications</key>
