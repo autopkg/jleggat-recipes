@@ -12,7 +12,7 @@
 		<string>apps</string>
 		<key>NAME</key>
 		<string>MySQL56</string>
-		<key>version</key>
+		<key>VERSION</key>
 		<string>5.6</string>
 		<key>pkginfo</key>
 		<dict>

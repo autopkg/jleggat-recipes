@@ -15,11 +15,11 @@ class MySQLURLProvider(Processor):
         '''Provides URL to the latest updated version.'''
 
         input_variables = {
-			'version': {
+			'VERSION': {
 				'required': True,
 				'description': 'The major version of mysql to update.  eg. "5.6"',
 			},
-			'url': {
+			'URL': {
 				'description': "URL of page to scrape, Default is '%s'." % URL,
 				'required': False,
 			},
@@ -52,7 +52,7 @@ class MySQLURLProvider(Processor):
                 return "".join((base_url, m.group("url")))
 
         def main(self):
-            first = FILE_INDEX % version
+            first = FILE_INDEX % VERSION
             dmg_url = self.get_url(URL, first, re_one)
             url_segments = urlparse(dmg_url)
             dmg_index = url_segments.path
