@@ -52,8 +52,8 @@ class MacVimSourceFinder(Processor):
         root_dir = self.env["input_path"]
         try:
             MacVim_dir = self.find_match(root_dir, 'MacVim-*-*')
-            self.env["MacVim_path"] = os.path.join(root_dir, MacVim_dir)
-            self.output("Found %s" % self.env["MacVim_path"])
+            self.env["macvim_path"] = os.path.join(root_dir, MacVim_dir)
+            self.output("Found %s" % self.env["macvim_path"])
         except BaseException as err:
             raise ProcessorError(err)
 
