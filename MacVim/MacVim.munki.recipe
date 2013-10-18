@@ -60,22 +60,156 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
             <key>Processor</key>
             <string>MacVimSourceFinder</string>
         </dict>
-        <dict>
+
+         <dict>
             <key>Processor</key>
-            <string>DmgCreator</string>
+            <string>Versioner</string>
             <key>Arguments</key>
             <dict>
-                <key>dmg_root</key>
-                <string>%macvim_path%</string>
-                <key>dmg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+                <key>input_plist_path</key>
+                <string>%macvim_path%/MacVim.app/Contents/Info.plist</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>Applications</key>
+                    <string>0775</string>
+                    <key>usr</key>
+                    <string>0755</string>
+                    <key>usr/local</key>
+                    <string>0755</string>
+                    <key>usr/local/bin</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy MacVim.app to /Applications</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%macvim_path%/MacVim.app</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Applications/MacVim.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy mvim to /usr/local/bin</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%macvim_path%/mvim</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/usr/local/bin/mvim</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Symlink /usr/local/bin/mvim to /usr/local/bin/vim</string>
+            <key>Processor</key>
+            <string>Symlinker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>/usr/local/bin/mvim</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/usr/local/bin/vim</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Symlink /usr/local/bin/mvim to /usr/local/bin/vi</string>
+            <key>Processor</key>
+            <string>Symlinker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>/usr/local/bin/mvim</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/usr/local/bin/vi</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Make PackageInfo file for our package</string>
+            <key>Processor</key>
+            <string>PkgInfoCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>version</key>
+                <string>%version%</string>
+                <key>template_path</key>
+                <string>PackageInfoTemplate</string>
+                <key>infofile</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                <key>pkgtype</key>
+                <string>flat</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Build the package</string>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>org.vim.MacVim</string>
+                    <key>infofile</key>
+                    <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                    <key>resources</key>
+                    <string>Resources</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>scripts</key>
+                    <string>Scripts</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>Applications</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>admin</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                        </dict>
+                    </array>
+                </dict>
             </dict>
         </dict>
         <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%dmg_path%</string>
+                <string>%pkg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
