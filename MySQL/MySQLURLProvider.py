@@ -2,7 +2,7 @@
 
 import re
 import urllib2
-from urlparse import urlparse
+from urlparse import urlsplit
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["MySQLURLProvider"]
@@ -56,7 +56,7 @@ class MySQLURLProvider(Processor):
             version  = self.env.get('VERSION')
             first = FILE_INDEX % version
             dmg_url = self.get_url(URL, first, re_one)
-            url_segments = urlparse(dmg_url)
+            url_segments = urlsplit(dmg_url)
             dmg_index = url_segments.path
             self.env['url'] = self.get_url(URL, dmg_index.lstrip("/"), re_two)
             self.output('File URL %s' % self.env['url'])
