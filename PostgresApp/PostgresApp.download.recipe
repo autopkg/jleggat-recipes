@@ -5,11 +5,11 @@
     <key>Description</key>
     <string>Downloads the current release version of Postgres.app.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.Postgres.app.download</string>
+    <string>com.github.jleggat.autopkg-recipes.PostgresApp.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Postgres.app</string>
+        <string>PostgresApp</string>
         <key>DOWNLOAD_URL</key>
         <string>http://postgresapp.com/download</string>
     </dict>
