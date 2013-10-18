@@ -35,6 +35,7 @@ class MySQLURLProvider(Processor):
 
         def get_url(self, base_url, download_page, re_url):
                 url = "/".join((base_url, download_page))
+                print 'checkning %s' % url
                 try:
                         f = urllib2.urlopen(url)
                         content = f.read()
