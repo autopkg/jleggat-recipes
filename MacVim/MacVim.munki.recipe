@@ -52,12 +52,21 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
             </dict>
         </dict>
         <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%destination_path%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MacVimSourceFinder</string>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>DmgCreator</string>
             <key>Arguments</key>
             <dict>
                 <key>dmg_root</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <string>%MacVim_path%</string>
                 <key>dmg_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
             </dict>
