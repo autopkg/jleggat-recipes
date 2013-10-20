@@ -13,7 +13,7 @@
 		<key>NAME</key>
 		<string>GPGSuite</string>
 		<key>USER_AGENT</key>
-        <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+        <string>curl/7.21.4 (universal-apple-darwin11.0) libcurl/7.21.4 OpenSSL/0.9.8y zlib/1.2.5</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -45,6 +45,8 @@
                 <dict>
                 	<key>user-agent</key>
                 	<string>%USER_AGENT%</string>
+                	<key>Accept</key>
+                	<string>*/*</string>
                 </dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
