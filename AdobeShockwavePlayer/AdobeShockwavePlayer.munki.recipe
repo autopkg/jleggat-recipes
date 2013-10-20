@@ -34,7 +34,6 @@
     <string>com.github.jleggat.autopkg-recipes.AdobeShockwavePlayer.download</string>
     <key>Process</key>
     <array>
-        <dict>
          <dict>
             <key>Processor</key>
             <string>Versioner</string>
@@ -44,6 +43,7 @@
                 <string>%pathname%/Shockwave_Installer_Full.pkg/shockwave12.pkg/Payload/Application Support/Adobe/Shockwave 12/DirectorShockwave.bundle/Contents/Info.plist</string>
             </dict>
         </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
