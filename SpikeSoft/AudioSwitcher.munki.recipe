@@ -47,6 +47,8 @@
                 <dict>
                 	<key>user-agent</key>
                 	<string>%USER_AGENT%</string>
+                	<key>Accept</key>
+                	<string>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</string>
                 </dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
