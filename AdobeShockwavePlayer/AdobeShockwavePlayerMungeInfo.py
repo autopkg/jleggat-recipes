@@ -45,14 +45,15 @@ class AdobeShockwavePlayerMungeInfo(Processor):
         print "Checking info:"
         print info
 
-        pkginfo = FoundationPlist.readPlistFromString(info)
-        print "Checking dictionary:"
-        print json.dumps(pkginfo, indent=1)
-        print "Found Version:"
-        print pkginfo[version]
+#         pkginfo = FoundationPlist.readPlistFromString(info)
+#         print "Checking dictionary:"
+#         print json.dumps(pkginfo, indent=1)
+#         print "Found Version:"
+#         print pkginfo[version]
+#
+#         pkginfo[version] = pkginfo[version].strip('"\'')
 
-        pkginfo[version] = pkginfo[version].strip('"\'')
-        return pkginfo
+        return info
 
     def main(self):
         # Get current version
