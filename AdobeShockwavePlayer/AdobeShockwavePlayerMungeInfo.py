@@ -49,8 +49,8 @@ class AdobeShockwavePlayerMungeInfo(Processor):
     def main(self):
         # Get current version
         version = self.env["munki_info"]
-		self.env["pkg_info"] = self.munge_plist(munki_info)
-		self.output("Found %s" % self.env["pkg_info"])
+        self.env["pkg_info"] = self.munge_plist(munki_info)
+        self.output("Found %s" % self.env["pkg_info"])
 
 
 if __name__ == "__main__":
