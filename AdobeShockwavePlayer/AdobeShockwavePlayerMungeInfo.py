@@ -28,7 +28,7 @@ class AdobeShockwavePlayerMungeInfo(Processor):
     """Finds the root MacVim-foo-bar folder from the expanded MacVim tbz archive"""
     input_variables = {
         "munki_info": {
-            "required": False,
+            "required": True,
             "description": "The pkginfo property list.",
         },
     }
@@ -39,7 +39,7 @@ class AdobeShockwavePlayerMungeInfo(Processor):
     }
     description = __doc__
 
-    def munge_plist(self, info):
+    def munge_plist(info):
         """Takes Munki info plist, strips quotes from version and returns as dictionary"""
         # Get pkginfo from output plist.
         print info
