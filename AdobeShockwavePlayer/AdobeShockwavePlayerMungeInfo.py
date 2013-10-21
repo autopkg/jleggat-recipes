@@ -42,6 +42,7 @@ class AdobeShockwavePlayerMungeInfo(Processor):
     def munge_plist(self, info):
         """Takes Munki info plist, strips quotes from version and returns as dictionary"""
         # Get pkginfo from output plist.
+        print info
         pkginfo = FoundationPlist.readPlistFromString(info)
         print json.dumps(pkginfo, indent=1)
         print pkginfo[version]
@@ -51,7 +52,7 @@ class AdobeShockwavePlayerMungeInfo(Processor):
 
     def main(self):
         # Get current version
-        version = self.env["munki_info"]
+        munki_info = self.env["munki_info"]
         self.env["pkg_info"] = self.munge_plist(munki_info)
         self.output("Found %s" % self.env["pkg_info"])
 
