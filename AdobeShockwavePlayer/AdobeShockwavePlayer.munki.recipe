@@ -37,20 +37,24 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
+                <key>flat_pkg_path</key>
+                <string>%pathname%/*.pkg</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
             </dict>
             <key>Processor</key>
-            <string>MunkiInfoCreator</string>
+            <string>FlatPkgUnpacker</string>
         </dict>
-        <dict>
+         <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
             <key>Arguments</key>
             <dict>
-                <key>munki_info</key>
-                <string>%munki_info%</string>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/Distribution</string>
             </dict>
-            <key>Processor</key>
-            <string>AdobeShockwavePlayerMungeInfo</string>
         </dict>
         <dict>
             <key>Arguments</key>
