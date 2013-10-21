@@ -19,7 +19,7 @@ import os
 import glob
 import FoundationPlist
 from autopkglib import Processor, ProcessorError
-
+import json
 
 __all__ = ["AdobeShockwavePlayerMungeInfo"]
 
@@ -43,6 +43,9 @@ class AdobeShockwavePlayerMungeInfo(Processor):
         """Takes Munki info plist, strips quotes from version and returns as dictionary"""
         # Get pkginfo from output plist.
         pkginfo = FoundationPlist.readPlistFromString(info)
+        print json.dumps(pkginfo, indent=1)
+        print pkginfo[version]
+
         pkginfo[version] = pkginfo[version].strip('"\'')
         return pkginfo
 
