@@ -40,7 +40,7 @@
                 <key>pkg_path</key>
                 <string>%pathname%</string>
                 <key>additional_makepkginfo_options</key>
-                <string>| sed '/string/s/&quot;//g'</string>
+                <string>| sed '/\&lt;string\&gt;/s/&quot;//g'</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
