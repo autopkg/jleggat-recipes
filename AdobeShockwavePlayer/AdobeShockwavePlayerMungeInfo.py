@@ -45,15 +45,18 @@ class AdobeShockwavePlayerMungeInfo(Processor):
         print "Checking info:"
         print info
 
-#         pkginfo = FoundationPlist.readPlistFromString(info)
-#         print "Checking dictionary:"
-#         print json.dumps(pkginfo, indent=1)
-#         print "Found Version:"
-#         print pkginfo[version]
-#
-#         pkginfo[version] = pkginfo[version].strip('"\'')
+        # Read Plist info.
+        try:
+			pkginfo = FoundationPlist.readPlistFromString(info)
+			print "Checking dictionary:"
+			print json.dumps(pkginfo, indent=1)
+			print "Found Version:"
+			print pkginfo[version]
+			pkginfo[version] = pkginfo[version].strip('"\'')
+        except BaseException as e:
+            raise ProcessorError("Can't download %s: %s" % (index_url, e))
 
-        return info
+        return pkginfo
 
     def main(self):
         # Get current version
