@@ -60,7 +60,6 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
             <key>Processor</key>
             <string>MacVimSourceFinder</string>
         </dict>
-
          <dict>
             <key>Processor</key>
             <string>Versioner</string>
@@ -70,7 +69,6 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
                 <string>%macvim_path%/MacVim.app/Contents/Info.plist</string>
             </dict>
         </dict>
-
         <dict>
             <key>Processor</key>
             <string>PkgRootCreator</string>
