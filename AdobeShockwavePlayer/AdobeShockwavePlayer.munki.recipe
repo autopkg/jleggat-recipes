@@ -39,8 +39,26 @@
             <dict>
                 <key>pkg_path</key>
                 <string>%pathname%</string>
-                <key>additional_makepkginfo_options</key>
-                <string>| sed '/\&lt;string\&gt;/s/"//g'</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiInfoCreator</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>munki_info</key>
+                <string>%munki_info%</string>
+            </dict>
+            <key>Processor</key>
+            <string>AdobeShockwavePlayerMungeInfo</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>pkginfo</key>
+                <string>%pkg_info%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
