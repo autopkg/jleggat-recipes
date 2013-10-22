@@ -49,10 +49,10 @@
         </dict>
          <dict>
             <key>Processor</key>
-            <string>Versioner</string>
+            <string>AdobeShockwaveVersioner</string>
             <key>Arguments</key>
             <dict>
-                <key>input_plist_path</key>
+                <key>input_file_path</key>
                 <string>%RECIPE_CACHE_DIR%/%NAME%/Distribution</string>
             </dict>
         </dict>
@@ -62,7 +62,10 @@
                 <key>pkg_path</key>
                 <string>%pathname%</string>
                 <key>pkginfo</key>
-                <string>%pkg_info%</string>
+					<dict>
+               			<key>version</key>
+               			<string>%version%</string>
+					</dict>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>

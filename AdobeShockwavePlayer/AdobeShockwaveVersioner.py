@@ -16,10 +16,8 @@
 
 
 import os.path
-import glob
-from Foundation import NSData, NSPropertyListSerialization, NSPropertyListMutableContainers
+from xml.etree import ElementTree
 
-from DmgMounter import DmgMounter
 from autopkglib import Processor, ProcessorError
 
 
@@ -29,9 +27,21 @@ __all__ = ["AdobeShockwaveVersioner"]
 class AdobeShockwaveVersioner(DmgMounter):
     description = "Extracts version of Shockwave installed from dmg."
     input_variables = {
-        "dmg_path": {
+        "input_file_path": {
             "required": True,
-            "description": "Path to a dmg containing Shockwave installer.",
+            "description": "Path to a Distribution xml file from the Shockwave installer pkg.",
+        },
+        "xml_node_tag": {
+            "required": False,
+            "description":
+                ("Tag to sort which xml node to use; defaults to "
+                './/pkg-ref'),
+        },
+        "xml_version_attrib": {
+            "required": False,
+            "description":
+                ("Which xml attrib to use; defaults to "
+                "version"),
         },
     }
     output_variables = {
@@ -40,48 +50,26 @@ class AdobeShockwaveVersioner(DmgMounter):
         },
     }
 
-    __doc__ = description
+    description = __doc__
 
-    def find_pkg(self, path):
-        """Find Shockwave pkg at path."""
 
-        apps = glob.glob(os.path.join(path, "*.pkg"))
-        if len(apps) == 0:
-            raise ProcessorError("No pkg found in dmg")
-        return apps[0]
-
-    def read_pkg_info(self, path):
-        """Read Contents/Info.plist inside a pkg."""
-
-        plistpath = os.path.join(path, "Contents", "Info.plist")
-        info, format, error = \
-            NSPropertyListSerialization.propertyListFromData_mutabilityOption_format_errorDescription_(
-                NSData.dataWithContentsOfFile_(plistpath),
-                NSPropertyListMutableContainers,
-                None,
-                None
-            )
-        if error:
-            raise ProcessorError("Can't read %s: %s" % (plistpath, error))
-
-        return info
+    def get_version(self, file, tag, attrib):
+        try:
+			with open(file, 'rt') as f:
+				tree = ElementTree.parse(f)
+			for node in tree.findall(tag):
+				v = node.attrib.get(attrib)
+				if v:
+					return v.strip('"|\'')
+        except BaseException as e:
+			raise ProcessorError('Could not retrieve Version from %s' % file)
 
     def main(self):
-        # Mount the image.
-        mount_point = self.mount(self.env["dmg_path"])
-        # Wrap all other actions in a try/finally so the image is always
-        # unmounted.
-        try:
-            app_path = self.find_pkg(mount_point)
-            info = self.read_pkg_info(app_path)
-            self.env["app_name"] = os.path.basename(app_path)
-            try:
-                self.env["version"] = info["CFBundleShortVersionString"]
-                self.output("Version: %s" % self.env["version"])
-            except BaseException as e:
-                raise ProcessorError(e)
-        finally:
-            self.unmount(self.env["dmg_path"])
+        input_file_path = self.env['input_file_path']
+        tag = self.env.get("xml_node_tag", './/pkg-ref')
+        attrib = self.env.get("xml_version_attrib", "version")
+        self.env['version'] = self.get_version(input_file_path, xml_node_tag, attrib)
+        self.output("Found version %s in file %s" % (self.env['version'], input_file_path))
 
 
 if __name__ == '__main__':
