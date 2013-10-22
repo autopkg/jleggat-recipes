@@ -45,7 +45,6 @@ class MonitVersioner(Processor):
 
 
     def get_version(self, dir, file):
-        re_pattern = re.compile(r'Version (?P<version>[0-9\.]+)')
         file_path = os.path.join(dir, file)
 
         file_object = open(file_path)
@@ -54,13 +53,13 @@ class MonitVersioner(Processor):
         finally:
             file_object.close()
 
-        m = re.search(r'^Version (?P<version>[0-9\.]+)$', text)
+        m = re.search(r'Version ([0-9\.]+)', text)
         if not m:
             raise ProcessorError(
             "Couldn't find version in %s"
             % (file_path))
 
-        return m.group("version")
+        return m.group()
 
     def main(self):
         root_path = self.env['root_path']
