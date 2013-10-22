@@ -15,7 +15,7 @@
 # limitations under the License.
 
 import os.path
-
+import re
 from autopkglib import Processor, ProcessorError
 
 
