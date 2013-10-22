@@ -79,7 +79,7 @@
                     <key>private/var</key>
                     <string>0755</string>
                     <key>private/var/monit</key>
-                    <string>0755</string>
+                    <string>0700</string>
                     <key>usr</key>
                     <string>0755</string>
                     <key>usr/share</key>
@@ -119,7 +119,7 @@
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Copy monit conf/monitrc file to /private/etc</string>
+            <string>Copy monit conf/monitrc file to /private/etc/monitrc.default</string>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
@@ -127,7 +127,38 @@
                 <key>source_path</key>
                 <string>%Monit_path%/conf/monitrc</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/private/etc/monitrc</string>
+                <string>%pkgroot%/private/etc/monitrc.default</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>make launchd plist for monit at /Library/LaunchDaemons</string>
+            <key>Processor</key>
+            <string>PlistEditor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>output_plist_path</key>
+                <string>%pkgroot%/Library/LaunchDaemons/com.monit.mmonit.plist</string>
+                <key>plist_data</key>
+				<dict>
+					<key>UserName</key>
+					<string>root</string>
+					<key>Label</key>
+					<string>com.monit.mmonit</string>
+					<key>OnDemand</key>
+					<false/>
+					<key>RunAtLoad</key>
+					<true/>
+					<key>ProgramArguments</key>
+					<array>
+						<string>/usr/bin/monit</string>
+						<string>-c</string>
+						<string>/etc/monitrc</string>
+						<string>-I</string>
+						<string>-l</string>
+						<string>/var/log/monit.log</string>
+					</array>
+				</dict>
             </dict>
         </dict>
         <dict>
