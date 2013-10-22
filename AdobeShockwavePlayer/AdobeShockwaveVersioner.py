@@ -24,7 +24,7 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["AdobeShockwaveVersioner"]
 
 
-class AdobeShockwaveVersioner(DmgMounter):
+class AdobeShockwaveVersioner(Processor):
     description = "Extracts version of Shockwave installed from dmg."
     input_variables = {
         "input_file_path": {
