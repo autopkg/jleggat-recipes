@@ -59,7 +59,7 @@ class MonitVersioner(Processor):
             "Couldn't find version in %s"
             % (file_path))
 
-        return m.group()
+        return m.group(0)
 
     def main(self):
         root_path = self.env['root_path']
