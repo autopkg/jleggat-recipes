@@ -66,9 +66,9 @@ class AdobeShockwaveVersioner(Processor):
 
     def main(self):
         input_file_path = self.env['input_file_path']
-        tag = self.env.get("xml_node_tag", './/pkg-ref')
-        attrib = self.env.get("xml_version_attrib", "version")
-        self.env['version'] = self.get_version(input_file_path, xml_node_tag, attrib)
+        xml_node_tag = self.env.get("xml_node_tag", './/pkg-ref')
+        xml_version_attrib = self.env.get("xml_version_attrib", "version")
+        self.env['version'] = self.get_version(input_file_path, xml_node_tag, xml_version_attrib)
         self.output("Found version %s in file %s" % (self.env['version'], input_file_path))
 
 
