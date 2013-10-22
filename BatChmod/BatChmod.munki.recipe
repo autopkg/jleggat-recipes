@@ -7,7 +7,7 @@
         <key>IDENTIFIER</key>
         <string>com.github.jleggat.autopkg-recipes.BatChmod.munki</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps</string>
+        <string>utilities</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -18,6 +18,8 @@
             <string>BatChmod is a utility for manipulating file and folder privileges in Mac OS X.  It allows the manipulation of ownership as well as the privileges associated to the Owner, Group or others. It can also unlock files in order to apply those privileges and finally, it can remove any ACLs added to a folder or file under Mac OS X 10.5 Leopard or better.</string>
             <key>display_name</key>
             <string>BatChmod</string>
+			<key>APP_DESTINATION</key>
+			<string>/Applications/Utilities</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
@@ -61,6 +63,11 @@
                 <string>%dmg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath</string>
+					<string>%APP_DESTINATION%</string>
+				</array>
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>

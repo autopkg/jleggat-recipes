@@ -17,7 +17,7 @@
 		<key>SOURCEFORGE_PROJECT_ID</key>
 		<string>255</string>
 		<key>APP_DESTINATION</key>
-		<string>/Applications/Utilities</string>
+		<string>/Applications</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>

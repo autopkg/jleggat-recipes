@@ -9,7 +9,7 @@
 		<key>IDENTIFIER</key>
 		<string>com.github.jleggat.autopkg-recipes.CreateUserPkg.munki</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
+		<string>utilities</string>
 		<key>NAME</key>
 		<string>CreateUserPkg</string>
 		<key>APP_DESTINATION</key>
