@@ -58,7 +58,7 @@ class MonitVersioner(Processor):
         if not m:
             raise ProcessorError(
             "Couldn't find version in %s"
-            % (index_url))
+            % (file_path))
 
         return m.group("version")
 
