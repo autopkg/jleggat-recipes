@@ -54,9 +54,11 @@ class AdobeShockwaveVersioner(Processor):
 
 
     def get_version(self, file, tag, attrib):
+        # Open the xml file and parse it.
         try:
 			with open(file, 'rt') as f:
 				tree = ElementTree.parse(f)
+			# find the first matching element and return.
 			for node in tree.findall(tag):
 				v = node.attrib.get(attrib)
 				if v:

@@ -63,6 +63,8 @@
                 <string>%pathname%</string>
                 <key>pkginfo</key>
 					<dict>
+               			<key>name</key>
+               			<string>%NAME%</string>
                			<key>version</key>
                			<string>%version%</string>
 					</dict>
