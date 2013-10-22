@@ -4,10 +4,10 @@
 <dict>
 	<key>Description</key>
 	<string>Downloads Fetch and imports into Munki.</string>
+	<key>IDENTIFIER</key>
+	<string>com.github.jleggat.autopkg-recipes.Fetch.munki</string>
 	<key>Input</key>
 	<dict>
-		<key>IDENTIFIER</key>
-		<string>com.github.jleggat.autopkg-recipes.Fetch.munki</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
 		<key>NAME</key>
