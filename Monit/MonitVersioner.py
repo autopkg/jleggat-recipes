@@ -46,7 +46,7 @@ class MonitVersioner(Processor):
 
     def get_version(self, dir, file):
         re_pattern = re.compile(r'^Version (?P<version>[\d\.]+)$')
-        file_path = path.join(dir, file)
+        file_path = os.path.join(dir, file)
 
         file_object = open(file_path)
         try:
