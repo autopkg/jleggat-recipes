@@ -56,7 +56,8 @@ class cpanmVersioner(Processor):
 
     def main(self):
         input_file_path = self.env['input_file_path']
-        self.output("Found version %s in file %s" % (input_file_path))
+        self.env['version'] = self.get_version(input_file_path)
+        self.output("Found version %s in file %s" % (self.env['version'], input_file_path))
 
 
 if __name__ == '__main__':
