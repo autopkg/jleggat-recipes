@@ -9,7 +9,7 @@
 		<key>IDENTIFIER</key>
 		<string>com.github.jleggat.autopkg-recipes.Fetch.munki</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
+		<string>apps/Fetch</string>
 		<key>NAME</key>
 		<string>Fetch</string>
 		<key>USER_AGENT</key>
