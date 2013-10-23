@@ -108,7 +108,7 @@
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
-                    <string>org.cpan.App-cpanminus</string>
+                    <string>org.cpan.cpanminus</string>
                     <key>infofile</key>
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
                     <key>resources</key>
