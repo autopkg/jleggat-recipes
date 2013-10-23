@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest Bonjour Browser disk image and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.autopkg-recipes.cpanm.munki</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>cpanm</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>support/perl</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>cpanminus is a script to get, unpack, build and install modules from
+    CPAN and does nothing else.
+
+    It's dependency free (can bootstrap itself), requires zero
+    configuration, and stands alone. When running, it requires only 10MB of
+    RAM.</string>
+            <key>display_name</key>
+            <string>cpanm PERL Module</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.autopkg-recipes.cpanm.download</string>
+    <key>Process</key>
+    <array>
+         <dict>
+            <key>Processor</key>
+            <string>cpanmVersioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_file_path</key>
+                <string>%pathname%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/build/%NAME%</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>usr</key>
+                    <string>0755</string>
+                    <key>usr/bin</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Copy cpanm to /usr/bin</string>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/usr/bin</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Make PackageInfo file for our package</string>
+            <key>Processor</key>
+            <string>PkgInfoCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>version</key>
+                <string>%version%</string>
+                <key>template_path</key>
+                <string>PackageInfoTemplate</string>
+                <key>infofile</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                <key>pkgtype</key>
+                <string>flat</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Comment</key>
+            <string>Build the package</string>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgdir</key>
+                    <string>%RECIPE_CACHE_DIR%</string>
+                    <key>id</key>
+                    <string>org.cpan.App-cpanminus</string>
+                    <key>infofile</key>
+                    <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                    <key>resources</key>
+                    <string>Resources</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>scripts</key>
+                    <string>Scripts</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>usr</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
