@@ -17,8 +17,6 @@
     <string>com.github.autopkg.download.GeekTool</string>
     <key>Process</key>
     <array>
-    <key>Process</key>
-    <array>
         <dict>
             <key>Processor</key>
             <string>PkgRootCreator</string>
