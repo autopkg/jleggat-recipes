@@ -4,7 +4,7 @@
 <dict>
     <key>Description</key>
     <string>Downloads the current release version of MacVim.</string>
-	<key>IDENTIFIER</key>
+	<key>Identifier</key>
 	<string>com.github.jleggat.autopkg-recipes.MacVim.pkg</string>
     <key>Input</key>
     <dict>
