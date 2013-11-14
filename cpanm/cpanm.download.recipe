@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest cpanm file.</string>
+    <string>Downloads the latest cpanm file, builds a package around it and imports into Munki.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.autopkg-recipes.cpanm.download</string>
     <key>Input</key>
