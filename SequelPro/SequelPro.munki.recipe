@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Description</key>
+    <string>Downloads the current release version of SequelPro.</string>
+    <key>Identifier</key>
+	<string>com.github.jleggat.autopkg-recipes.SequelPro.munki</string>
     <key>Input</key>
     <dict>
-        <key>IDENTIFIER</key>
-        <string>com.github.jleggat.autopkg-recipes.SequelPro.munki</string>
+        <key>NAME</key>
+        <string>SequelPro</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps</string>
 		<key>APP_DESTINATION</key>
