@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of Monit.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.Monit.download</string>
+    <string>com.github.jleggat.autopkg-recipes.download.Monit</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
