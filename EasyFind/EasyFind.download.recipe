@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%.zip</string>
             </dict>
         </dict>
         <dict>
