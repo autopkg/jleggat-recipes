@@ -17,11 +17,6 @@ class ElectricSheepURLProvider(Processor):
 				"required": False,
 				"description": "Default is '%s." % BASE_URL,
 			},
-			"download_page": {
-				"required": False,
-				"description":
-					"page to find download on, default  is '%s." % INDEX_PAGE,
-			},
         }
         output_variables = {
 			'url': {
