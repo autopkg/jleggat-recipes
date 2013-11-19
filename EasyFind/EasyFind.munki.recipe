@@ -12,14 +12,14 @@
         <string>EasyFind</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>utilities</string>
+		<key>APP_DESTINATION</key>
+		<string>/Applications/Utilities</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
             </array>
-			<key>APP_DESTINATION</key>
-			<string>/Applications/Utilities</string>
             <key>description</key>
             <string>EasyFind finds files and folders by name or content using advanced Boolean operators.</string>
             <key>display_name</key>
