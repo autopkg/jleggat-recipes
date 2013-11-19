@@ -32,7 +32,6 @@ class ElectricSheepURLProvider(Processor):
         description = __doc__
 
         def get_url(self, index_url, re_url):
-                index_url = "/".join((base_url, download_page))
                 try:
                         f = urllib2.urlopen(index_url)
                         content = f.read()
