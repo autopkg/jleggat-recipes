@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest MenuMeters disk image and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.autopkg-recipes.MenuMeters.munki</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>MenuMeters</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>MenuMeters is a set of CPU, memory, disk, and network monitoring tools for Mac OS X. Although there are numerous other programs which do the same thing, none had quite the feature set I was looking for. Most were windows that sat in a corner or on the desktop, which are inevitably obscured by document windows on a laptop's small screen. Those monitors which used the menubar mostly used the NSStatusItem API, which has the annoying tendency to totally reorder my menubar on every login.</string>
+            <key>display_name</key>
+            <string>MenuMeters</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.autopkg-recipes.MenuMeters.download</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
