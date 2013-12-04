@@ -10,24 +10,25 @@
     <dict>
         <key>NAME</key>
         <string>EasyFind</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://s3.amazonaws.com/DTWebsiteSupport/download/freeware/easyfind/4.9.2/EasyFind.app.zip</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.zip</string>
-            </dict>
-        </dict>
+
+		<dict>
+			<key>Processor</key>
+			<string>EasyFindURLProvider</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
