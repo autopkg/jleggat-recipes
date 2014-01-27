@@ -6,8 +6,8 @@ if [ ! -f /private/etc/monitrc ]; then
     sudo /usr/bin/install -m 600 -g wheel -o root ${WORK_D}/private/etc/monitrc.default /private/etc/monitrc
 fi
 
-if [ -f /Library/LaunchDaemons/com.monit.monit.plist ]; then
-    sudo launchctl load -w /Library/LaunchDaemons/com.monit.monit.plist
+if [ -f /Library/LaunchDaemons/com.mmonit.monit.plist ]; then
+    sudo launchctl load -w /Library/LaunchDaemons/com.mmonit.monit.plist
 fi
 
 exit 0

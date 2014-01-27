@@ -129,7 +129,7 @@
 					<key>UserName</key>
 					<string>root</string>
 					<key>Label</key>
-					<string>com.monit.monit</string>
+					<string>com.mmonit.monit</string>
 					<key>OnDemand</key>
 					<false/>
 					<key>RunAtLoad</key>

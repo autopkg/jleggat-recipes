@@ -3,8 +3,8 @@
 # prior to installation of with this
 # package.
 
-if [ -f /Library/LaunchDaemons/com.monit.monit.plist ]; then
-	sudo launchctl unload -w /Library/LaunchDaemons/com.monit.monit.plist
+if [ -f /Library/LaunchDaemons/com.mmonit.monit.plist ]; then
+	sudo launchctl unload -w /Library/LaunchDaemons/com.mmonit.monit.plist
 fi
 
 exit 0
