@@ -123,13 +123,13 @@
             <key>Arguments</key>
             <dict>
                 <key>output_plist_path</key>
-                <string>%pkgroot%/Library/LaunchDaemons/com.monit.mmonit.plist</string>
+                <string>%pkgroot%/Library/LaunchDaemons/com.monit.monit.plist</string>
                 <key>plist_data</key>
 				<dict>
 					<key>UserName</key>
 					<string>root</string>
 					<key>Label</key>
-					<string>com.monit.mmonit</string>
+					<string>com.monit.monit</string>
 					<key>OnDemand</key>
 					<false/>
 					<key>RunAtLoad</key>
