@@ -35,6 +35,7 @@
     <key>ParentRecipe</key>
     <string>com.github.jleggat.autopkg-recipes.Git.download</string>
 	<key>Process</key>
+	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
