@@ -10,20 +10,20 @@
     <dict>
         <key>NAME</key>
         <string>PostgresApp</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://postgresapp.com/download</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
+		<dict>
+			<key>Processor</key>
+			<string>PostgresAppURLProvider</string>
+		</dict>
         <dict>
 			<key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
