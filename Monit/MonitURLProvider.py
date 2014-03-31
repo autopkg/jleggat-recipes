@@ -6,8 +6,8 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["MonitURLProvider"]
 
-BASE_URL = 'http://mmonit.com'
-INDEX_PAGE = 'monit/download'
+BASE_URL = 'http://mmonit.com/monit'
+INDEX_PAGE = '/'
 re_dmg = '[^"]+-macosx-universal\.tar\.gz'
 
 class MonitURLProvider(Processor):
