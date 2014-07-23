@@ -12,10 +12,6 @@
 		<string>apps</string>
 		<key>NAME</key>
 		<string>Wireshark</string>
-		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>Wireshark%20[0-9_\.]*%20Intel%2064\.dmg</string>
-		<key>SOURCEFORGE_PROJECT_ID</key>
-		<string>255</string>
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
 		<key>pkginfo</key>
@@ -32,25 +28,10 @@
 			<true/>
 		</dict>
 	</dict>
+    <key>ParentRecipe</key>
+	<string>com.github.jleggat.autopkg-recipes.Wireshark.download</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
