@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.autopkg.jleggat-recipes.munki.screenFetch</string>
+	<key>Description</key>
+	<string>Imports screenFetch into Munki.</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>screenFetch</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>utilities</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>screenFetch is a "Bash Screenshot Information Tool".
+This handy Bash script can be used to generate one of those nifty terminal theme
+information + ASCII distribution logos you see in everyone's screenshots nowadays.
+It will auto-detect your distribution and display an ASCII version of that distribution's
+logo and some valuable information to the right. There are options to specify no ascii art,
+colors, taking a screenshot upon displaying info, and even customizing the screenshot command!
+This script is very easy to add to and can easily be extended.</string>
+            <key>display_name</key>
+            <string>screenFetch - Command line tool for managing dock items</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+    <key>MinimumVersion</key>
+    <string>0.3.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.jleggat-recipes.pkg.screenFetch</string>
+	<key>Process</key>
+	<array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+	</array>
+</dict>
+</plist>
