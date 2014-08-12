@@ -123,7 +123,7 @@
             <key>Arguments</key>
             <dict>
                 <key>output_plist_path</key>
-                <string>%pkgroot%/Library/LaunchDaemons/com.monit.monit.plist</string>
+                <string>%pkgroot%/Library/LaunchDaemons/com.mmonit.monit.plist</string>
                 <key>plist_data</key>
 				<dict>
 					<key>UserName</key>
