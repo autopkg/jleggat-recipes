@@ -12,10 +12,8 @@
 		<string>apps</string>
 		<key>NAME</key>
 		<string>Wireshark</string>
-		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>Wireshark%20[0-9_\.]*%20Intel%2064\.dmg</string>
-		<key>SOURCEFORGE_PROJECT_ID</key>
-		<string>255</string>
+		<key>APP_URL</key>
+		<string>https://www.wireshark.org/wireshark-pad.xml</string>
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
 		<key>pkginfo</key>
@@ -36,13 +34,20 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
+			<string>PADVersionProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%APP_URL%</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>https://www.wireshark.org/download/osx/Wireshark %version% Intel 64.dmg</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
