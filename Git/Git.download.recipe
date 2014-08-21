@@ -10,14 +10,21 @@
 	<dict>
 		<key>NAME</key>
 		<string>Git</string>
-		<key>SOURCEFORGE_FILE_PATTERN</key>
-		<string>git-[0-9\.]*-intel.*\.dmg</string>
-		<key>SOURCEFORGE_PROJECT_ID</key>
-		<string>2063428</string>
+		<key>FILE_PATTERN</key>
+		<string>.*\.dmg</string>
+		<key>SOURCEFORGE_PROJECT</key>
+		<string>git-osx-installer</string>
 	</dict>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>project_name</key>
+				<string>%SOURCEFORGE_PROJECT%</string>
+				<key>match_pattern</key>
+				<string>%FILE_PATTERN%</string>
+			</dict>
 			<key>Processor</key>
 			<string>SourceForgeURLProvider</string>
 		</dict>

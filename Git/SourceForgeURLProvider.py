@@ -9,19 +9,19 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["SourceForgeURLProvider"]
 
-FILE_INDEX_URL = 'http://sourceforge.net/api/file/index/project-id/%s/rss'
+FILE_INDEX_URL = 'http://sourceforge.net/projects/%s/rss'
 
 class SourceForgeURLProvider(Processor):
 	'''Provides URL to the latest file that matches a pattern for a particular SourceForge project.'''
 
 	input_variables = {
-		'SOURCEFORGE_PROJECT_ID': {
+		'project_name': {
 			'required': True,
-			'description': 'Numerical ID of SourceForge project',
+			'description': 'Name of the SourceForge project',
 			},
-		'SOURCEFORGE_FILE_PATTERN': {
-			'required': True,
-			'description': 'Pattern to match SourceFile files on',
+		'match_pattern': {
+			'required': False,
+			'description': 'Regex pattern to match file name, defaults to ".*", match all.',
 			},
 	}
 	output_variables = {
@@ -32,7 +32,7 @@ class SourceForgeURLProvider(Processor):
 
 	description = __doc__
 
-	def get_sf_file_url(self, proj_id, pattern):
+	def get_latest_file_url(self, proj_id, pattern):
 		flisturl = FILE_INDEX_URL % proj_id
 
 		try:
@@ -42,19 +42,20 @@ class SourceForgeURLProvider(Processor):
 		except BaseException as e:
 			raise ProcessorError('Could not retrieve RSS feed %s' % flisturl)
 
-		re_file = re.compile(self.env.get('SOURCEFORGE_FILE_PATTERN'), re.I)
+		re_file = re.compile(pattern, re.I)
 
 		rss_parse = parseString(rss)
 
 		items = []
 
 		for i in  rss_parse.getElementsByTagName('item'):
+			title = i.getElementsByTagName('title')[0].firstChild.nodeValue
 			pubDate = i.getElementsByTagName('pubDate')[0].firstChild.nodeValue
 			link = i.getElementsByTagName('link')[0].firstChild.nodeValue
 
-			pubDatetime = datetime.datetime.strptime(pubDate, '%a, %d %b %Y %H:%M:%S +0000')
+			pubDatetime = datetime.datetime.strptime(pubDate, '%a, %d %b %Y %H:%M:%S UT')
 
-			if re_file.search(link):
+			if re_file.search(title):
 				items.append((pubDatetime, link),)
 
 		items.sort(key=lambda r: r[0])
@@ -64,11 +65,23 @@ class SourceForgeURLProvider(Processor):
 
 		return items[-1][1]
 
-	def main(self):
-		proj_id  = self.env.get('SOURCEFORGE_PROJECT_ID')
-		file_pat = self.env.get('SOURCEFORGE_FILE_PATTERN')
+	def get_sf_file_url(self, file_url):
 
-		self.env['url'] = self.get_sf_file_url(proj_id, file_pat)
+		try:
+			request = urllib2.Request(file_url)
+			response = urllib2.urlopen(request)
+			dl_url = response.geturl()
+		except BaseException as e:
+			raise ProcessorError('Could not retrieve Download URL from %s' % file_url)
+
+		return dl_url
+
+	def main(self):
+		proj_id  = self.env['project_name']
+		file_pat = self.env.get("match_pattern", '.*')
+
+		file_url = self.get_latest_file_url(proj_id, file_pat)
+		self.env['url'] = self.get_sf_file_url(file_url)
 		self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':

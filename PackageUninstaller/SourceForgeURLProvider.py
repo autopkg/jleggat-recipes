@@ -51,10 +51,9 @@ class SourceForgeURLProvider(Processor):
 		for i in  rss_parse.getElementsByTagName('item'):
 			title = i.getElementsByTagName('title')[0].firstChild.nodeValue
 			pubDate = i.getElementsByTagName('pubDate')[0].firstChild.nodeValue
-			pubDate = pubDate.replace("UT","UTC")
 			link = i.getElementsByTagName('link')[0].firstChild.nodeValue
 
-			pubDatetime = datetime.datetime.strptime(pubDate, '%a, %d %b %Y %H:%M:%S %Z')
+			pubDatetime = datetime.datetime.strptime(pubDate, '%a, %d %b %Y %H:%M:%S UT')
 
 			if re_file.search(title):
 				items.append((pubDatetime, link),)
