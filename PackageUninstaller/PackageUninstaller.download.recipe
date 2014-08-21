@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads PackageUninstaller dmg for OS X.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.autopkg-recipes.PackageUninstaller.download</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>PackageUninstaller</string>
+		<key>FILE_PATTERN</key>
+		<string>.*\.zip</string>
+		<key>SOURCEFORGE_PROJECT</key>
+		<string>packageuninstaller</string>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>project_name</key>
+				<string>%SOURCEFORGE_PROJECT%</string>
+				<key>match_pattern</key>
+				<string>%FILE_PATTERN%</string>
+			</dict>
+			<key>Processor</key>
+			<string>SourceForgeURLProvider</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
