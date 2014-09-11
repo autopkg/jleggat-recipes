@@ -10,8 +10,10 @@
 	<dict>
 		<key>NAME</key>
 		<string>archey-osx</string>
+		<key>REPO_OWNER</key>
+		<string>obihann</string>
 		<key>REPO_NAME</key>
-		<string>obihann/archey-osx</string>
+		<string>archey-osx</string>
 		<key>TAG</key>
 		<string>latest</string>
 	</dict>
@@ -22,6 +24,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>repo_owner</key>
+				<string>%REPO_OWNER%</string>
 				<key>repo_name</key>
 				<string>%REPO_NAME%</string>
 				<key>tag</key>
@@ -35,8 +39,6 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>https://github.com/obihann/archey-osx/archive/v%version%.zip</string>
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 			</dict>

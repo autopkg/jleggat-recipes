@@ -10,9 +10,14 @@ class GithubTagProvider(Processor):
         '''Provides the latest tag from GitHub.  If a tag is provided, it verifies it exists.'''
 
         input_variables = {
+                'repo_owner': {
+                    'description': ('The owner of the github repo to poll.  Examples:'
+                        '"octokit", "autopkg".'),
+                    'required': True,
+                },
                 'repo_name': {
-                    'description': ('The github repo to poll as :owner/:repo.  Examples:'
-                        '"octokit/go-octokit", "autopkg/autopkg".'),
+                    'description': ('The name of the github repo to poll.  Examples:'
+                        '"go-octokit", "autopkg-recipes".'),
                     'required': True,
                 },
                 "tag": {
@@ -39,25 +44,30 @@ class GithubTagProvider(Processor):
                     log_err("A GitHub API error occurred!")
                     return -1
 
-                if tag == 'latest':
-                    index = 0
-                else:
-                    index = [i for i,x in enumerate(results) if x.get('name') == tag]
+                for item in results:
+                    if tag != 'latest' and tag != item['name']:
+                        continue
+                    else:
+                        retrieve = item
+                        break
 
                 try:
-                    return results[index]['name']
+                    return [retrieve['name'], retrieve['zipball_url']]
                 except Exception:
                     raise ProcessorError("Couldn't find retrieve tag %s from data" % tag)
 
         def main(self):
+            repo_owner = self.env['repo_owner']
             repo_name = self.env['repo_name']
             tag = self.env.get("tag", 'latest')
-            endpoint = '/repos/%s/tags' % repo_name
+            endpoint = '/repos/%s/%s/tags' % (repo_owner, repo_name)
 
-            version = self.get_github_tag(endpoint, tag)
+            version, url = self.get_github_tag(endpoint, tag)
 
-            self.env["version"] = version.lstrip('v')
+            self.env["version"] = version
             self.output('Version %s' % self.env['version'])
+            self.env['url'] = url
+            self.output('File URL %s' % self.env['url'])
 
 if __name__ == '__main__':
         processor = GithubTagProvider()
