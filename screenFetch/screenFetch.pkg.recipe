@@ -32,6 +32,15 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/source/%REPO_OWNER%-%REPO_NAME%-*</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>PkgRootCreator</string>
             <key>Arguments</key>
             <dict>
@@ -60,7 +69,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/source/%NAME%-%version%/screenfetch-dev</string>
+                <string>%found_filename%/screenfetch-dev</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/bin/screenfetch</string>
             </dict>
@@ -73,7 +82,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/source/%NAME%-%version%/screenfetch.1</string>
+                <string>%found_filename%/screenfetch.1</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/share/man/man1/screenfetch.1</string>
             </dict>
