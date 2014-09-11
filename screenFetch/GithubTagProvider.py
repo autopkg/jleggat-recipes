@@ -42,7 +42,7 @@ class GithubTagProvider(Processor):
                 if tag == 'latest':
                     index = 0
                 else:
-                    index = [i for i,x in enumerate(results) if item.get('name') == tag]
+                    index = [i for i,x in enumerate(results) if x.get('name') == tag]
 
                 try:
                     return results[index]['name']
