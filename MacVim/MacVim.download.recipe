@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of MacVim.</string>
+    <string>Downloads the current release version of MacVim for OS X Mavericks.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.autopkg-recipes.MacVim.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>MacVim</string>
-        <key>SPARKLE_FEED_URL</key>
-        <string>http://b4winckler.github.com/macvim/appcast/stable.xml</string>
+        <string>MacVim-Mavericks</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://github.com/b4winckler/macvim/releases</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -19,17 +19,26 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>SparkleUpdateInfoProvider</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
-                <key>appcast_url</key>
-                <string>%SPARKLE_FEED_URL%</string>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>/b4winckler/macvim/releases/download/.*/MacVim-.*-Mavericks\.tbz</string>
             </dict>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+                <string>https://github.com%match%</string>
+				<key>filename</key>
+				<string>%NAME%.tbz</string>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>

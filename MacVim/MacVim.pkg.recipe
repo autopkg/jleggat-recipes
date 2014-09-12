@@ -25,19 +25,19 @@
                 <key>archive_path</key>
                 <string>%pathname%</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <string>%RECIPE_CACHE_DIR%/source</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
             <key>Arguments</key>
             <dict>
-                <key>input_path</key>
-                <string>%destination_path%</string>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/source/MacVim-*</string>
             </dict>
-            <key>Processor</key>
-            <string>MacVimSourceFinder</string>
         </dict>
          <dict>
             <key>Processor</key>
@@ -45,7 +45,7 @@
             <key>Arguments</key>
             <dict>
                 <key>input_plist_path</key>
-                <string>%macvim_path%/MacVim.app/Contents/Info.plist</string>
+                <string>%found_filename%/MacVim.app/Contents/Info.plist</string>
             </dict>
         </dict>
         <dict>
@@ -76,7 +76,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%macvim_path%/MacVim.app</string>
+                <string>%found_filename%/MacVim.app</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Applications/MacVim.app</string>
             </dict>
@@ -89,7 +89,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%macvim_path%/mvim</string>
+                <string>%found_filename%/mvim</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/local/bin/mvim</string>
             </dict>
