@@ -23,19 +23,19 @@
                 <key>archive_path</key>
                 <string>%pathname%</string>
                 <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <string>%RECIPE_CACHE_DIR%/source</string>
                 <key>purge_destination</key>
                 <true/>
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
             <key>Arguments</key>
             <dict>
-                <key>input_path</key>
-                <string>%destination_path%</string>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/source/monit-*</string>
             </dict>
-            <key>Processor</key>
-            <string>MonitSourceFinder</string>
         </dict>
          <dict>
             <key>Processor</key>
@@ -43,7 +43,7 @@
             <key>Arguments</key>
             <dict>
                 <key>root_path</key>
-                <string>%Monit_path%</string>
+                <string>%found_filename%</string>
             </dict>
         </dict>
         <dict>
@@ -84,7 +84,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%Monit_path%/bin</string>
+                <string>%found_filename%/bin</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/bin</string>
             </dict>
@@ -97,7 +97,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%Monit_path%/man</string>
+                <string>%found_filename%/man</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/share/man</string>
             </dict>
@@ -110,7 +110,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%Monit_path%/conf/monitrc</string>
+                <string>%found_filename%/conf/monitrc</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/private/etc/monitrc.default</string>
             </dict>

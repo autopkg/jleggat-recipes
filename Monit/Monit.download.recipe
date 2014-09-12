@@ -10,22 +10,31 @@
     <dict>
         <key>NAME</key>
         <string>Monit</string>
-        <key>SPARKLE_FEED_URL</key>
-        <string>http://b4winckler.github.com/Monit/appcast/stable.xml</string>
+        <key>DOWNLOAD_URL</key>
+        <string>http://mmonit.com/monit/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Processor</key>
-			<string>MonitURLProvider</string>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>dist/binary/.*/monit-.*-macosx-universal\.tar\.gz</string>
+            </dict>
+        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+                <string>%DOWNLOAD_URL%%match%</string>
 				<key>filename</key>
 				<string>%NAME%.tar.gz</string>
 			</dict>
