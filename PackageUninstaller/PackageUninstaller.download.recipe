@@ -12,27 +12,29 @@
 		<string>PackageUninstaller</string>
 		<key>FILE_PATTERN</key>
 		<string>.*\.zip</string>
-		<key>SOURCEFORGE_PROJECT</key>
-		<string>packageuninstaller</string>
+		<key>DOWNLOAD_URL</key>
+		<string>http://sourceforge.net/projects/packageuninstaller/rss</string>
 	</dict>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>project_name</key>
-				<string>%SOURCEFORGE_PROJECT%</string>
-				<key>match_pattern</key>
-				<string>%FILE_PATTERN%</string>
-			</dict>
-			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>http://.*Uninstaller\.app\..*\.zip/download</string>
+            </dict>
+        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+                <string>%match%</string>
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 			</dict>
