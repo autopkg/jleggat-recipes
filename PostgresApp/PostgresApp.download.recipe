@@ -10,20 +10,31 @@
     <dict>
         <key>NAME</key>
         <string>PostgresApp</string>
+        <key>APP_URL</key>
+        <string>http://postgresapp.com/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Processor</key>
-			<string>PostgresAppURLProvider</string>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%APP_URL%</string>
+                <key>re_pattern</key>
+                <string>https://.*/download/.*/Postgres-.*\.zip</string>
+            </dict>
+        </dict>
         <dict>
 			<key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
+				<key>url</key>
+                <string>%match%</string>
                 <key>filename</key>
                 <string>%NAME%.zip</string>
             </dict>
