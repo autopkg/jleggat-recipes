@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of MacVim for OS X Mavericks.</string>
+    <string>Downloads the latest release version of MacVim for OS X.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.autopkg-recipes.MacVim.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>MacVim-Mavericks</string>
+        <string>MacVim</string>
         <key>DOWNLOAD_URL</key>
         <string>https://github.com/b4winckler/macvim/releases</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.3.0</string>
     <key>Process</key>
     <array>
         <dict>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>/b4winckler/macvim/releases/download/.*/MacVim-.*-Mavericks\.tbz</string>
+                <string>/b4winckler/macvim/releases/download/.*/MacVim-.*\.tbz</string>
             </dict>
         </dict>
 		<dict>

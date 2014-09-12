@@ -12,7 +12,7 @@
         <string>MacVim</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.3.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.autopkg-recipes.MacVim.download</string>
     <key>Process</key>
