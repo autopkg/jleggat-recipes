@@ -15,6 +15,7 @@
 # limitations under the License.
 
 import os.path
+import subprocess
 import re
 from autopkglib import Processor, ProcessorError
 
@@ -29,11 +30,6 @@ class MonitVersioner(Processor):
             "required": True,
             "description": "Path to root of unzipped Monit files.",
         },
-        "file_name": {
-            "required": False,
-            "description":
-                ("File to look for; defaults to CHANGES"),
-        },
     }
     output_variables = {
         "version": {
@@ -43,28 +39,26 @@ class MonitVersioner(Processor):
 
     description = __doc__
 
+    def get_version(self, root_dir, bin_file, rc_file):
 
-    def get_version(self, dir, file):
-        file_path = os.path.join(dir, file)
+        bin_path = os.path.join(root_dir, bin_file)
+        rc_path = os.path.join(root_dir, rc_file)
+        p = subprocess.Popen([bin_path, '-c', rc_path, '-V'], stdout=subprocess.PIPE)
+        (output, err) = p.communicate()
 
-        file_object = open(file_path)
-        try:
-            text = file_object.read()
-        finally:
-            file_object.close()
-
-        m = re.search(r'Version ([0-9\.]+)', text)
+        m = re.search(r'This is Monit version ([0-9\.]+)', output)
         if not m:
             raise ProcessorError(
-            "Couldn't find version in %s"
-            % (file_path))
+            "Couldn't find version, %s returned %s"
+            % (file_path, output))
 
         return m.group(1)
 
     def main(self):
         root_path = self.env['root_path']
-        file_name = self.env.get("file_name", 'CHANGES')
-        self.env['version'] = self.get_version(root_path, file_name)
+        bin_file = 'bin/monit'
+        rc_file = 'conf/monitrc'
+        self.env['version'] = self.get_version(root_path, bin_file, rc_file)
         self.output("Found version %s in file %s" % (self.env['version'], root_path))
 
 
