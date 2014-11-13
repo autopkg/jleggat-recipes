@@ -67,6 +67,21 @@
                			<string>%NAME%</string>
                			<key>version</key>
                			<string>%version%</string>
+						<key>installs</key>
+						<array>
+							<dict>
+								<key>CFBundleShortVersionString</key>
+								<string>%bundleshortversion%</string>
+								<key>CFBundleVersion</key>
+								<string>%bundleversion%</string>
+								<key>path</key>
+								<string>/Library/%bundlepath%</string>
+								<key>type</key>
+								<string>bundle</string>
+								<key>version_comparison_key</key>
+								<string>CFBundleShortVersionString</string>
+							</dict>
+						</array>
 					</dict>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>

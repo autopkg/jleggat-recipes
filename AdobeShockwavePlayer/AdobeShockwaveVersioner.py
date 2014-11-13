@@ -53,26 +53,28 @@ class AdobeShockwaveVersioner(Processor):
     description = __doc__
 
 
-    def get_version(self, file, tag, attrib):
+    def get_version(self, file,):
         # Open the xml file and parse it.
         try:
-			with open(file, 'rt') as f:
-				tree = ElementTree.parse(f)
-			# find the first matching element and return.
-			for node in tree.findall(tag):
-				v = node.attrib.get(attrib)
-				if v:
-					return v.strip('"|\'')
+            with open(file, 'r') as f:
+                tree = ElementTree.parse(f)
+            # find the first matching element and return.
+            for node in tree.findall('.//pkg-ref[@version]'):
+                v = node.attrib.get('version')
+
+            for node in tree.findall(".//bundle-version/*[@id='com.adobe.director.shockwave.bundle']"):
+                bundleshortv = node.attrib.get('CFBundleShortVersionString')
+                bundlev = node.attrib.get('CFBundleVersion')
+                bundlep = node.attrib.get('path')
+
+            return v.strip('"|\''), bundleshortv.strip('"|\''), bundlev.strip('"|\''), bundlep
         except BaseException as e:
-			raise ProcessorError('Could not retrieve Version from %s' % file)
+            raise ProcessorError('Could not retrieve Version from %s' % file)
 
     def main(self):
         input_file_path = self.env['input_file_path']
-        xml_node_tag = self.env.get("xml_node_tag", './/pkg-ref')
-        xml_version_attrib = self.env.get("xml_version_attrib", "version")
-        self.env['version'] = self.get_version(input_file_path, xml_node_tag, xml_version_attrib)
-        self.output("Found version %s in file %s" % (self.env['version'], input_file_path))
-
+        self.env['version'], self.env['bundleshortversion'], self.env['bundleversion'], self.env['bundlepath'] = self.get_version(input_file_path)
+        self.output("Found version \"%s\" in file \"%s\"" % (self.env['version'], input_file_path))
 
 if __name__ == '__main__':
     processor = AdobeShockwaveVersioner()
