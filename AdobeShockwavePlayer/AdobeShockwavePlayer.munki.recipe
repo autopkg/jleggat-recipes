@@ -12,21 +12,6 @@
         <string>AdobeShockwavePlayer</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/adobe</string>
-        <key>pkginfo</key>
-        <dict>
-            <key>catalogs</key>
-            <array>
-                <string>testing</string>
-            </array>
-            <key>description</key>
-            <string>Adobe Shockwave Player Plugin for Web Browsers</string>
-            <key>display_name</key>
-            <string>Adobe Shockwave Player</string>
-            <key>name</key>
-            <string>%NAME%</string>
-            <key>unattended_install</key>
-            <true/>
-        </dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -57,17 +42,33 @@
             </dict>
         </dict>
         <dict>
-            <key>Arguments</key>
+			<key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
                 <string>%pathname%</string>
                 <key>pkginfo</key>
-					<dict>
-               			<key>name</key>
-               			<string>%NAME%</string>
-               			<key>version</key>
-               			<string>%version%</string>
-					</dict>
+                <dict>
+                    <key>name</key>
+                    <string>%NAME%</string>
+                    <key>version</key>
+                    <string>%version%</string>
+                    <key>catalogs</key>
+                    <array>
+                        <string>testing</string>
+                    </array>
+                    <key>description</key>
+                    <string>Adobe Shockwave Player Plugin for Web Browsers</string>
+                    <key>display_name</key>
+                    <string>Adobe Shockwave Player</string>
+                    <key>name</key>
+                    <string>%NAME%</string>
+                    <key>unattended_install</key>
+                    <true/>
+                    <key>category</key>
+                    <string>Browser Plugin</string>
+                    <key>developer</key>
+                    <string>Adobe</string>
+                </dict>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
