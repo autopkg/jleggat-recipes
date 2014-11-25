@@ -28,6 +28,10 @@ File plugin to monitor MacOS X activity with /var/log/system.log, or any file th
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>OS Information</string>
+			<key>developer</key>
+			<string>Tynsoe.org</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>

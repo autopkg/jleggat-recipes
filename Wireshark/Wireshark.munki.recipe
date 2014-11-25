@@ -26,6 +26,10 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>Network Utilities</string>
+			<key>developer</key>
+			<string>Wireshark Foundation</string>
 		</dict>
 	</dict>
     <key>ParentRecipe</key>

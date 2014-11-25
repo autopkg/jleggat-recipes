@@ -30,6 +30,10 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>SFTP Clients</string>
+			<key>developer</key>
+			<string>Fetch Softworks</string>
 		</dict>
 	</dict>
 	<key>Process</key>

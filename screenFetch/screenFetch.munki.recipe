@@ -32,6 +32,11 @@ This script is very easy to add to and can easily be extended.</string>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>OS Utilities</string>
+			<key>developer</key>
+			<string>Brett Bohnenkamper</string>
+
 		</dict>
 	</dict>
     <key>MinimumVersion</key>
