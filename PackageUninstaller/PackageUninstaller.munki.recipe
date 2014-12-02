@@ -28,6 +28,10 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>OS Utility</string>
+			<key>developer</key>
+			<string>Hewig Xu</string>
 		</dict>
 	</dict>
     <key>MinimumVersion</key>

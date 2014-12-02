@@ -26,6 +26,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>OS Utilities</string>
+			<key>developer</key>
+			<string>FreeMacSoft</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>

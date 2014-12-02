@@ -28,6 +28,10 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>Munki Tools</string>
+			<key>developer</key>
+			<string>Hannes Juutilainen</string>
 		</dict>
 	</dict>
 	<key>Process</key>
