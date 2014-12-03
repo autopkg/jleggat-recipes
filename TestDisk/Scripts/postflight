@@ -1,0 +1,4 @@
+#!/bin/bash
+SOURCE_D=$1/Contents/Resources
+
+exit 0
