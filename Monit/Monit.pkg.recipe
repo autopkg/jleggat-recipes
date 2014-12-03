@@ -177,7 +177,7 @@
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
-                    <string>org.vim.Monit</string>
+                    <string>com.mmonit.Monit</string>
                     <key>infofile</key>
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
                     <key>resources</key>
