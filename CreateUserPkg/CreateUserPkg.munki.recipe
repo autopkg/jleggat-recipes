@@ -35,6 +35,10 @@ If you enable automatic login the password is stored in a kcpassword file, which
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>category</key>
+			<string>OS Utility</string>
+			<key>developer</key>
+			<string>Per Olofsson</string>
 		</dict>
 	</dict>
 	<key>Process</key>
