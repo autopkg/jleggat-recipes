@@ -28,6 +28,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>Developer Tools</string>
+			<key>developer</key>
+			<string>PostgreSQL Global Development Group</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>

@@ -28,6 +28,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>BitTorrent Clients</string>
+			<key>developer</key>
+			<string>Transmission Project</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>

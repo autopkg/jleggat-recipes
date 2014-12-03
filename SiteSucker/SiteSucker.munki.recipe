@@ -26,6 +26,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>Web Development</string>
+			<key>developer</key>
+			<string>Rick Cranisky</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>

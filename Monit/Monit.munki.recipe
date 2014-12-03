@@ -24,6 +24,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
+			<key>category</key>
+			<string>System Utilities</string>
+			<key>developer</key>
+			<string>Tildeslash Ltd</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
