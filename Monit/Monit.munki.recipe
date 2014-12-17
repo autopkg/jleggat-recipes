@@ -28,34 +28,6 @@
 			<string>System Utilities</string>
 			<key>developer</key>
 			<string>Tildeslash Ltd</string>
-			<key>unattended_install</key>
-			<true/>
-			<key>unattended_uninstall</key>
-			<true/>
-			<key>uninstall_method</key>
-			<string>uninstall_script</string>
-			<key>uninstall_script</key>
-			<string>#!/bin/sh
-
-## stop Monit
-/bin/launchctl unload -w /Library/LaunchDaemons/com.mmonit.monit.plist
-
-## remove Monit launchdaemon
-/bin/rm -f /Library/LaunchDaemons/com.mmonit.monit.plist
-
-## Remove Monit bin file
-/bin/rm -f /usr/bin/monit
-
-## Remove the Man file
-/bin/rm -f /usr/share/man/man1/monit.1
-
-## Remove default config.
-/bin/rm -f /private/etc/monitrc.default
-
-## Forget the package.
-/usr/sbin/pkgutil --forget com.mmonit.Monit
-
-exit 0</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
