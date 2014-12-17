@@ -28,6 +28,19 @@
 			<string>System Utilities</string>
 			<key>developer</key>
 			<string>Tildeslash Ltd</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstallable</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>removepackages</string>
+			<key>preuninstall_script</key>
+			<string>#!/bin/sh
+## stop Monit
+/bin/launchctl unload -w /Library/LaunchDaemons/com.mmonit.monit.plist
+exit 0</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
