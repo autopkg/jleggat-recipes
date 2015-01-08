@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.autopkg.jleggat-recipes.pkg.screenFetch</string>
+	<string>com.github.jleggat-recipes.pkg.screenFetch</string>
 	<key>Description</key>
 	<string>Packages screenFetch utility.</string>
 	<key>Input</key>
@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.autopkg.jleggat-recipes.download.screenFetch</string>
+    <string>com.github.jleggat-recipes.download.screenFetch</string>
 	<key>Process</key>
 	<array>
         <dict>

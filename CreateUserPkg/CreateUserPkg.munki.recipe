@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads CreateUserPkg and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.jleggat.autopkg-recipes.CreateUserPkg.munki</string>
+	<string>com.github.jleggat.CreateUserPkg.munki</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -41,25 +41,10 @@ If you enable automatic login the password is stored in a kcpassword file, which
 			<string>Per Olofsson</string>
 		</dict>
 	</dict>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.download.CreateUserPkg</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>CreateUserPkgURLProvider</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>

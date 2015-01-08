@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.autopkg.jleggat-recipes.munki.screenFetch</string>
+	<string>com.github.jleggat-recipes.munki.screenFetch</string>
 	<key>Description</key>
 	<string>Imports screenFetch into Munki.</string>
 	<key>Input</key>
@@ -42,7 +42,7 @@ This script is very easy to add to and can easily be extended.</string>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.autopkg.jleggat-recipes.pkg.screenFetch</string>
+    <string>com.github.jleggat-recipes.pkg.screenFetch</string>
 	<key>Process</key>
 	<array>
         <dict>

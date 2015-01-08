@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.autopkg.jleggat-recipes.download.screenFetch</string>
+	<string>com.github.jleggat-recipes.download.screenFetch</string>
 	<key>Description</key>
 	<string>Downloads screenFetch for packaging.</string>
 	<key>Input</key>

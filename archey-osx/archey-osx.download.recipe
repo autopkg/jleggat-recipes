@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.autopkg.jleggat-recipes.download.archey-osx</string>
+	<string>com.github.jleggat-recipes.download.archey-osx</string>
 	<key>Description</key>
 	<string>Downloads archey-osx for packaging.</string>
 	<key>Input</key>
