@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of Transmission.</string>
     <key>Identifier</key>
-	<string>com.github.jleggat.autopkg-recipes.Transmission.munki</string>
+	<string>com.github.jleggat.Transmission.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -37,7 +37,7 @@
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.autopkg-recipes.Transmission.download</string>
+    <string>com.github.jleggat.Transmission.download</string>
     <key>Process</key>
     <array>
 		<dict>

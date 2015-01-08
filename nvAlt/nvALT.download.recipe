@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of nvALT.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.nvALT.download</string>
+    <string>com.github.jleggat.nvALT.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Wireshark.</string> 
 	<key>Identifier</key>
-	<string>com.github.jleggat.autopkg-recipes.Wireshark.download</string>
+	<string>com.github.jleggat.Wireshark.download</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

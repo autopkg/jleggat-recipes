@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of AppCleaner.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.AppCleaner.download</string>
+    <string>com.github.jleggat.AppCleaner.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

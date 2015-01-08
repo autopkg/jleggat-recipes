@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest cpanm file, builds a package around it and imports into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.cpanm.munki</string>
+    <string>com.github.jleggat.cpanm.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -40,7 +40,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.autopkg-recipes.cpanm.pkg</string>
+    <string>com.github.jleggat.cpanm.pkg</string>
     <key>Process</key>
     <array>
         <dict>

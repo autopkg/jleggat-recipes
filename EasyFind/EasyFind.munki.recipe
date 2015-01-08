@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest EasyFind disk image and imports into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.EasyFind.munki</string>
+    <string>com.github.jleggat.EasyFind.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -37,7 +37,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.autopkg-recipes.EasyFind.download</string>
+    <string>com.github.jleggat.EasyFind.download</string>
     <key>Process</key>
     <array>
         <dict>

@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads latest Bonjour Browser disk image.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.BonjourBrowser.download</string>
+    <string>com.github.jleggat.BonjourBrowser.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

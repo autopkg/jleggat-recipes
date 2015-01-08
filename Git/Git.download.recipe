@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads Git dmg for OS X.</string>
 	<key>Identifier</key>
-	<string>com.github.jleggat.autopkg-recipes.Git.download</string>
+	<string>com.github.jleggat.Git.download</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

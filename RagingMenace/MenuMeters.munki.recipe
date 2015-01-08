@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest MenuMeters disk image and imports into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.MenuMeters.munki</string>
+    <string>com.github.jleggat.MenuMeters.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -35,7 +35,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.autopkg-recipes.MenuMeters.download</string>
+    <string>com.github.jleggat.MenuMeters.download</string>
     <key>Process</key>
     <array>
         <dict>

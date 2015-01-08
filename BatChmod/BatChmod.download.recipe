@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of BatChmod.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.BatChmod.download</string>
+    <string>com.github.jleggat.BatChmod.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of SequelPro.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.SequelPro.download</string>
+    <string>com.github.jleggat.SequelPro.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

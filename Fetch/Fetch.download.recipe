@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Download recipe for Fetch.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.Fetch.download</string>
+    <string>com.github.jleggat.Fetch.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

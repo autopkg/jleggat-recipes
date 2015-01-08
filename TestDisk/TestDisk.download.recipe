@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of TestDisk.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.autopkg-recipes.download.TestDisk</string>
+    <string>com.github.jleggat.download.TestDisk</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.autopkg-recipes.pkg.Monit</string>
+	<string>com.github.jleggat.pkg.Monit</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -12,7 +12,7 @@
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.autopkg-recipes.download.Monit</string>
+    <string>com.github.jleggat.download.Monit</string>
     <key>Process</key>
     <array>
         <dict>
