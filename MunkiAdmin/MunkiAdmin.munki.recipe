@@ -34,25 +34,10 @@
 			<string>Hannes Juutilainen</string>
 		</dict>
 	</dict>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.MunkiAdmin.download</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiAdminURLProvider</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
