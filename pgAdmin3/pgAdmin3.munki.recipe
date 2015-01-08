@@ -34,25 +34,10 @@
 			<string>PostgreSQL Global Development Group</string>
 		</dict>
 	</dict>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.pgAdmin3.download</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>pgAdmin3URLProvider</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
