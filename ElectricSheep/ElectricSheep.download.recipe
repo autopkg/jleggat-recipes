@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>http://.*\.dmg</string>
+                <string>[^"]+\.dmg</string>
 				<key>request_headers</key>
                 <dict>
                 	<key>user-agent</key>
