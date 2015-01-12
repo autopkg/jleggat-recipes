@@ -31,9 +31,9 @@
 			<key>developer</key>
 			<string>Spotworks LLC</string>
 		</dict>
+	</dict>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.ElectricSheep.download</string>
-	</dict>
 	<key>Process</key>
 	<array>
 		<dict>
