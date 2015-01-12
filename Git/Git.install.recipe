@@ -12,7 +12,7 @@
 		<string>Git</string>
 	</dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.4.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.Git.download</string>
 	<key>Process</key>
