@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of SequelPro and installs it.</string>
+    <string>Downloads the latest SiteSucker disk image and installs it.</string>
     <key>Identifier</key>
-	<string>com.github.jleggat.SequelPro.install</string>
+    <string>com.github.jleggat.SiteSucker.install</string>
     <key>Input</key>
     <dict>
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>0.1.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.SequelPro.download</string>
+    <string>com.github.jleggat.SiteSucker.download</string>
     <key>Process</key>
     <array>
         <dict>
@@ -28,7 +28,7 @@
                 <array>
                     <dict>
                         <key>source_item</key>
-                        <string>Sequel Pro.app</string>
+                        <string>SiteSucker.app</string>
                         <key>destination_path</key>
                         <string>%APP_DESTINATION%</string>
                     </dict>
