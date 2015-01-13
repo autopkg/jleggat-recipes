@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of nvALT.</string>
+    <string>Downloads the current release version of PackageUninstaller.</string>
 	<key>Identifier</key>
-	<string>com.github.jleggat.nvALT.install</string>
+	<string>com.github.jleggat.PackageUninstaller.install</string>
     <key>Input</key>
     <dict>
 		<key>NAME</key>
-		<string>nvALT</string>
+		<string>PackageUninstaller</string>
 		<key>APP_DESTINATION</key>
-		<string>/Applications</string>
+		<string>/Applications/Utilities</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.nvALT.download</string>
+    <string>com.github.jleggat.PackageUninstaller.download</string>
     <key>Process</key>
     <array>
         <dict>
@@ -54,7 +54,7 @@
                 <array>
                     <dict>
                         <key>source_item</key>
-                        <string>nvALT.app</string>
+                        <string>PackageUninstallerApp.app</string>
                         <key>destination_path</key>
                         <string>%APP_DESTINATION%</string>
                     </dict>
