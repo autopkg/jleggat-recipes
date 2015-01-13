@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Description</key>
+    <string>Downloads the current release version of AppCleaner and installs it.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.AppCleaner.install</string>
     <key>Input</key>
@@ -12,7 +14,7 @@
 		<string>/Applications/Utilities</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.4.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.AppCleaner.download</string>
     <key>Process</key>

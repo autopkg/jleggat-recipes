@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of PackageUninstaller.</string>
+    <string>Downloads the current release version of PackageUninstaller and installs it.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.PackageUninstaller.install</string>
     <key>Input</key>

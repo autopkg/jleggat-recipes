@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads pgAdmin3 and imports into Munki.</string>
+	<string>Downloads pgAdmin3 and installs it.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.pgAdmin3.install</string>
 	<key>Input</key>
@@ -13,6 +13,8 @@
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
 	</dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.pgAdmin3.download</string>
 	<key>Process</key>

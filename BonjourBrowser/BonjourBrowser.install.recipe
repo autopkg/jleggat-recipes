@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest Bonjour Browser disk image and imports into Munki.</string>
+    <string>Downloads the latest Bonjour Browser disk image and installs it.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.BonjourBrowser.install</string>
     <key>Input</key>
