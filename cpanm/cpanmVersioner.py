@@ -46,7 +46,7 @@ class cpanmVersioner(Processor):
         finally:
             file_object.close()
 
-        m = re.search(r'our \$VERSION = "?([0-9\.]+)"?;', text)
+        m = re.search(r'our ?\$VERSION = "?([0-9\.]+)"?;', text, re.X)
         if not m:
             raise ProcessorError(
             "Couldn't find version in %s"
