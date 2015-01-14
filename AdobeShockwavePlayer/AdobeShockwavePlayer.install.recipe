@@ -12,7 +12,7 @@
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.AdobeShockwavePlayer.download</string>
+    <string>com.github.jleggat.AdobeShockwavePlayer.pkg</string>
     <key>Process</key>
     <array>
         <dict>
