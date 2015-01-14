@@ -64,7 +64,7 @@ class GithubTagProvider(Processor):
 
             version, url = self.get_github_tag(endpoint, tag)
 
-            self.env["version"] = version
+            self.env["version"] = version.replace("v","")
             self.output('Version %s' % self.env['version'])
             self.env['url'] = url
             self.output('File URL %s' % self.env['url'])
