@@ -31,18 +31,6 @@ class AdobeShockwaveVersioner(Processor):
             "required": True,
             "description": "Path to a Distribution xml file from the Shockwave installer pkg.",
         },
-        "xml_node_tag": {
-            "required": False,
-            "description":
-                ("Tag to sort which xml node to use; defaults to "
-                './/pkg-ref'),
-        },
-        "xml_version_attrib": {
-            "required": False,
-            "description":
-                ("Which xml attrib to use; defaults to "
-                "version"),
-        },
     }
     output_variables = {
         "version": {
