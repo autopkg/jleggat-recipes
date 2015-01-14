@@ -197,10 +197,6 @@
                     <string>org.cgsecurity.TestDisk</string>
                     <key>infofile</key>
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
-                    <key>resources</key>
-                    <string>Resources</string>
-                    <key>options</key>
-                    <string>purge_ds_store</string>
                     <key>chown</key>
                     <array>
                         <dict>

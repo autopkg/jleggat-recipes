@@ -154,10 +154,6 @@
                     <string>org.vim.MacVim</string>
                     <key>infofile</key>
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
-                    <key>resources</key>
-                    <string>Resources</string>
-                    <key>options</key>
-                    <string>purge_ds_store</string>
                     <key>scripts</key>
                     <string>Scripts</string>
                     <key>chown</key>
