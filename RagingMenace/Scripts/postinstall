@@ -1,0 +1,6 @@
+#!/bin/bash
+
+/usr/bin/sudo "/Library/Application Support/MenuMeters/MenuMeters Installer.app/Contents/Resources/InstallTool" --installlibrary
+
+/usr/bin/sudo /usr/bin/killall -HUP SystemUIServer
+exit 0
