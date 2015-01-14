@@ -2,13 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Description</key>
+    <string>Downloads the latest monit, builds a package around it and installs it.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.install.Monit</string>
     <key>Input</key>
     <dict>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.4.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.pkg.Monit</string>
     <key>Process</key>
