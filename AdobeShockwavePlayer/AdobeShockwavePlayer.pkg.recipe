@@ -77,24 +77,6 @@
         </dict>
         <dict>
             <key>Comment</key>
-            <string>make Description.plist for AdobeShockwavePlayer</string>
-            <key>Processor</key>
-            <string>PlistEditor</string>
-            <key>Arguments</key>
-            <dict>
-                <key>output_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/Resources/en.lproj/Description.plist</string>
-                <key>plist_data</key>
-				<dict>
-					<key>IFPkgDescriptionDescription</key>
-					<string>%NAME</string>
-					<key>IFPkgDescriptionTitle</key>
-					<string>Adobe Shockwave package created with AutoPKG.</string>
-				</dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
             <string>Make PackageInfo file for our package</string>
             <key>Processor</key>
             <string>PkgInfoCreator</string>
@@ -129,10 +111,6 @@
                     <string>com.adobe.AdobeShockwavePlayer</string>
                     <key>infofile</key>
                     <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
-                    <key>resources</key>
-                    <string>%RECIPE_CACHE_DIR%/%NAME%/Resources</string>
-                    <key>options</key>
-                    <string>purge_ds_store</string>
                     <key>scripts</key>
                     <string>%found_filename%/Scripts</string>
                     <key>chown</key>
