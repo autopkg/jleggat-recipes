@@ -2,23 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads and installs MunkiAdmin.</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.MunkiAdmin.install</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>MunkiAdmin</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications</string>
-	</dict>
+    <key>Description</key>
+    <string>Downloads the latest ReActivity disk image and installs it.</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.ReActivity.install</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>ReActivity</string>
+    </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.MunkiAdmin.download</string>
-	<key>Process</key>
-	<array>
+    <string>com.github.jleggat.ReActivity.download</string>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Processor</key>
             <string>InstallFromDMG</string>
@@ -30,13 +28,13 @@
                 <array>
                     <dict>
                         <key>source_item</key>
-                        <string>MunkiAdmin.app</string>
+                        <string>ReActivity.app</string>
                         <key>destination_path</key>
-                        <string>%APP_DESTINATION%</string>
+                        <string>/Applications/</string>
                     </dict>
                 </array>
             </dict>
         </dict>
-	</array>
+    </array>
 </dict>
 </plist>
