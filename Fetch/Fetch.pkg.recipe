@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Fetch</string>
+        <key>BUNDLEID</key>
+        <string>com.fetchsoftworks.Fetch</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -19,20 +21,13 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>AppDmgVersioner</string>
+            <string>Versioner</string>
             <key>Arguments</key>
             <dict>
-                <key>dmg_path</key>
-                <string>%pathname%</string>
-            </dict>
-        </dict>
-         <dict>
-            <key>Processor</key>
-            <string>FetchVersionParser</string>
-            <key>Arguments</key>
-            <dict>
-                <key>version</key>
-                <string>%version%</string>
+                <key>input_plist_path</key>
+                <string>%pathname%/Fetch.app/Contents/Info.plist</string>
+		<key>plist_version_key</key>
+		<string>CFBundleVersion</string>
             </dict>
         </dict>
         <dict>
@@ -55,9 +50,9 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%pathname%/%app_name%</string>
+                <string>%pathname%/%NAME%.app</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Applications/%app_name%</string>
+                <string>%pkgroot%/Applications/%NAME%.app</string>
             </dict>
         </dict>
         <dict>
@@ -72,7 +67,7 @@
                     <key>version</key>
                     <string>%version%</string>
                     <key>id</key>
-                    <string>%bundleid%</string>
+                    <string>%BUNDLEID%</string>
                     <key>chown</key>
                     <array>
                         <dict>
