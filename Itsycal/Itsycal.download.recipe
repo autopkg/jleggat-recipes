@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest EasyFind.</string>
+    <string>Downloads latest Itsycal.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.EasyFind.download</string>
+    <string>com.github.jleggat.Itsycal.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EasyFind</string>
+        <string>Itsycal</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.devontechnologies.com/download/products.html</string>
+        <string>http://www.mowglii.com/itsycal/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -25,7 +25,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>[^"]+EasyFind\.app\.zip</string>
+                <string>[^"]+Itsycal\.zip</string>
             </dict>
         </dict>
 		<dict>
