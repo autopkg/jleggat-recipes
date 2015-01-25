@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download recipe for Fetch.</string>
+    <string>Download recipe for Fetch.  Downloads the latest Fetch from Fetch Softworks website.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.Fetch.download</string>
     <key>Input</key>
