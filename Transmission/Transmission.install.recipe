@@ -8,6 +8,8 @@
 	<string>com.github.jleggat.Transmission.install</string>
     <key>Input</key>
     <dict>
+        	<key>NAME</key>
+        	<string>Transmission</string>
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
     </dict>

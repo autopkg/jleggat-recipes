@@ -8,6 +8,8 @@
 	<string>Downloads latest screenFetch and installs it.</string>
 	<key>Input</key>
 	<dict>
+		<key>NAME</key>
+		<string>screenFetch</string>
 	</dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>

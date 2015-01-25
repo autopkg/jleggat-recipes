@@ -8,6 +8,8 @@
 	<string>com.github.jleggat.SequelPro.install</string>
     <key>Input</key>
     <dict>
+        	<key>NAME</key>
+        	<string>SequelPro</string>
 		<key>APP_DESTINATION</key>
 		<string>/Applications</string>
     </dict>
