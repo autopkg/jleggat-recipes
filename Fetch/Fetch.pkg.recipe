@@ -12,9 +12,13 @@
         <string>Fetch</string>
         <key>BUNDLEID</key>
         <string>com.fetchsoftworks.Fetch</string>
+        <key>SERIALNUMBER</key>
+        <string></string>
+        <key>REGISTRANTNAME</key>
+        <string></string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.3.0</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.Fetch.download</string>
     <key>Process</key>
@@ -36,7 +40,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <string>%RECIPE_CACHE_DIR%/build</string>
                 <key>pkgdirs</key>
                 <dict>
                     <key>Applications</key>
@@ -57,6 +61,31 @@
         </dict>
         <dict>
             <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>Scripts</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/Scripts</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_content</key>
+                <string>#!/bin/bash
+serialnumber="%SERIALNUMBER%"
+registrantname="%REGISTRANTNAME%"
+</string>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/Scripts/conf.txt</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>PkgCreator</string>
             <key>Arguments</key>
             <dict>
@@ -64,6 +93,10 @@
                 <dict>
                     <key>pkgname</key>
                     <string>%NAME%-%version%</string>
+                	<key>pkgroot</key>
+               		<string>%pkgroot%</string>
+                	<key>scripts</key>
+               		<string>%RECIPE_CACHE_DIR%/Scripts</string>
                     <key>version</key>
                     <string>%version%</string>
                     <key>id</key>
