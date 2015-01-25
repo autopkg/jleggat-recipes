@@ -12,6 +12,8 @@
         <string>Fetch</string>
         <key>DOWNLOAD_URL</key>
         <string>http://www.fetchsoftworks.com</string>
+        <key>SEARCH_PATTERN</key>
+        <string>[^"]+\.dmg[^"]*</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -25,7 +27,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-                <string>[^"]+\.dmg</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -36,7 +38,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%%match%</string>
                 <key>re_pattern</key>
-                <string>[^"]+\.dmg\?direct=1</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
 		<dict>
