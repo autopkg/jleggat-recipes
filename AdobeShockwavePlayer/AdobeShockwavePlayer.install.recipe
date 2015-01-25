@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest Bonjour Browser disk image and installs it.</string>
+    <string>Downloads the latest Adobe Shockwave Player disk image, creates a mac installer pkg
+ and installs it.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.AdobeShockwavePlayer.install</string>
     <key>Input</key>

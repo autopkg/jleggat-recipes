@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Adobe Shockwave Player disk image.</string>
+    <string>Downloads latest Adobe Shockwave Player disk image from macromedia.com.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.AdobeShockwavePlayer.download</string>
     <key>Input</key>

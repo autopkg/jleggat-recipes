@@ -5,7 +5,7 @@
 	<key>Identifier</key>
 	<string>com.github.jleggat.AdobeShockwavePlayer.pkg</string>
 	<key>Description</key>
-	<string>Packages AdobeShockwavePlayer utility.</string>
+	<string>Packages Adobe Shockwave Player from downloaded disk image.</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
