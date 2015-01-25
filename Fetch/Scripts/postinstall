@@ -1,0 +1,23 @@
+#!/bin/bash
+
+conf=$(/usr/bin/dirname $0)/conf.txt
+plist="/Library/Preferences/com.fetchsoftworks.Fetch.License"
+echo "running postinstall" > /tmp/my_postinstall.log
+echo "Config file is $conf" >> /tmp/my_postinstall.log
+
+/bin/ls -al $conf
+
+if [ -r $conf ]; then
+  echo "Reading Config file $conf" >> /tmp/my_postinstall.log
+  . $conf
+  cat $conf >> /tmp/my_postinstall.log
+fi
+
+if [ ! -z "$serialnumber" ]; then
+   /usr/bin/sudo /usr/bin/defaults write $plist SerialNumber "$serialnumber"
+fi
+
+if [ ! -z "$registrantname" ]; then
+  /usr/bin/sudo /usr/bin/defaults write $plist RegistrantName "$registrantname"
+fi
+
