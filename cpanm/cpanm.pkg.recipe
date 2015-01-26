@@ -10,6 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>cpanm</string>
+        <key>VERSION_PATTERN</key>
+        <string>our ?\$VERSION ?= ?"?(?P&lt;version&gt;[0-9\.]+)"?;</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -17,13 +19,15 @@
     <string>com.github.jleggat.cpanm.download</string>
     <key>Process</key>
     <array>
-         <dict>
+        <dict>
             <key>Processor</key>
-            <string>cpanmVersioner</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
-                <key>input_file_path</key>
-                <string>%pathname%</string>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%</string>
+                <key>re_pattern</key>
+                <string>%VERSION_PATTERN%</string>
             </dict>
         </dict>
         <dict>
