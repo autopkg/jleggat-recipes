@@ -102,12 +102,12 @@ registrantname="%REGISTRANTNAME%"
                     <string>%NAME%-%version%</string>
                 	<key>pkgroot</key>
                		<string>%pkgroot%</string>
-                	<key>scripts</key>
-               		<string>%RECIPE_CACHE_DIR%/Scripts</string>
                     <key>version</key>
                     <string>%version%</string>
                     <key>id</key>
                     <string>%BUNDLEID%</string>
+               	<key>scripts</key>
+               	<string>%RECIPE_CACHE_DIR%/Scripts</string>
                     <key>chown</key>
                     <array>
                         <dict>
