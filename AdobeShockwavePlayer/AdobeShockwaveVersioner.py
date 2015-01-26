@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2013 Jeremy Leggat, 2010 Per Olofsson
+# Copyright 2015 Jeremy Leggat, 2010 Per Olofsson
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,6 +36,9 @@ class AdobeShockwaveVersioner(Processor):
         "version": {
             "description": "Version of Shockwave.",
         },
+        "id": {
+            "description": "Bundle ID for Shockwave.",
+        },
     }
 
     description = __doc__
@@ -46,23 +49,20 @@ class AdobeShockwaveVersioner(Processor):
         try:
             with open(file, 'r') as f:
                 tree = ElementTree.parse(f)
-            # find the first matching element and return.
-            for node in tree.findall('.//pkg-ref[@version]'):
+            # find the first matching element.
+            for node in tree.findall('.//pkg-ref[@packageIdentifier]'):
                 v = node.attrib.get('version')
+                id = node.attrib.get('packageIdentifier')
 
-            for node in tree.findall(".//bundle-version/*[@id='com.adobe.director.shockwave.bundle']"):
-                bundleshortv = node.attrib.get('CFBundleShortVersionString')
-                bundlev = node.attrib.get('CFBundleVersion')
-                bundlep = node.attrib.get('path')
-
-            return v.strip('"|\''), bundleshortv.strip('"|\''), bundlev.strip('"|\''), bundlep
+            return v.strip('"|\''), id.strip('.pkg')
         except BaseException as e:
             raise ProcessorError('Could not retrieve Version from %s' % file)
 
     def main(self):
         input_file_path = self.env['input_file_path']
-        self.env['version'], self.env['bundleshortversion'], self.env['bundleversion'], self.env['bundlepath'] = self.get_version(input_file_path)
+        self.env['version'], self.env['id'] = self.get_version(input_file_path)
         self.output("Found version \"%s\" in file \"%s\"" % (self.env['version'], input_file_path))
+        self.output("Found Bundle ID \"%s\" in file \"%s\"" % (self.env['id'], input_file_path))
 
 if __name__ == '__main__':
     processor = AdobeShockwaveVersioner()
