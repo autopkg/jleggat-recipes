@@ -5,7 +5,7 @@
 	<key>Identifier</key>
 	<string>com.github.jleggat-recipes.download.archey-osx</string>
 	<key>Description</key>
-	<string>Downloads archey-osx for packaging.</string>
+	<string>Downloads archey-osx for packaging from GitHub.</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
@@ -14,33 +14,33 @@
 		<string>obihann</string>
 		<key>REPO_NAME</key>
 		<string>archey-osx</string>
-		<key>TAG</key>
-		<string>latest</string>
+        	<key>SEARCH_URL</key>
+        	<string>https://github.com/%REPO_OWNER%/%REPO_NAME%</string>
+        	<key>SEARCH_PATTERN</key>
+        	<string>&lt;a href="(?P&lt;url&gt;http.*)"&gt;(?P&lt;version&gt;[0-9\.]+)&lt;/a&gt;</string>
 	</dict>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>repo_owner</key>
-				<string>%REPO_OWNER%</string>
-				<key>repo_name</key>
-				<string>%REPO_NAME%</string>
-				<key>tag</key>
-				<string>%TAG%</string>
-			</dict>
-			<key>Processor</key>
-			<string>GithubTagProvider</string>
-		</dict>
+        	<dict>
+        	    <key>Processor</key>
+        	    <string>URLTextSearcher</string>
+        	    <key>Arguments</key>
+        	    <dict>
+        	        <key>url</key>
+        	        <string>%SEARCH_URL%</string>
+        	        <key>re_pattern</key>
+        	        <string>%SEARCH_PATTERN%</string>
+        	    </dict>
+        	</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%.tar.gz</string>
 			</dict>
 		</dict>
 		<dict>

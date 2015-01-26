@@ -5,7 +5,7 @@
 	<key>Identifier</key>
 	<string>com.github.jleggat-recipes.munki.archey-osx</string>
 	<key>Description</key>
-	<string>Imports archey-osx into Munki.</string>
+	<string>Downloads archey-osx from GitHub and Imports into Munki.</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

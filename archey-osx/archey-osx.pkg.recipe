@@ -5,7 +5,7 @@
 	<key>Identifier</key>
 	<string>com.github.jleggat-recipes.pkg.archey-osx</string>
 	<key>Description</key>
-	<string>Packages archey-osx utility.</string>
+	<string>Downloads archey-osx utility and creates an OS X pkg installer for it.</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/source/%REPO_OWNER%-%REPO_NAME%-*</string>
+                <string>%RECIPE_CACHE_DIR%/source/%REPO_NAME%-*</string>
             </dict>
         </dict>
         <dict>

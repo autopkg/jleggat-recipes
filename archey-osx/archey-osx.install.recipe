@@ -5,7 +5,7 @@
 	<key>Identifier</key>
 	<string>com.github.jleggat-recipes.install.archey-osx</string>
 	<key>Description</key>
-	<string>Downloads and installs archey-osx.</string>
+	<string>Downloads archey for OS X from GitHub and installs archey-osx.</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
