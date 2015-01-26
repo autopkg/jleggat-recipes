@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads Git and installs it.</string>
+	<string>Downloads Git for OS X dmg from sourceforge and installs it.
+By default downloads version for the newest OS X release.
+Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compatability with OS X release.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.Git.install</string>
 	<key>Input</key>

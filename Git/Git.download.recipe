@@ -3,30 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads Git dmg for OS X.</string>
+	<string>Downloads Git for OS X dmg from sourceforge.
+By default downloads version for the newest OS X release.
+Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compatability with OS X release.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.Git.download</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Git</string>
-		<key>FILE_PATTERN</key>
-		<string>.*\.dmg</string>
-		<key>SOURCEFORGE_PROJECT</key>
-		<string>git-osx-installer</string>
+        	<key>DOWNLOAD_URL</key>
+        	<string>http://sourceforge.net/projects/git-osx-installer/files/</string>
+        	<key>MAJOR_OS_VERSION</key>
+        	<string></string>
+        	<key>SEARCH_PATTERN</key>
+		<string>href="(?P&lt;url&gt;.*%MAJOR_OS_VERSION%\.dmg.*)"</string>
 	</dict>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>project_name</key>
-				<string>%SOURCEFORGE_PROJECT%</string>
-				<key>match_pattern</key>
-				<string>%FILE_PATTERN%</string>
-			</dict>
+	       <dict>
 			<key>Processor</key>
-			<string>SourceForgeURLProvider</string>
+           		<string>URLTextSearcher</string>
+           		<key>Arguments</key>
+            		<dict>
+                		<key>url</key>
+                		<string>%DOWNLOAD_URL%</string>
+                		<key>re_pattern</key>
+                		<string>%SEARCH_PATTERN%</string>
+            		</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>

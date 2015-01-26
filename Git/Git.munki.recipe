@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads Git and imports into Munki.</string>
+	<string>Downloads Git for OS X dmg from sourceforge and import it into munki.
+By default downloads version for the newest OS X release.
+Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compatability with OS X release.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.Git.munki</string>
 	<key>Input</key>
