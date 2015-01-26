@@ -14,31 +14,33 @@
 		<string>KittyKatt</string>
 		<key>REPO_NAME</key>
 		<string>screenFetch</string>
-		<key>TAG</key>
-		<string>latest</string>
+        	<key>DOWNLOAD_URL</key>
+        	<string>https://github.com/%REPO_OWNER%/%REPO_NAME%</string>
+        	<key>SEARCH_PATTERN</key>
+        	<string>&lt;span class="tag-name"&gt;v(?P&lt;version&gt;[0-9\.]+)&lt;/span&gt;</string>
 	</dict>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>repo_owner</key>
-				<string>%REPO_OWNER%</string>
-				<key>repo_name</key>
-				<string>%REPO_NAME%</string>
-				<key>tag</key>
-				<string>%TAG%</string>
-			</dict>
-			<key>Processor</key>
-			<string>GithubTagProvider</string>
-		</dict>
+        	<dict>
+        	    <key>Processor</key>
+        	    <string>URLTextSearcher</string>
+        	    <key>Arguments</key>
+        	    <dict>
+        	        <key>url</key>
+        	        <string>%DOWNLOAD_URL%/releases</string>
+        	        <key>re_pattern</key>
+        	        <string>%SEARCH_PATTERN%</string>
+        	    </dict>
+        	</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+        	        	<key>url</key>
+        	        	<string>%DOWNLOAD_URL%/archive/v%version%.zip</string>
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 			</dict>
