@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of AppCleaner and installs it.</string>
+    <string>Downloads the current release of AppCleaner and installs it.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.AppCleaner.install</string>
     <key>Input</key>

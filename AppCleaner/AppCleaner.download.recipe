@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of AppCleaner.</string>
+    <string>Downloads the current release of AppCleaner from freemacsoft website.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.AppCleaner.download</string>
     <key>Input</key>
