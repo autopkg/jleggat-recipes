@@ -12,6 +12,8 @@
         <string>TestDisk</string>
         <key>DOWNLOAD_URL</key>
         <string>http://www.cgsecurity.org</string>
+        <key>SEARCH_PATTERN</key>
+        <string>testdisk-\d+.\d+\.mac_intel\.tar\.bz2</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -25,7 +27,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%/wiki/TestDisk_Download</string>
                 <key>re_pattern</key>
-                <string>testdisk-\d+.\d+\.mac_intel\.tar\.bz2</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
 		<dict>
