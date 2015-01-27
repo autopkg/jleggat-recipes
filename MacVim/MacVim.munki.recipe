@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of MacVim.</string>
+    <string>Downloads the current release version of MacVim where MAJOR_OS_VERSION is Snow-Leopard, Mountain-Lion or Mavericks (default).</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.MacVim.munki</string>
     <key>Input</key>

@@ -3,15 +3,21 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest release version of MacVim for OS X.</string>
+    <string>Downloads the latest release version of MacVim for OS X where MAJOR_OS_VERSION is Snow-Leopard, Mountain-Lion or Mavericks (default).</string>
     <key>Identifier</key>
     <string>com.github.jleggat.MacVim.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>MacVim</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://github.com/b4winckler/macvim/releases</string>
+        <key>MAJOR_OS_VERSION</key>
+        <string>Mavericks</string>
+		<key>REPO_OWNER</key>
+		<string>b4winckler</string>
+		<key>REPO_NAME</key>
+		<string>macvim</string>
+        	<key>SEARCH_PATTERN</key>
+        	<string>&lt;a href="(/.*-%MAJOR_OS_VERSION%\.tbz)"</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
@@ -23,9 +29,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>https://github.com/%REPO_OWNER%/%REPO_NAME%/releases</string>
                 <key>re_pattern</key>
-                <string>/b4winckler/macvim/releases/download/.*/MacVim-.*\.tbz</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
 		<dict>
@@ -34,7 +40,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-                <string>https://github.com%match%</string>
+                		<string>https://github.com%match%</string>
 				<key>filename</key>
 				<string>%NAME%.tbz</string>
 			</dict>
