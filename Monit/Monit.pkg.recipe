@@ -8,6 +8,8 @@
     <dict>
         <key>NAME</key>
         <string>Monit</string>
+        <key>BUNDLEID</key>
+        <string>com.mmonit.Monit</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -148,38 +150,21 @@
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Make PackageInfo file for our package</string>
-            <key>Processor</key>
-            <string>PkgInfoCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>version</key>
-                <string>%version%</string>
-                <key>template_path</key>
-                <string>PackageInfoTemplate</string>
-                <key>infofile</key>
-                <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
-                <key>pkgtype</key>
-                <string>flat</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
             <string>Build the package</string>
             <key>Processor</key>
             <string>PkgCreator</string>
             <key>Arguments</key>
             <dict>
-                <key>pkgname</key>
-                <string>%NAME%-%version%</string>
                 <key>pkg_request</key>
                 <dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+                <key>version</key>
+                <string>%version%</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
-                    <string>com.mmonit.Monit</string>
-                    <key>infofile</key>
-                    <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                    <string>%BUNDLEID%</string>
                     <key>scripts</key>
                     <string>Scripts</string>
                     <key>chown</key>
