@@ -68,13 +68,24 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
         </dict>
         <dict>
             <key>Processor</key>
+            <string>FetchScriptsPath</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dirname</key>
+                <string>Scripts</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>Scripts</string>
+                <string>%dirpath%</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/Scripts</string>
+                <key>overwrite</key>
+                <true/>
             </dict>
         </dict>
         <dict>
