@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Captur and installs it.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.Captur.install</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Captur</string>
+		<key>APP_DESTINATION</key>
+		<string>/Applications/Utilities</string>
+	</dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.Captur.download</string>
+	<key>Process</key>
+	<array>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%destination_path%/*.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>InstallFromDMG</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_path</key>
+                <string>%found_filename%</string>
+                <key>items_to_copy</key>
+                <array>
+                    <dict>
+                        <key>source_item</key>
+                        <string>64 Bit/Captur.app</string>
+                        <key>destination_path</key>
+                        <string>%APP_DESTINATION%</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+	</array>
+</dict>
+</plist>

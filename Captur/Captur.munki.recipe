@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Captur and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.Captur.munki</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps</string>
+		<key>NAME</key>
+		<string>Captur</string>
+		<key>APP_DESTINATION</key>
+		<string>/Applications</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Captur is a simple Menu Bar interface for Mac OS X screencapture command.
+Feature:
+* snapshots your screen in many way such as full screen, window, widget, selection etc.
+* change a different file format for various file size
+* customize file name with date and time options</string>
+            <key>display_name</key>
+            <string>Captur</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>category</key>
+			<string>Munki Tools</string>
+			<key>developer</key>
+			<string>Haerul Rijal</string>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.jleggat.Captur.download</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%destination_path%/*.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%found_filename%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>munkiimport_appname</key>
+				<string>64 Bit/Captur.app</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationpath</string>
+					<string>%APP_DESTINATION%</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
