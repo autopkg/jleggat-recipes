@@ -88,6 +88,16 @@
                             <key>group</key>
                             <string>wheel</string>
                         </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/bin/cpanm</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+				<key>mode</key>
+				<string>0755</string>
+                        </dict>
                     </array>
                 </dict>
             </dict>
