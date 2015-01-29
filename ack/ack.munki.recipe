@@ -19,12 +19,11 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>ackinus is a script to get, unpack, build and install modules from
-    CPAN and does nothing else.
-
-    It's dependency free (can bootstrap itself), requires zero
-    configuration, and stands alone. When running, it requires only 10MB of
-    RAM.</string>
+            <string>ack is a grep-like tool that is specifically created to make searching source code easier</string
+Designed for programmers with large heterogeneous
+        trees of source code, ack is written purely in
+        portable Perl 5 and takes advantage of the power of
+        Perl's regular expressions.>
             <key>display_name</key>
             <string>ack PERL Module</string>
             <key>name</key>
@@ -34,7 +33,7 @@
 			<key>category</key>
 			<string>Developer Tools</string>
 			<key>developer</key>
-			<string>Tatsuhiko Miyagawa</string>
+			<string>Andy Lester</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
