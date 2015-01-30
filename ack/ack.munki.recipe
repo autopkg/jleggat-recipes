@@ -19,11 +19,11 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>ack is a grep-like tool that is specifically created to make searching source code easier</string
+            <string>ack is a grep-like tool that is specifically created to make searching source code easier
 Designed for programmers with large heterogeneous
         trees of source code, ack is written purely in
         portable Perl 5 and takes advantage of the power of
-        Perl's regular expressions.>
+        Perl's regular expressions.</string>
             <key>display_name</key>
             <string>ack PERL Module</string>
             <key>name</key>
