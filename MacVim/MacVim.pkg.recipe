@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MacVim</string>
         <key>BUNDLEID</key>
-        <string>com.fetchsoftworks.Fetch</string>
+        <string>org.vim.MacVim</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
