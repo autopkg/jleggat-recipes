@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.pkg.libwebp</string>
+	<string>com.github.jleggat.libwebp.pkg</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.download.libwebp</string>
+    <string>com.github.jleggat.libwebp.download</string>
     <key>Process</key>
     <array>
         <dict>
@@ -51,6 +51,8 @@
                     <key>usr</key>
                     <string>0755</string>
                     <key>usr/share</key>
+                    <string>0755</string>
+                    <key>usr/share/doc</key>
                     <string>0755</string>
                 </dict>
             </dict>
@@ -104,7 +106,7 @@
                 <key>source_path</key>
                 <string>%found_filename%/doc</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/usr/doc/libwebp</string>
+                <string>%pkgroot%/usr/share/doc/libwebp</string>
             </dict>
         </dict>
         <dict>

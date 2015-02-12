@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest libwebp, builds a package around it and installs it.</string>
 	<key>Identifier</key>
-	<string>com.github.jleggat.install.libwebp</string>
+	<string>com.github.jleggat.libwebp.install</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.pkg.libwebp</string>
+    <string>com.github.jleggat.libwebp.pkg</string>
     <key>Process</key>
     <array>
         <dict>

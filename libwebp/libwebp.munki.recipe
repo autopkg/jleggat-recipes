@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.munki.libwebp</string>
+	<string>com.github.jleggat.libwebp.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -41,7 +41,7 @@ Webmasters and web developers can use the WebP image format to create smaller an
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.pkg.libwebp</string>
+    <string>com.github.jleggat.libwebp.pkg</string>
     <key>Process</key>
     <array>
         <dict>

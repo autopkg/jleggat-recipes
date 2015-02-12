@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of libwebp.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.download.libwebp</string>
+    <string>com.github.jleggat.libwebp.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
