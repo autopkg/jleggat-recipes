@@ -124,8 +124,6 @@
                     <string>%RECIPE_CACHE_DIR%</string>
                     <key>id</key>
                     <string>%BUNDLEID%</string>
-                    <key>scripts</key>
-                    <string>Scripts</string>
                     <key>chown</key>
                     <array>
                         <dict>
@@ -138,7 +136,47 @@
                         </dict>
                         <dict>
                             <key>path</key>
-                            <string>usr/bin/libwebp</string>
+                            <string>usr/bin/cwebp</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+				<key>mode</key>
+				<string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/bin/dwebp</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+				<key>mode</key>
+				<string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/bin/gif2webp</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+				<key>mode</key>
+				<string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/bin/vwebp</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+				<key>mode</key>
+				<string>0755</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>usr/bin/webpmux</string>
                             <key>user</key>
                             <string>root</string>
                             <key>group</key>
