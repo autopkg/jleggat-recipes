@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.jleggat.pngout.munki</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>pngout</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>support/pngout</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>PNGOUT optimizes the size of .PNG files losslessly. It uses the same deflate compressor I wrote for KZIP.EXE (see below). With the right options, it can often beat other programs by 5-10%. That includes pngcrush -brute, optipng -o7, advpng -z4, etc.. PNGOUT is a great tool for optimizing the size of web pages or squeezing game content onto mobile devices. Almost all .PNG files on my website were optimized with PNGOUT. For a detailed description of the options, please check out the PNGOUT tutorial written by Kerry Watson.</string>
+            <key>display_name</key>
+            <string>pngout - optimizes the size of .PNG files losslessly.</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+			<key>category</key>
+			<string>System Utilities</string>
+			<key>developer</key>
+			<string>Ken Silverman</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstallable</key>
+			<true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.3</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.pngout.pkg</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
