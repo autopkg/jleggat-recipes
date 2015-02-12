@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.jleggat.munki.libwebp</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>libwebp</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>support/libwebp</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string></string>
+            <key>display_name</key>
+            <string>libwebp - </string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+			<key>category</key>
+			<string>System Utilities</string>
+			<key>developer</key>
+			<string>Google Developers</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstallable</key>
+			<true/>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.3</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.pkg.libwebp</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
