@@ -1,0 +1,72 @@
+#!/bin/bash
+
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin
+WEBMIN_D="${3}usr/libexec/webmin"
+
+tempdir=/tmp/.webmin
+
+# Change to source directory.
+cd "$WEBMIN_D"
+
+if [ -f "/etc/webmin/miniserv.conf" ]; then
+	sed -i'' -e '/atboot/d' /etc/webmin/miniserv.conf
+fi
+
+# Load default variables, the setup-pre.pl can override these.
+config_dir="${3}etc/webmin"
+var_dir="${3}var/webmin"
+perl=$(which perl)
+autoos=3
+port=10000
+login="csit"
+crypt='XX6O/ObkG4INk'
+host=$(hostname)
+ssl=1
+atboot=0
+nostart=1
+makeboot=0
+nochown=1
+autothird=1
+os_type=macos
+os_version=$(sysctl -n kern.osrelease 2>/dev/null | cut -d . -f 1,2)
+real_os_type=$(sw_vers -productName 2>/dev/null)
+real_os_version=$(sw_vers -productVersion 2>/dev/null | cut -d . -f 1,2)
+export config_dir var_dir perl autoos port login crypt host ssl nostart atboot makeboot nochown nofork autothird os_type os_version real_os_type real_os_version
+
+$perl "$WEBMIN_D/maketemp.pl"
+# Call the Webmin setup script.  Be sure to use the full path to command.
+"./setup.sh" > "$tempdir/webmin-setup.out" 2>&1 || exit 1
+chmod 600 "$tempdir/webmin-setup.out"
+
+if grep -vq nofork /etc/webmin/miniserv.conf; then
+  echo 'nofork=1' >> /etc/webmin/miniserv.conf
+fi
+
+# -----------------------------------------------------------
+# Create a script to run the uninstall script
+# 'Here document containing the body of the generated script.
+cat > "${3}etc/webmin/run-uninstall.sh" <<EOF
+#!/bin/bash
+
+[ -x /etc/webmin/uninstall.sh ] || exit 1
+
+#And now transfer the file over
+/usr/bin/expect -c '
+  set timeout 300
+  spawn /etc/webmin/uninstall.sh
+  expect "Are you sure you want to uninstall Webmin? (y/n) :"
+  send "y\n"
+  expect "Done!"
+  sleep 1
+  exit
+'
+
+/usr/sbin/pkgutil --forget com.webmin.Webmin
+exit 0
+EOF
+
+chmod 700 "${3}etc/webmin/run-uninstall.sh"
+chown root:wheel "${3}etc/webmin/run-uninstall.sh"
+
+launchctl load -w /Library/LaunchDaemons/com.webmin.webmin.plist
+
