@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Automatically generated preflight script to setup perl libs
+# prior to installation of with this
+# package.
+
+export FTP_PASSIVE=1
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin
+
+function install_module
+{
+	echo "cpanm --notest --sudo --skip-satisfied '$1'"
+	cpanm --notest --sudo --skip-satisfied "$1"
+}
+
+if ! which cpanm; then
+	curl -L -o /usr/bin/cpanm http://cpanmin.us
+	chmod +x /usr/bin/cpanm
+	# bootstrap and upgrade cpanm
+	cpanm --self-upgrade --sudo
+fi
+
+install_module ExtUtils::CBuilder
+install_module Authen::Libwrap
+install_module IO::Pty
+install_module Net::SSLeay
+install_module Authen::PAM
+
+# remove destination webmin directories if empty.
+[ "$(ls -A /etc/webmin)" ] || rm -rf /etc/webmin
+[ "$(ls -A /var/webmin)" ] || rm -rf /var/webmin
+
+if [ -f /Library/LaunchDaemons/com.webmin.webmin.plist ]; then
+	sudo launchctl unload -w /Library/LaunchDaemons/com.webmin.webmin.plist
+fi
+
+#stop Webmin if running
+/etc/webmin/stop
+
+exit 0

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of libwebp.</string>
+    <string>Downloads the current release version of Webmin.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.libwebp.download</string>
+    <string>com.github.jleggat.download.Webmin</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>libwebp</string>
+        <string>Webmin</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://developers.google.com/speed/webp/download</string>
-        <key>DOWNLOAD_PATTERN</key>
-       	<string>([^"]+libwebp-(?P&lt;version&gt;[0-9\.]+)-mac-.*\.tar\.gz)</string>
+        <string>http://sourceforge.net/projects/webadmin/rss</string>
+        <key>SEARCH_PATTERN</key>
+		<string>(http://.*/webmin-(?P&lt;version&gt;[0-9\.]+)\.zip/download)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -27,7 +27,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>re_pattern</key>
-        	<string>%DOWNLOAD_PATTERN%</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
 		<dict>
@@ -38,7 +38,7 @@
 				<key>url</key>
                 <string>%match%</string>
 				<key>filename</key>
-				<string>%NAME%.tar.gz</string>
+				<string>%NAME%.zip</string>
 			</dict>
 		</dict>
 		<dict>

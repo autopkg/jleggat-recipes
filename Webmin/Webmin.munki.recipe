@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.libwebp.munki</string>
+	<string>com.github.jleggat.munki.Webmin</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>libwebp</string>
+        <string>Webmin</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>support/libwebp</string>
+        <string>support/Webmin</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -17,11 +17,9 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>WebP is a new image format that provides lossless and lossy compression for images on the web. WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller in size compared to JPEG images at equivalent SSIM index. WebP supports lossless transparency (also known as alpha channel) with just 22% additional bytes. Transparency is also supported with lossy compression and typically provides 3x smaller file sizes compared to PNG when lossy compression is acceptable for the red/green/blue color channels.
-
-Webmasters and web developers can use the WebP image format to create smaller and richer images that can help make the web faster.</string>
+            <string>Webmin is a web-based interface for system administration for Unix. Using any modern web browser, you can setup user accounts, Apache, DNS, file sharing and much more. Webmin removes the need to manually edit Unix configuration files like /etc/passwd, and lets you manage a system from the console or remotely. </string>
             <key>display_name</key>
-            <string>libwebp - A new image format for the Web</string>
+            <string>Webmin - web-based interface for system administration for Unix</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
@@ -29,19 +27,23 @@ Webmasters and web developers can use the WebP image format to create smaller an
 			<key>category</key>
 			<string>System Utilities</string>
 			<key>developer</key>
-			<string>Google Developers</string>
+			<string>Jamie Cameron</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>unattended_uninstall</key>
 			<true/>
 			<key>uninstallable</key>
 			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>/etc/webmin/run-uninstall.sh</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.libwebp.pkg</string>
+    <string>com.github.jleggat.pkg.Webmin</string>
     <key>Process</key>
     <array>
         <dict>

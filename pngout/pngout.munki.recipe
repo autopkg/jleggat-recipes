@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.libwebp.munki</string>
+	<string>com.github.jleggat.pngout.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>libwebp</string>
+        <string>pngout</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>support/libwebp</string>
+        <string>support/pngout</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -17,11 +17,9 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>WebP is a new image format that provides lossless and lossy compression for images on the web. WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller in size compared to JPEG images at equivalent SSIM index. WebP supports lossless transparency (also known as alpha channel) with just 22% additional bytes. Transparency is also supported with lossy compression and typically provides 3x smaller file sizes compared to PNG when lossy compression is acceptable for the red/green/blue color channels.
-
-Webmasters and web developers can use the WebP image format to create smaller and richer images that can help make the web faster.</string>
+            <string>PNGOUT optimizes the size of .PNG files losslessly. It uses the same deflate compressor I wrote for KZIP.EXE (see below). With the right options, it can often beat other programs by 5-10%. That includes pngcrush -brute, optipng -o7, advpng -z4, etc.. PNGOUT is a great tool for optimizing the size of web pages or squeezing game content onto mobile devices. Almost all .PNG files on my website were optimized with PNGOUT. For a detailed description of the options, please check out the PNGOUT tutorial written by Kerry Watson.</string>
             <key>display_name</key>
-            <string>libwebp - A new image format for the Web</string>
+            <string>pngout - optimizes the size of .PNG files losslessly.</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
@@ -29,7 +27,7 @@ Webmasters and web developers can use the WebP image format to create smaller an
 			<key>category</key>
 			<string>System Utilities</string>
 			<key>developer</key>
-			<string>Google Developers</string>
+			<string>Ken Silverman</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>unattended_uninstall</key>
@@ -41,7 +39,7 @@ Webmasters and web developers can use the WebP image format to create smaller an
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.libwebp.pkg</string>
+    <string>com.github.jleggat.pngout.pkg</string>
     <key>Process</key>
     <array>
         <dict>

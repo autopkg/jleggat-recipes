@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.libwebp.pkg</string>
+	<string>com.github.jleggat.pngout.pkg</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>libwebp</string>
+        <string>pngout</string>
         <key>BUNDLEID</key>
-        <string>com.google.developers.libwebp</string>
+        <string>net.advysys.ken.pngout</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.libwebp.download</string>
+    <string>com.github.jleggat.pngout.download</string>
     <key>Process</key>
     <array>
         <dict>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/source/libwebp-*</string>
+                <string>%RECIPE_CACHE_DIR%/source/pngout-*</string>
             </dict>
         </dict>
         <dict>
@@ -50,63 +50,41 @@
                 <dict>
                     <key>usr</key>
                     <string>0755</string>
+                    <key>usr/bin</key>
+                    <string>0755</string>
                     <key>usr/share</key>
                     <string>0755</string>
                     <key>usr/share/doc</key>
+                    <string>0755</string>
+                    <key>usr/share/doc/pngout</key>
                     <string>0755</string>
                 </dict>
             </dict>
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Copy libwebp bin folder to /usr/bin</string>
+            <string>Copy pngout executable to /usr/bin</string>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%found_filename%/bin</string>
+                <string>%found_filename%/pngout</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/usr/bin</string>
+                <string>%pkgroot%/usr/bin/pngout</string>
             </dict>
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Copy libwebp include folder to /usr/include</string>
+            <string>Copy pngout readme file to /usr/share/doc/pngout</string>
             <key>Processor</key>
             <string>Copier</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%found_filename%/include</string>
+                <string>%found_filename%/readme.txt</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/usr/include</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Copy libwebp lib folder to /usr/lib</string>
-            <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%found_filename%/lib</string>
-                <key>destination_path</key>
-                <string>%pkgroot%/usr/lib</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Copy libwebp doc folder to /usr/share/doc/libwebp</string>
-            <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%found_filename%/doc</string>
-                <key>destination_path</key>
-                <string>%pkgroot%/usr/share/doc/libwebp</string>
+                <string>%pkgroot%/usr/share/doc/pngout/readme.txt</string>
             </dict>
         </dict>
         <dict>
@@ -138,47 +116,7 @@
                         </dict>
                         <dict>
                             <key>path</key>
-                            <string>usr/bin/cwebp</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/bin/dwebp</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/bin/gif2webp</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/bin/vwebp</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/bin/webpmux</string>
+                            <string>usr/bin/pngout</string>
                             <key>user</key>
                             <string>root</string>
                             <key>group</key>

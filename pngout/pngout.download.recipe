@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of libwebp.</string>
+    <string>Downloads the current release version of pngout.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.libwebp.download</string>
+    <string>com.github.jleggat.pngout.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>libwebp</string>
+        <string>pngout</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://developers.google.com/speed/webp/download</string>
+        <string>http://www.jonof.id.au/kenutils</string>
         <key>DOWNLOAD_PATTERN</key>
-       	<string>([^"]+libwebp-(?P&lt;version&gt;[0-9\.]+)-mac-.*\.tar\.gz)</string>
+       	<string>([^"]+pngout-(?P&lt;version&gt;[0-9]+)-darwin\.tar\.gz)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
