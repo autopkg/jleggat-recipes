@@ -32,7 +32,7 @@
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
         </dict>
-         <dict>
+        <dict>
             <key>Processor</key>
             <string>AdobeShockwaveVersioner</string>
             <key>Arguments</key>
@@ -42,11 +42,39 @@
             </dict>
         </dict>
         <dict>
-			<key>Arguments</key>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
             <dict>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>pkginfo</key>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/Shockwave12.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/Library</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Library/Internet Plug-Ins/DirectorShockwave.plugin</string>
+                </array>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
                 <dict>
                     <key>name</key>
                     <string>%NAME%</string>
@@ -69,6 +97,15 @@
                     <key>developer</key>
                     <string>Adobe</string>
                 </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
