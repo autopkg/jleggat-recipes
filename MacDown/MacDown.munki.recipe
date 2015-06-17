@@ -27,7 +27,7 @@
 			<key>developer</key>
 			<string>Tzu-ping Chung</string>
 	    <key>display_name</key>
-	    <string>MacDown</string>
+	    <string>MacDown Markdown editor</string>
 	    <key>name</key>
 	    <string>%NAME%</string>
 	    <key>unattended_install</key>
