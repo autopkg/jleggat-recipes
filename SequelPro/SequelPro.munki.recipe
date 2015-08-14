@@ -5,15 +5,15 @@
     <key>Description</key>
     <string>Downloads the current release version of SequelPro.</string>
     <key>Identifier</key>
-	<string>com.github.jleggat.SequelPro.munki</string>
+    <string>com.github.jleggat.SequelPro.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>SequelPro</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications/Utilities</string>
+        <key>APP_DESTINATION</key>
+        <string>/Applications/Utilities</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -28,10 +28,12 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
-    		<key>category</key>
-			<string>Developer Tools</string>
-			<key>developer</key>
-			<string>CocoaMySQL</string>
+            <key>category</key>
+            <string>Developer Tools</string>
+            <key>developer</key>
+            <string>CocoaMySQL</string>
+            <key>minimum_os_version</key>
+            <string>10.5</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -40,22 +42,22 @@
     <string>com.github.jleggat.SequelPro.download</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>additional_makepkginfo_options</key>
-				<array>
-					<string>--destinationpath</string>
-					<string>%APP_DESTINATION%</string>
-				</array>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+                <key>additional_makepkginfo_options</key>
+                <array>
+                    <string>--destinationpath</string>
+                    <string>%APP_DESTINATION%</string>
+                </array>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
     </array>
 </dict>
 </plist>
