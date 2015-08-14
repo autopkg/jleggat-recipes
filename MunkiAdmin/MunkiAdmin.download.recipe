@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Download recipe for MunkiAdmin.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.MunkiAdmin.download</string>
+    <string>com.github.jleggat.download.MunkiAdmin</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
