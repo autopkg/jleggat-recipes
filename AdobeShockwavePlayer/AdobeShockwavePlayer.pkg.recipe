@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.AdobeShockwavePlayer.pkg</string>
+	<string>com.github.jleggat.pkg.AdobeShockwavePlayer</string>
 	<key>Description</key>
 	<string>Packages Adobe Shockwave Player from downloaded disk image.</string>
 	<key>Input</key>
