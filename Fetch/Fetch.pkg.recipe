@@ -12,7 +12,7 @@ add a fetch license agreement to
 Set SERIALNUMBER to serial number provided in a Fetch license agreement.
 Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.Fetch.pkg</string>
+    <string>com.github.jleggat.pkg.Fetch</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
