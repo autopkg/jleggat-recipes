@@ -27,7 +27,7 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.Fetch.download</string>
+    <string>com.github.jleggat.download.Fetch</string>
     <key>Process</key>
     <array>
         <dict>
