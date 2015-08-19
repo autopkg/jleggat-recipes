@@ -42,7 +42,7 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
 		</dict>
 	</dict>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.Fetch.pkg</string>
+    <string>com.github.jleggat.pkg.Fetch</string>
 	<key>Process</key>
 	<array>
 		<dict>
