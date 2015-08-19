@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.jleggat.AdobeShockwavePlayer.pkg</string>
+	<string>com.github.jleggat.pkg.AdobeShockwavePlayer</string>
 	<key>Description</key>
 	<string>Packages Adobe Shockwave Player from downloaded disk image.</string>
 	<key>Input</key>
@@ -16,7 +16,7 @@
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.AdobeShockwavePlayer.download</string>
+    <string>com.github.jleggat.download.AdobeShockwavePlayer</string>
 	<key>Process</key>
 	<array>
         <dict>
