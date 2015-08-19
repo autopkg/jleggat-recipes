@@ -6,7 +6,7 @@
     <string>Downloads the latest Adobe Shockwave Player disk image, creates a mac installer pkg
  and installs it.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.AdobeShockwavePlayer.install</string>
+    <string>com.github.jleggat.install.AdobeShockwavePlayer</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -15,7 +15,7 @@
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.AdobeShockwavePlayer.pkg</string>
+    <string>com.github.jleggat.pkg.AdobeShockwavePlayer</string>
     <key>Process</key>
     <array>
         <dict>
