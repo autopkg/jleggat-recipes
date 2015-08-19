@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads latest Adobe Shockwave Player disk image from macromedia.com.</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.AdobeShockwavePlayer.download</string>
+    <string>com.github.jleggat.download.AdobeShockwavePlayer</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
