@@ -37,6 +37,8 @@ Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compata
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>http://sourceforge.net%match%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
