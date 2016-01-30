@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>ValidatorSAC</string>
         <key>SPARKLE_FEED_URL</key>
-        <string>http://habilis.net/download/validator-sac.xml</string>
+        <string>https://habilis.net/download/validator-sac.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
