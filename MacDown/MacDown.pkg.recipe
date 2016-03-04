@@ -7,11 +7,11 @@
     <key>Identifier</key>
     <string>com.github.jleggat.pkg.macdown</string>
     <key>Input</key>
-    <dict>
-	<key>NAME</key>
-	<string>MacDown</string>
-	<key>BUNDLEID</key>
-	<string>com.uranusjr.macdown</string>
+	<dict>
+		<key>NAME</key>
+		<string>MacDown</string>
+		<key>BUNDLEID</key>
+		<string>com.uranusjr.macdown</string>
     </dict>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.download.macdown</string>
@@ -38,7 +38,7 @@
 	    <key>Arguments</key>
 	    <dict>
 		<key>input_plist_path</key>
-		<string>%destination_path%/MacDown.app/Contents/Info.plist</string>
+		<string>%destination_path%/%NAME%.app/Contents/Info.plist</string>
 	    </dict>
 	</dict>
 	<dict>

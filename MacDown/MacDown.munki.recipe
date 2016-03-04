@@ -8,31 +8,31 @@
     <string>com.github.jleggat.munki.macdown</string>
     <key>Input</key>
     <dict>
-	<key>NAME</key>
-	<string>MacDown</string>
+		<key>NAME</key>
+		<string>MacDown</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Developer Tools</string>
-	<key>MUNKI_REPO_SUBDIR</key>
-	<string>apps</string>
-	<key>pkginfo</key>
-	<dict>
-	    <key>catalogs</key>
-	    <array>
-		<string>testing</string>
-	    </array>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-	    <key>description</key>
-	    <string>MacDown is an open source Markdown editor for OS X.</string>
-			<key>developer</key>
-			<string>Tzu-ping Chung</string>
-	    <key>display_name</key>
-	    <string>MacDown Markdown editor</string>
-	    <key>name</key>
-	    <string>%NAME%</string>
-	    <key>unattended_install</key>
-	    <true/>
-	</dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps</string>
+		<key>pkginfo</key>
+		<dict>
+		    <key>catalogs</key>
+		    <array>
+			<string>testing</string>
+		    </array>
+				<key>category</key>
+				<string>%MUNKI_CATEGORY%</string>
+		    <key>description</key>
+		    <string>MacDown is an open source Markdown editor for OS X.</string>
+				<key>developer</key>
+				<string>Tzu-ping Chung</string>
+		    <key>display_name</key>
+		    <string>MacDown Markdown editor</string>
+		    <key>name</key>
+		    <string>%NAME%</string>
+		    <key>unattended_install</key>
+		    <true/>
+		</dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.2</string>
