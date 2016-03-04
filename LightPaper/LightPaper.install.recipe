@@ -8,6 +8,8 @@
     <string>com.github.jleggat.install.lightpaper</string>
     <key>Input</key>
     <dict>
+		<key>NAME</key>
+		<string>LightPaper</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
@@ -17,22 +19,45 @@
     <array>
 	<dict>
 	    <key>Processor</key>
+	    <string>Unarchiver</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>archive_path</key>
+		<string>%pathname%</string>
+		<key>destination_path</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+		<key>purge_destination</key>
+		<true/>
+	    </dict>
+	</dict>
+	<dict>
+	    <key>Processor</key>
+	    <string>DmgCreator</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>dmg_root</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+		<key>dmg_path</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+	    </dict>
+	</dict>
+	<dict>
+	    <key>Processor</key>
 	    <string>InstallFromDMG</string>
 	    <key>Arguments</key>
 	    <dict>
 		<key>dmg_path</key>
-		<string>%pathname%</string>
+		<string>%dmg_path%</string>
 		<key>items_to_copy</key>
 		<array>
 		    <dict>
 			<key>source_item</key>
-			<string>LightPaper.app</string>
+			<string>%NAME%.app</string>
 			<key>destination_path</key>
 			<string>/Applications/</string>
 		    </dict>
 		</array>
 	    </dict>
 	</dict>
-    </array>
-</dict>
+    </array></dict>
 </plist>

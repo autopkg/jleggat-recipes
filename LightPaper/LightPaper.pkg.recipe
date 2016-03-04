@@ -8,47 +8,64 @@
 	<string>com.github.jleggat.pkg.lightpaper</string>
 	<key>Input</key>
     <dict>
-	<key>NAME</key>
-	<string>LightPaper</string>
+		<key>NAME</key>
+		<string>LightPaper</string>
+		<key>BUNDLEID</key>
+		<string>in.42squares.lightpaper</string>
     </dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
 	<key>ParentRecipe</key>
 	<string>com.github.jleggat.download.lightpaper</string>
-	<key>Process</key>
-	<array>
+    <key>Process</key>
+    <array>
 	<dict>
 	    <key>Processor</key>
-	    <string>AppDmgVersioner</string>
+	    <string>Unarchiver</string>
 	    <key>Arguments</key>
 	    <dict>
-		<key>dmg_path</key>
+		<key>archive_path</key>
 		<string>%pathname%</string>
+		<key>destination_path</key>
+		<string>%RECIPE_CACHE_DIR%/src/%NAME%</string>
+		<key>purge_destination</key>
+		<true/>
 	    </dict>
 	</dict>
+	<dict>
+	    <key>Comment</key>
+	    <string>Get version from the app</string>
+	    <key>Processor</key>
+	    <string>Versioner</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>input_plist_path</key>
+		<string>%destination_path%/%NAME%.app/Contents/Info.plist</string>
+	    </dict>
+	</dict>
+	<dict>
+	    <key>Processor</key>
+	    <string>PkgRootCreator</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>pkgroot</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+		<key>pkgdirs</key>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkgdirs</key>
-				<dict>
-					<key>Applications</key>
-					<string>0775</string>
-				</dict>
-				<key>pkgroot</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-			</dict>
-			<key>Processor</key>
-			<string>PkgRootCreator</string>
+		    <key>Applications</key>
+		    <string>0775</string>
 		</dict>
+	    </dict>
+	</dict>
 	<dict>
 	    <key>Processor</key>
 	    <string>Copier</string>
 	    <key>Arguments</key>
 	    <dict>
 		<key>source_path</key>
-		<string>%pathname%/%app_name%</string>
+		<string>%destination_path%/%NAME%.app</string>
 		<key>destination_path</key>
-		<string>%pkgroot%/Applications/%app_name%</string>
+		<string>%pkgroot%/Applications/%NAME%.app</string>
 	    </dict>
 	</dict>
 	<dict>
@@ -63,7 +80,7 @@
 		    <key>version</key>
 		    <string>%version%</string>
 		    <key>id</key>
-		    <string>%bundleid%</string>
+		    <string>%BUNDLEID%</string>
 		    <key>options</key>
 		    <string>purge_ds_store</string>
 		    <key>chown</key>
@@ -80,6 +97,6 @@
 		</dict>
 	    </dict>
 	</dict>
-	</array>
+    </array>
 </dict>
 </plist>

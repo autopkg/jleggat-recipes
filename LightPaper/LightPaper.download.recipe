@@ -11,9 +11,9 @@
 		<key>NAME</key>
 		<string>LightPaper</string>
 		<key>SEARCH_PATTERN</key>
-		<string>class="blue button" href="(?P&lt;url&gt;[^"]+)"</string>
+		<string>href="(?P&lt;url&gt;.*\?format=zip)"</string>
 		<key>SEARCH_URL</key>
-		<string>http://www.ashokgelal.com/lightpaper-for-mac/</string>
+		<string>http://lightpaper.42squares.in/</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
@@ -34,7 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%.zip</string>
 				<key>url</key>
 				<string>%url%</string>
 			</dict>

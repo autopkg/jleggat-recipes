@@ -8,6 +8,8 @@
 	<string>com.github.jleggat.munki.lightpaper</string>
 	<key>Input</key>
 	<dict>
+		<key>NAME</key>
+		<string>LightPaper</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Developer Tools</string>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -36,17 +38,44 @@
 	<string>0.4.2</string>
 	<key>ParentRecipe</key>
 	<string>com.github.jleggat.pkg.lightpaper</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
-	</array>
+    <key>Process</key>
+    <array>
+	<dict>
+	    <key>Processor</key>
+	    <string>Unarchiver</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>archive_path</key>
+		<string>%pathname%</string>
+		<key>destination_path</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+		<key>purge_destination</key>
+		<true/>
+	    </dict>
+	</dict>
+	<dict>
+	    <key>Processor</key>
+	    <string>DmgCreator</string>
+	    <key>Arguments</key>
+	    <dict>
+		<key>dmg_root</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+		<key>dmg_path</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+	    </dict>
+	</dict>
+	<dict>
+	    <key>Arguments</key>
+	    <dict>
+		<key>pkg_path</key>
+		<string>%dmg_path%</string>
+		<key>repo_subdirectory</key>
+		<string>%MUNKI_REPO_SUBDIR%</string>
+	    </dict>
+	    <key>Processor</key>
+	    <string>MunkiImporter</string>
+	</dict>
+    </array>
+
 </dict>
 </plist>
