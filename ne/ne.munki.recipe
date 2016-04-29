@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads ne text editor for OS X and import it into munki.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.ne.munki</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_CATEGORY</key>
+		<string>Developer Tools</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>utilities</string>
+		<key>NAME</key>
+		<string>ne</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>ne is a free (GPL'd) text editor based on the POSIX standard that runs (we hope) on almost any UN*X machine. ne is easy to use for the beginner, but powerful and fully configurable for the wizard, and most sparing in its resource usage. If you have the resources and the patience to use emacs or the right mental twist to use vi then probably ne is not for you.</string>
+            <key>display_name</key>
+            <string>ne text editor</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>developer</key>
+			<string>Sebastiano Vigna, Todd Lewis</string>
+		</dict>
+	</dict>
+    <key>MinimumVersion</key>
+    <string>0.2.3</string>
+    <key>ParentRecipe</key>
+    <string>com.github.jleggat.ne.pkg</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pkg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
