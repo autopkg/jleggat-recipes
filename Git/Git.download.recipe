@@ -17,7 +17,7 @@ Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compata
         	<key>MAJOR_OS_VERSION</key>
         	<string></string>
         	<key>SEARCH_PATTERN</key>
-		<string>href="(?P&lt;url&gt;.*%MAJOR_OS_VERSION%\.dmg.*)"</string>
+            <string>href="(.*/projects/git-osx-installer/files/git-.*%MAJOR_OS_VERSION%\.dmg.*)"</string>
 	</dict>
 	<key>Process</key>
 	<array>
@@ -38,7 +38,7 @@ Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compata
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://sourceforge.net%match%</string>
+				<string>%match%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
