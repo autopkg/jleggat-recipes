@@ -14,7 +14,7 @@
         <string>https://www.sequelpro.com/appcast/app-releases.xml</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>0.6.0</string>
     <key>Process</key>
     <array>
         <dict>
@@ -33,6 +33,17 @@
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/Sequel Pro.app</string>
+                <key>requirement</key>
+                <string>identifier "com.sequelpro.SequelPro" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "Y48LQG59RS"</string>
+            </dict>
         </dict>
     </array>
 </dict>
