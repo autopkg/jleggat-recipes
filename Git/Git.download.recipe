@@ -5,7 +5,8 @@
 	<key>Description</key>
 	<string>Downloads Git for OS X dmg from sourceforge.
 By default downloads version for the newest OS X release.
-Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compatability with OS X release.</string>
+Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compatability with OS X release.
+Note: Code signature verification on Git cannot be done at this time.</string>
 	<key>Identifier</key>
 	<string>com.github.jleggat.Git.download</string>
 	<key>Input</key>
@@ -13,7 +14,7 @@ Optionally specify MAJOR_OS_VERSION as "mavericks" or "snow-leopard" for compata
 		<key>NAME</key>
 		<string>Git</string>
         	<key>DOWNLOAD_URL</key>
-        	<string>http://sourceforge.net/projects/git-osx-installer/files/</string>
+        	<string>https://sourceforge.net/projects/git-osx-installer/files/</string>
         	<key>MAJOR_OS_VERSION</key>
         	<string></string>
         	<key>SEARCH_PATTERN</key>
