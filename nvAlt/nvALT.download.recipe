@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of nvALT.</string>
+    <string>Downloads the current release version of nvALT.
+    Note: Code signature verification is not possible for nvALT as this time.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.nvALT.download</string>
     <key>Input</key>
