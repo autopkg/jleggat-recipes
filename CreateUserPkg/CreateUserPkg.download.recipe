@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of CreateUserPkg.</string>
+    <string>Downloads the latest version of CreateUserPkg.
+    Note: CreateUserPkg has version 1 signature, so code signature verification cannot be done on this recipe.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.download.CreateUserPkg</string>
     <key>Input</key>
@@ -11,7 +12,7 @@
         <key>NAME</key>
         <string>CreateUserPkg</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://magervalp.github.io/CreateUserPkg</string>
+        <string>https://magervalp.github.io/CreateUserPkg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
