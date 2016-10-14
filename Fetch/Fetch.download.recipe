@@ -10,8 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Fetch</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://www.fetchsoftworks.com</string>
+        <key>SEARCH_URL</key>
+        <string>https://www.fetchsoftworks.com</string>
         <key>SEARCH_PATTERN</key>
         <string>[^"]+\.dmg[^"]*</string>
     </dict>
@@ -25,7 +25,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
             </dict>
@@ -36,7 +36,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%%match%</string>
+                <string>%SEARCH_URL%%match%</string>
                 <key>re_pattern</key>
                 <string>%SEARCH_PATTERN%</string>
             </dict>
@@ -47,7 +47,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-                <string>%DOWNLOAD_URL%%match%</string>
+                <string>%SEARCH_URL%%match%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
