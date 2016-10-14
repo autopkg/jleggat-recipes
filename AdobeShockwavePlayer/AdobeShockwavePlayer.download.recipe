@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>AdobeShockwavePlayer</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://fpdownload.macromedia.com/get/shockwave/default/english/macosx/latest/Shockwave_Installer_Full_64bit.dmg</string>
+        <string>https://fpdownload.macromedia.com/get/shockwave/default/english/macosx/latest/Shockwave_Installer_Full_64bit.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
