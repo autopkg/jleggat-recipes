@@ -2,49 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the current release version of Webmin.</string>
-    <key>Identifier</key>
-    <string>com.github.jleggat.download.Webmin</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>Webmin</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://sourceforge.net/projects/webadmin/rss</string>
-        <key>SEARCH_PATTERN</key>
-		<string>(http://.*/webmin-(?P&lt;version&gt;[0-9\.]+)\.zip/download)</string>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.2.3</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Webmin.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.download.Webmin</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Webmin</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>Process</key>
+	<array>
 		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-                <string>%match%</string>
-				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<key>SOURCEFORGE_FILE_PATTERN</key>
+				<string>usermin-webmail-[\d\.]+.tar.gz</string>
+				<key>SOURCEFORGE_PROJECT_ID</key>
+				<integer>17457</integer>
 			</dict>
+			<key>Processor</key>
+			<string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.tar.gz</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-    </array>
+	</array>
 </dict>
 </plist>
