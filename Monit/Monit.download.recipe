@@ -10,8 +10,8 @@
     <dict>
         <key>NAME</key>
         <string>Monit</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://mmonit.com/monit/</string>
+        <key>SEARCH_URL</key>
+        <string>https://mmonit.com/monit/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -23,7 +23,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
                 <string>dist/binary/.*/monit-.*-macosx-universal\.tar\.gz</string>
             </dict>
@@ -34,7 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-                <string>%DOWNLOAD_URL%%match%</string>
+                <string>%SEARCH_URL%%match%</string>
 				<key>filename</key>
 				<string>%NAME%.tar.gz</string>
 			</dict>
