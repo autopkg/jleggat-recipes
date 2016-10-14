@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>MenuMeters</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.ragingmenace.com/software/download/MenuMeters.dmg</string>
+        <string>https://www.ragingmenace.com/software/download/MenuMeters.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
