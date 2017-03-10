@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>macdown</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://macdown.uranusjr.com/download/latest/</string>
+		<string>https://macdown.uranusjr.com/download/latest/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>

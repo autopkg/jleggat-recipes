@@ -13,7 +13,7 @@
 		<key>FILE_PATTERN</key>
 		<string>.*\.zip</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://sourceforge.net/projects/packageuninstaller/rss</string>
+		<string>https://sourceforge.net/projects/packageuninstaller/rss</string>
 	</dict>
 	<key>Process</key>
 	<array>

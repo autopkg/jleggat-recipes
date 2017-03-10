@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>ack</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://beyondgrep.com</string>
+        <string>https://beyondgrep.com</string>
         <key>DOWNLOAD_PATTERN</key>
        	<string>&lt;a href="(ack-.*-single-file)"</string>
     </dict>
