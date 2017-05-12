@@ -30,13 +30,24 @@
                 <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%SEARCH_URL%%match%</string>
+                <key>re_pattern</key>
+                <string>%SEARCH_PATTERN%</string>
+            </dict>
+        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-                <string>%SEARCH_URL%%match%</string>
+                <string>%SEARCH_URL%%match%?direct=1</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
