@@ -17,26 +17,22 @@
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%APP_URL%</string>
-                <key>re_pattern</key>
-                <string>https://.*/download/.*/Postgres-.*\.zip</string>
-            </dict>
-        </dict>
+      <dict>
+          <key>Processor</key>
+          <string>SparkleUpdateInfoProvider</string>
+          <key>Arguments</key>
+          <dict>
+              <key>appcast_url</key>
+              <string>https://postgresapp.com/sparkle/updates.xml</string>
+          </dict>
+      </dict>
         <dict>
 			<key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-				<key>url</key>
-                <string>%match%</string>
                 <key>filename</key>
-                <string>%NAME%.zip</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
