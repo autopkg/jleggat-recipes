@@ -5,15 +5,15 @@
     <key>Description</key>
     <string>Downloads the current release version of Postgres.app.</string>
     <key>Identifier</key>
-	<string>com.github.jleggat.PostgresApp.munki</string>
+	   <string>com.github.jleggat.PostgresApp.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>PostgresApp</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications</string>
+    		<key>APP_DESTINATION</key>
+    		<string>/Applications</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -28,10 +28,10 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
-			<key>category</key>
-			<string>Developer Tools</string>
-			<key>developer</key>
-			<string>PostgreSQL Global Development Group</string>
+      			<key>category</key>
+      			<string>Developer Tools</string>
+      			<key>developer</key>
+      			<string>PostgreSQL Global Development Group</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -39,44 +39,18 @@
     <key>ParentRecipe</key>
     <string>com.github.jleggat.PostgresApp.download</string>
     <key>Process</key>
-	<array>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>DmgCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>dmg_megabytes</key>
-				<string>250</string>
-			</dict>
-		</dict>
-		<dict>
-    	<key>Processor</key>
-			<string>MunkiImporter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-		</dict>
-	</array>
+  	<array>
+  		<dict>
+      	<key>Processor</key>
+  			<string>MunkiImporter</string>
+  			<key>Arguments</key>
+  			<dict>
+  				<key>pkg_path</key>
+  				<string>%pathname%</string>
+  				<key>repo_subdirectory</key>
+  				<string>%MUNKI_REPO_SUBDIR%</string>
+  			</dict>
+  		</dict>
+  	</array>
 </dict>
 </plist>
