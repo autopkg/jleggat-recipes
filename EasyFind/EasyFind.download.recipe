@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>EasyFind</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://www.devontechnologies.com/download/products.html</string>
+		<string>https://www.devontechnologies.com/apps/freeware</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -25,7 +25,7 @@
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
 				<key>re_pattern</key>
-				<string>[^"]+EasyFind\.app\.zip</string>
+				<string>'(https://.*EasyFind\.app\.zip)'</string>
 			</dict>
 		</dict>
 		<dict>
