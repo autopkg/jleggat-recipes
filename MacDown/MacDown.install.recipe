@@ -52,7 +52,7 @@
 		<array>
 		    <dict>
 			<key>source_item</key>
-			<string>%NAME%.app</string>
+			<string>MacDown.app</string>
 			<key>destination_path</key>
 			<string>/Applications/</string>
 		    </dict>
