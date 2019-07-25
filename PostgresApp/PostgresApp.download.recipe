@@ -10,8 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>PostgresApp</string>
-        <key>APP_URL</key>
-        <string>http://postgresapp.com/</string>
+        <!--Postgres.app with PostgreSQL 11 binary: https://postgresapp.com/sparkle/updates_11.xml
+        Postgres.app with PostgreSQL 9.5, 9.6, 10 and 11 binaries: https://postgresapp.com/sparkle/updates_9.5_9.6_10_11.xml-->
+        <key>appcast_url</key>
+        <string>https://postgresapp.com/sparkle/updates_9.5_9.6_10_11.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -23,7 +25,7 @@
           <key>Arguments</key>
           <dict>
               <key>appcast_url</key>
-              <string>https://postgresapp.com/sparkle/updates.xml</string>
+              <string>%APPCAST_URL%</string>
           </dict>
       </dict>
         <dict>
