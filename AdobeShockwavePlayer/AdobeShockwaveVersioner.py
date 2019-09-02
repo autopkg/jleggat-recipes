@@ -16,11 +16,10 @@
 
 
 from __future__ import absolute_import
-import os.path
+
 from xml.etree import ElementTree
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["AdobeShockwaveVersioner"]
 

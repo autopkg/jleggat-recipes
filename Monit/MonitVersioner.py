@@ -15,11 +15,12 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import os.path
-import subprocess
-import re
-from autopkglib import Processor, ProcessorError
 
+import os.path
+import re
+import subprocess
+
+from autopkglib import Processor, ProcessorError
 
 __all__ = ["MonitVersioner"]
 
