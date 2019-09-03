@@ -55,7 +55,7 @@ class AdobeShockwaveVersioner(Processor):
                 id = node.attrib.get('packageIdentifier')
 
             return v.strip('"|\''), id.strip('.pkg')
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError('Could not retrieve Version from %s' % file)
 
     def main(self):
