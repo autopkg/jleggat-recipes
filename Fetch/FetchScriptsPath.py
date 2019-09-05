@@ -14,10 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import glob
-import os
-from autopkglib import Processor, ProcessorError
+from __future__ import absolute_import
 
+import os
+
+from autopkglib import Processor, ProcessorError
 
 __all__ = ["FetchScriptsPath"]
 
@@ -44,7 +45,7 @@ class FetchScriptsPath(Processor):
         dirpath = os.path.join(basepath, dirname)
         if os.path.isdir(dirpath):
             return os.path.abspath(dirpath)
-        return None 
+        return None
 
 
     def main(self):

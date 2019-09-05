@@ -15,11 +15,11 @@
 # limitations under the License.
 
 
-import os.path
+from __future__ import absolute_import
+
 from xml.etree import ElementTree
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["AdobeShockwaveVersioner"]
 
@@ -55,7 +55,7 @@ class AdobeShockwaveVersioner(Processor):
                 id = node.attrib.get('packageIdentifier')
 
             return v.strip('"|\''), id.strip('.pkg')
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError('Could not retrieve Version from %s' % file)
 
     def main(self):

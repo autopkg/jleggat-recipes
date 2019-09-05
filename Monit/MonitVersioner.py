@@ -14,11 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os.path
-import subprocess
-import re
-from autopkglib import Processor, ProcessorError
+from __future__ import absolute_import
 
+import os.path
+import re
+import subprocess
+
+from autopkglib import Processor, ProcessorError
 
 __all__ = ["MonitVersioner"]
 
