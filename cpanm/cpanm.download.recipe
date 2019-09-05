@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>cpanm</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://xrl.us/cpanm</string>
+        <string>https://xrl.us/cpanm</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
