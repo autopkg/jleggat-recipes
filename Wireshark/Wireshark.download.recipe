@@ -41,6 +41,15 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Wireshark.app/Contents/Info.plist</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
@@ -49,13 +58,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/Wireshark*.pkg</string>
-				<key>expected_authority_names</key>
-				<array>
-					<string>Developer ID Installer: Wireshark Foundation, Inc. (7Z6EMTD2C6)</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
-				</array>
+				<string>%pathname%/Wireshark.app</string>
+				<key>requirement</key>
+				<string>identifier "org.wireshark.Wireshark" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7Z6EMTD2C6"</string>
 			</dict>
 		</dict>
 	</array>

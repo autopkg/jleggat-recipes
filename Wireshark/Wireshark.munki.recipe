@@ -12,8 +12,6 @@
 		<string>apps</string>
 		<key>NAME</key>
 		<string>Wireshark</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -40,58 +38,14 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
-			<key>Arguments</key>
-			<dict>
-				<key>flat_pkg_path</key>
-				<string>%pathname%/*.pkg</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/wireshark.pkg/Payload</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/Applications</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%</string>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Applications/Wireshark.app</string>
-				</array>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
 			<key>Arguments</key>
 			<dict>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Comment</key>
-			<string>Delete the artifacts from package extract and payload unpack</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/unpack</string>
-					<string>%RECIPE_CACHE_DIR%/Applications</string>
-				</array>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -101,11 +55,6 @@
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>additional_makepkginfo_options</key>
-				<array>
-					<string>--destinationpath</string>
-					<string>%APP_DESTINATION%</string>
-				</array>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
