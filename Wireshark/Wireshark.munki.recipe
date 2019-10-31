@@ -28,12 +28,18 @@
 			<string>Network Utilities</string>
 			<key>developer</key>
 			<string>Wireshark Foundation</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/bash
+                # Add directory traversal for the entire application and ensure 
+                # all executables are executable by group and other
+                /bin/chmod -R go+rX /Applications/Wireshark.app
+            </string>
 			<key>minimum_os_version</key>
 			<string>10.12.0</string>
 		</dict>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.jleggat.Wireshark.download</string>
+	<string>com.github.jleggat.pkg.Wireshark</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -52,7 +58,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
+				<string>%pkg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
