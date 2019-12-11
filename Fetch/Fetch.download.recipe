@@ -13,7 +13,7 @@
         <key>SEARCH_URL</key>
         <string>https://fetchsoftworks.com</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;fetch/download/Fetch_(?P&lt;version&gt;[0-9.]+)\.dmg)</string>
+        <string>(?P&lt;url&gt;fetch/download/Fetch_(?P&lt;version&gt;[0-9.]+)\.zip)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -38,7 +38,7 @@
                 <key>url</key>
                 <string>%SEARCH_URL%/%match%?direct=1</string>
                 <key>filename</key>
-                <string>%NAME%-%version%.dmg</string>
+                <string>%NAME%-%version%.zip</string>
             </dict>
         </dict>
         <dict>
