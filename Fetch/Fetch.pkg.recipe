@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-	<string>Downloads the latest Fetch from Fetch Softworks website and creates a Apple installer pkg.
+    <string>Downloads the latest Fetch from Fetch Softworks website and creates a Apple installer pkg.
 
 Optional Values SERIALNUMBER and REGISTRANTNAME when both provided will 
 add a fetch license agreement to 
@@ -46,13 +46,15 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
         </dict>
         <dict>
             <key>Processor</key>
-            <string>Copier</string>
+            <string>Unarchiver</string>
             <key>Arguments</key>
             <dict>
-                <key>source_path</key>
-                <string>%pathname%/Fetch.app</string>
+                <key>archive_path</key>
+                <string>%pathname%</string>
                 <key>destination_path</key>
-                <string>%pkgroot%/Applications/Fetch.app</string>
+                <string>%pkgroot%/Applications/</string>
+                <key>purge_destination</key>
+                <true/>
             </dict>
         </dict>
         <dict>
@@ -85,8 +87,7 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
                 <key>file_content</key>
                 <string>#!/bin/bash
 serialnumber="%SERIALNUMBER%"
-registrantname="%REGISTRANTNAME%"
-</string>
+registrantname="%REGISTRANTNAME%"</string>
                 <key>file_path</key>
                 <string>%RECIPE_CACHE_DIR%/Scripts/conf.txt</string>
             </dict>
@@ -100,14 +101,14 @@ registrantname="%REGISTRANTNAME%"
                 <dict>
                     <key>pkgname</key>
                     <string>%NAME%-%version%</string>
-                	<key>pkgroot</key>
-               		<string>%pkgroot%</string>
+                    <key>pkgroot</key>
+                    <string>%pkgroot%</string>
                     <key>version</key>
                     <string>%version%</string>
                     <key>id</key>
                     <string>%BUNDLEID%</string>
-               	<key>scripts</key>
-               	<string>%RECIPE_CACHE_DIR%/Scripts</string>
+                <key>scripts</key>
+                <string>%RECIPE_CACHE_DIR%/Scripts</string>
                     <key>chown</key>
                     <array>
                         <dict>
