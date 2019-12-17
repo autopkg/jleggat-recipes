@@ -30,10 +30,12 @@
 			<string>Wireshark Foundation</string>
 			<key>postinstall_script</key>
 			<string>#!/bin/bash
-                # Add directory traversal for the entire application and ensure 
-                # all executables are executable by group and other
-                /bin/chmod -R go+rX /Applications/Wireshark.app
-            </string>
+if [ -d "/Applications/Wireshark.app" ]; then
+	# Add directory traversal for the entire application and ensure 
+	# all executables are executable by group and other
+	/bin/chmod -R u=rwX,go=rX /Applications/Wireshark.app
+fi
+			</string>
 			<key>minimum_os_version</key>
 			<string>10.12.0</string>
 		</dict>
