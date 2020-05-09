@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads latest MacDown archive and builds a package.</string>
-    <key>Identifier</key>
-    <string>com.github.jleggat.pkg.macdown</string>
-    <key>Input</key>
+	<key>Description</key>
+	<string>Downloads latest MacDown archive and builds a package.</string>
+	<key>Identifier</key>
+	<string>com.github.jleggat.pkg.macdown</string>
+	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>MacDown</string>
 		<key>BUNDLEID</key>
 		<string>com.uranusjr.macdown</string>
-    </dict>
-    <key>ParentRecipe</key>
-    <string>com.github.jleggat.download.macdown</string>
+		<key>NAME</key>
+		<string>MacDown</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.jleggat.download.macdown</string>
 	<key>Process</key>
 	<array>
 		<dict>
