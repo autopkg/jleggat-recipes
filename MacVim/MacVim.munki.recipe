@@ -4,8 +4,8 @@
 <dict>
     <key>Description</key>
     <string>Downloads the current release version of MacVim where MAJOR_OS_VERSION is Snow-Leopard, Mountain-Lion or Mavericks (default).</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.MacVim.munki</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.MacVim.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -18,6 +18,8 @@
             <array>
                 <string>testing</string>
             </array>
+            <key>category</key>
+            <string>Text Editors</string>
             <key>description</key>
             <string>MacVim supports multiple windows with tabbed editing and a host of other features such as:
 
@@ -28,29 +30,27 @@
 * ODB editor support,
 
 and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac OS X.</string>
+            <key>developer</key>
+            <string>Björn Winckler</string>
             <key>display_name</key>
             <string>Vim - the text editor - for Mac OS X </string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
-			<key>category</key>
-			<string>Text Editors</string>
-			<key>developer</key>
-			<string>Björn Winckler</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.MacVim.pkg</string>
+    <string>com.github.jleggat.MacVim.download</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%pkg_path%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
