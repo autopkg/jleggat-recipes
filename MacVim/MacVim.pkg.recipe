@@ -4,8 +4,8 @@
 <dict>
     <key>Description</key>
     <string>Downloads the current release version of MacVim where MAJOR_OS_VERSION is Snow-Leopard, Mountain-Lion or Mavericks (default).</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.MacVim.pkg</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.MacVim.pkg</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -21,33 +21,18 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>Unarchiver</string>
+            <string>PlistReader</string>
             <key>Arguments</key>
             <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/source</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>FileFinder</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/source/MacVim-*</string>
-            </dict>
-        </dict>
-         <dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%found_filename%/MacVim.app/Contents/Info.plist</string>
+                <key>info_path</key>
+                <string>%pathname%/MacVim.app/Contents/Info.plist</string>
+                <key>plist_keys</key>
+                <dict>
+                    <key>CFBundleShortVersionString</key>
+                    <string>version</string>
+                    <key>LSMinimumSystemVersion</key>
+                    <string>min_os_version</string>
+                </dict>
             </dict>
         </dict>
         <dict>
@@ -56,7 +41,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/build/%NAME%</string>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
                 <key>pkgdirs</key>
                 <dict>
                     <key>Applications</key>
@@ -78,7 +63,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%found_filename%/MacVim.app</string>
+                <string>%pathname%/MacVim.app</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Applications/MacVim.app</string>
             </dict>
@@ -91,7 +76,7 @@
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%found_filename%/mvim</string>
+                <string>%pathname%/MacVim.app/Contents/bin/mvim</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/local/bin/mvim</string>
             </dict>
@@ -131,10 +116,10 @@
             <dict>
                 <key>pkg_request</key>
                 <dict>
-        	        <key>pkgname</key>
-        	        <string>%NAME%-%version%</string>
-                	<key>version</key>
-                	<string>%version%</string>
+                    <key>pkgname</key>
+                    <string>%NAME%-%version%</string>
+                    <key>version</key>
+                    <string>%version%</string>
                     <key>id</key>
                     <string>%BUNDLEID%</string>
                     <key>chown</key>
@@ -162,8 +147,8 @@
                             <string>root</string>
                             <key>group</key>
                             <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
+                            <key>mode</key>
+                            <string>0755</string>
                         </dict>
                     </array>
                 </dict>
