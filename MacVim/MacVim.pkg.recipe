@@ -70,39 +70,39 @@
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Copy mvim to /usr/local/bin</string>
+            <string>Symlink /Applications/MacVim.app/Contents/bin/mvim to /usr/local/bin/vim</string>
             <key>Processor</key>
-            <string>Copier</string>
+            <string>Symlinker</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>%pathname%/MacVim.app/Contents/bin/mvim</string>
+                <string>/Applications/MacVim.app/Contents/bin/mvim</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/local/bin/mvim</string>
             </dict>
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Symlink /usr/local/bin/mvim to /usr/local/bin/vim</string>
+            <string>Symlink /Applications/MacVim.app/Contents/bin/mvim to /usr/local/bin/vim</string>
             <key>Processor</key>
             <string>Symlinker</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>/usr/local/bin/mvim</string>
+                <string>/Applications/MacVim.app/Contents/bin/mvim</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/local/bin/vim</string>
             </dict>
         </dict>
         <dict>
             <key>Comment</key>
-            <string>Symlink /usr/local/bin/mvim to /usr/local/bin/vi</string>
+            <string>Symlink /Applications/MacVim.app/Contents/bin/mvim to /usr/local/bin/vi</string>
             <key>Processor</key>
             <string>Symlinker</string>
             <key>Arguments</key>
             <dict>
                 <key>source_path</key>
-                <string>/usr/local/bin/mvim</string>
+                <string>/Applications/MacVim.app/Contents/bin/mvim</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/usr/local/bin/vi</string>
             </dict>
