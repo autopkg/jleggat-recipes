@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the current release version of MacVim where MAJOR_OS_VERSION is Snow-Leopard, Mountain-Lion or Mavericks (default).</string>
     <key>Identifier</key>
-    <string>com.github.jleggat.MacVim.munki</string>
+    <string>com.github.jleggat.MacVimpkg.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -43,14 +43,26 @@ and more. Most importantly, MacVim brings you the full power of Vim 7.4 to Mac O
     <key>MinimumVersion</key>
     <string>0.3.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.MacVim.download</string>
+    <string>com.github.jleggat.MacVim.pkg</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Arguments</key>
             <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>minimum_os_version</key>
+                    <string>%min_os_version%</string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
                 <key>pkg_path</key>
-                <string>%pathname%</string>
+                <string>%pkg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
