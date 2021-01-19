@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>SiteSucker</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://sitesucker.us/archive/latest/SiteSucker.dmg</string>
+        <string>https://sitesucker.us/archive/latest/SiteSucker.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
