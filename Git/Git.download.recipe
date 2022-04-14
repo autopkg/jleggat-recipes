@@ -16,8 +16,8 @@ Note: Code signature verification on Git cannot be done at this time.</string>
         	<key>DOWNLOAD_URL</key>
         	<string>https://sourceforge.net/projects/git-osx-installer/files/</string>
         	<key>SEARCH_PATTERN</key>
-            <string>href="(.*/projects/git-osx-installer/files/git-.*%MAJOR_OS_VERSION%\.dmg/download)"</string>
-	</dict>
+			<string>href="(https:\/\/sourceforge.net\/projects\/git-osx-installer\/files\/git-[\.\d]+-intel-universal-mavericks\.dmg\/download)"</string>
+		</dict>
 	<key>Process</key>
 	<array>
 	       <dict>
