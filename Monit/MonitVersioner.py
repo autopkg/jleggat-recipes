@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/autopkg/python
 #
 # Copyright 2013 Jeremy Leggat, 2010 Per Olofsson
 #
