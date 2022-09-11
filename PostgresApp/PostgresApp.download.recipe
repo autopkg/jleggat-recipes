@@ -10,10 +10,10 @@
     <dict>
         <key>NAME</key>
         <string>PostgresApp</string>
-        <!--Postgres.app with PostgreSQL 11 binary: https://postgresapp.com/sparkle/updates_11.xml
-        Postgres.app with PostgreSQL 9.5, 9.6, 10 and 11 binaries: https://postgresapp.com/sparkle/updates_9.5_9.6_10_11.xml-->
+        <!--Postgres.app with PostgreSQL 14 binary: https://postgresapp.com/sparkle/updates_14.xml
+        Postgres.app with PostgreSQL 10, 11, 12, 13, 14 and 15 binaries: https://postgresapp.com/sparkle/updates_10_11_12_13_14_15.xml-->
         <key>release</key>
-        <string>https://postgresapp.com/sparkle/updates_9.5_9.6_10_11.xml</string>
+        <string>https://postgresapp.com/sparkle/updates_10_11_12_13_14_15.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
