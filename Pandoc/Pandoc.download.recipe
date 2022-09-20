@@ -10,34 +10,31 @@
 	<dict>
 		<key>NAME</key>
 		<string>Pandoc</string>
-		<key>SEARCH_PATTERN</key>
-		<string>(?P&lt;url&gt;/jgm/pandoc/releases/download/(?P&lt;version&gt;.*?)/pandoc-.*?.pkg)</string>
-		<key>SEARCH_URL</key>
-		<string>https://github.com/jgm/pandoc/releases</string>
+		<key>GITHUB_REPO</key>
+		<string>jgm/pandoc</string>
+		<key>ASSET_REGEX</key>
+		<string>pandoc-.*-macOS.pkg</string>
+		<key>INCLUDE_PRERELEASES</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.4.2</string>
+	<string>0.5.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>re_pattern</key>
-				<string>%SEARCH_PATTERN%</string>
-				<key>url</key>
-				<string>%SEARCH_URL%</string>
+				<key>asset_regex</key>
+				<string>%ASSET_REGEX%</string>
+				<key>github_repo</key>
+				<string>%GITHUB_REPO%</string>
+				<key>include_prereleases</key>
+				<string>%INCLUDE_PRERELEASES%</string>
 			</dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%.pkg</string>
-				<key>url</key>
-				<string>https://github.com%url%</string>
-			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 		</dict>
