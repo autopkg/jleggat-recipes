@@ -10,34 +10,33 @@
 	<dict>
 		<key>NAME</key>
 		<string>MunkiAdmin</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://github.com</string>
+		<key>GITHUB_REPO</key>
+		<string>hjuutilainen/munkiadmin</string>
+		<key>ASSET_REGEX</key>
+		<string>MunkiAdmin.*dmg</string>
+		<key>INCLUDE_PRERELEASES</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.5.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%/hjuutilainen/munkiadmin/releases</string>
-				<key>re_pattern</key>
-				<string>/hjuutilainen/munkiadmin/releases/download/.*\.dmg</string>
+				<key>asset_regex</key>
+				<string>%ASSET_REGEX%</string>
+				<key>github_repo</key>
+				<string>%GITHUB_REPO%</string>
+				<key>include_prereleases</key>
+				<string>%INCLUDE_PRERELEASES%</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%%match%</string>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
