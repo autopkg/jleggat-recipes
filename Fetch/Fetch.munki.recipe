@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads the latest Fetch from Fetch Softworks website, creates a Apple installer pkg and imports into Munki.
+    <key>Description</key>
+    <string>Downloads the latest Fetch from Fetch Softworks website, creates a Apple installer pkg and imports into Munki.
 
 Optional Values SERIALNUMBER and REGISTRANTNAME when both provided will 
 add a fetch license agreement to 
@@ -11,55 +11,84 @@ add a fetch license agreement to
 
 Set SERIALNUMBER to serial number provided in a Fetch license agreement.
 Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.Fetch.munki</string>
-	<key>Input</key>
-	<dict>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/Fetch</string>
-		<key>NAME</key>
-		<string>Fetch</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications</string>
-		<key>pkginfo</key>
-		<dict>
-			<key>blocking_applications</key>
-			<array>
-				<string>Fetch.app</string>
-			</array>
-			<key>catalogs</key>
-			<array>
-				<string>testing</string>
-			</array>
-			<key>description</key>
-			<string>Fetch is a full-featured FTP, SFTP and FTPS (FTP with TLS/SSL) client with a simple and easy-to-use interface.</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.Fetch.munki</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/Fetch</string>
+        <key>NAME</key>
+        <string>Fetch</string>
+        <key>APP_DESTINATION</key>
+        <string>/Applications</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>Fetch.app</string>
+            </array>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Fetch is a full-featured FTP, SFTP and FTPS (FTP with TLS/SSL) client with a simple and easy-to-use interface.</string>
             <key>display_name</key>
             <string>Fetch - Full featured file transfer client</string>
-			<key>name</key>
-			<string>%NAME%</string>
-			<key>unattended_install</key>
-			<true/>
-			<key>category</key>
-			<string>SFTP Clients</string>
-			<key>developer</key>
-			<string>Fetch Softworks</string>
-		</dict>
-	</dict>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>category</key>
+            <string>SFTP Clients</string>
+            <key>developer</key>
+            <string>Fetch Softworks</string>
+        </dict>
+    </dict>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.pkg.Fetch</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%pkg_path%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
-	</array>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%pkgroot%</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/Fetch.app</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%pkgroot%</string>
+                    <string>%RECIPE_CACHE_DIR%/Scripts</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
 </dict>
 </plist>
