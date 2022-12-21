@@ -5,16 +5,20 @@
     <key>Description</key>
     <string>Downloads the latest Fetch from Fetch Softworks website, creates a Apple installer pkg and imports into Munki.
 
-Optional Values SERIALNUMBER and REGISTRANTNAME when both provided will 
-add a fetch license agreement to 
+Optional Values SERIALNUMBER and REGISTRANTNAME when both provided will
+add a fetch license agreement to
 /Library/Preferences/com.fetchsoftworks.Fetch.License.plist.
 
 Set SERIALNUMBER to serial number provided in a Fetch license agreement.
-Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
+Set REGISTRANTNAME to name used to register a Fetch license agreement.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
     <key>Identifier</key>
     <string>com.github.jleggat.Fetch.munki</string>
     <key>Input</key>
     <dict>
+        <key>DERIVE_MIN_OS</key>
+        <string>YES</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Fetch</string>
         <key>NAME</key>
@@ -45,6 +49,8 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
             <string>Fetch Softworks</string>
         </dict>
     </dict>
+    <key>MinimumVersion</key>
+    <string>2.7</string>
     <key>ParentRecipe</key>
     <string>com.github.jleggat.pkg.Fetch</string>
     <key>Process</key>
@@ -60,6 +66,8 @@ Set REGISTRANTNAME to name used to register a Fetch license agreement.</string>
                 <array>
                     <string>/Applications/Fetch.app</string>
                 </array>
+                <key>derive_minimum_os_version</key>
+                <string>%DERIVE_MIN_OS%</string>
             </dict>
         </dict>
         <dict>
