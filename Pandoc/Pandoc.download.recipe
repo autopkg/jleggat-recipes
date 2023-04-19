@@ -10,10 +10,12 @@
 	<dict>
 		<key>NAME</key>
 		<string>Pandoc</string>
+		<key>ARCH</key>
+		<string>x86_64</string>
 		<key>GITHUB_REPO</key>
 		<string>jgm/pandoc</string>
 		<key>ASSET_REGEX</key>
-		<string>pandoc-.*-macOS.pkg</string>
+		<string>pandoc-.*%ARCH%-macOS.pkg</string>
 		<key>INCLUDE_PRERELEASES</key>
 		<string></string>
 	</dict>

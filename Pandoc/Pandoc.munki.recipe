@@ -8,6 +8,8 @@
 	<string>com.github.jleggat.munki.pandoc</string>
 	<key>Input</key>
 	<dict>
+		<key>ARCH</key>
+		<string>x86_64</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Developer Tools</string>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -30,6 +32,8 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>supported_architecture</key>
+			<string>%ARCH%</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
