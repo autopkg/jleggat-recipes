@@ -13,7 +13,7 @@
         <!--Postgres.app with PostgreSQL 14 binary: https://postgresapp.com/sparkle/updates_14.xml
         Postgres.app with PostgreSQL 10, 11, 12, 13, 14 and 15 binaries: https://postgresapp.com/sparkle/updates_10_11_12_13_14_15.xml-->
         <key>release</key>
-        <string>https://postgresapp.com/sparkle/updates_10_11_12_13_14_15.xml</string>
+        <string>https://postgresapp.com/sparkle/updates_11_12_13_14_15_16.xml</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
