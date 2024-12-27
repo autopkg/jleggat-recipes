@@ -9,14 +9,14 @@
         <key>NAME</key>
         <string>sqlitebrowser</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://sqlitebrowser.org</string>
+        <string>https://sqlitebrowser.org/dl/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-       <dict>
-	<key>Processor</key>
+        <dict>
+            <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
