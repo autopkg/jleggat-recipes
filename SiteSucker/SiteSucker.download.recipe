@@ -19,6 +19,15 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>The latest version of SiteSucker is only available via the Mac App Store (details: https://ricks-apps.com/osx/sitesucker/index.html). This recipe is deprecated and will be removed in the future.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
