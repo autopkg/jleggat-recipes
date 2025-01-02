@@ -14,9 +14,18 @@
         <string>https://freemacsoft.net/appcleaner/Updates.xml</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.3</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Consider switching to the AppCleaner recipes in the d33t5-recipes repo. This recipe is deprecated and will be removed in the future.</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>SparkleUpdateInfoProvider</string>
