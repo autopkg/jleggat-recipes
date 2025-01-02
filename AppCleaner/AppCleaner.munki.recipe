@@ -4,16 +4,16 @@
 <dict>
     <key>Description</key>
     <string>Downloads the current release of AppCleaner and imports it into munki.</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.AppCleaner.munki</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.AppCleaner.munki</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>AppCleaner</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>utilities</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications/Utilities</string>
+        <key>APP_DESTINATION</key>
+        <string>/Applications/Utilities</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -28,31 +28,18 @@
             <string>%NAME%</string>
             <key>unattended_install</key>
             <true/>
-			<key>category</key>
-			<string>OS Utilities</string>
-			<key>developer</key>
-			<string>FreeMacSoft</string>
+            <key>category</key>
+            <string>OS Utilities</string>
+            <key>developer</key>
+            <string>FreeMacSoft</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.AppCleaner.download</string>
+    <string>com.github.d33t5.download.AppCleaner</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
         <dict>
             <key>Processor</key>
             <string>DmgCreator</string>
@@ -71,11 +58,11 @@
                 <string>%dmg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
-				<key>additional_makepkginfo_options</key>
-				<array>
-					<string>--destinationpath</string>
-					<string>%APP_DESTINATION%</string>
-				</array>
+                <key>additional_makepkginfo_options</key>
+                <array>
+                    <string>--destinationpath</string>
+                    <string>%APP_DESTINATION%</string>
+                </array>
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>

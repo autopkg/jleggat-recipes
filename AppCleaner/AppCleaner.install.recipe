@@ -4,19 +4,19 @@
 <dict>
     <key>Description</key>
     <string>Downloads the current release of AppCleaner and installs it.</string>
-	<key>Identifier</key>
-	<string>com.github.jleggat.AppCleaner.install</string>
+    <key>Identifier</key>
+    <string>com.github.jleggat.AppCleaner.install</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>AppCleaner</string>
-		<key>APP_DESTINATION</key>
-		<string>/Applications/Utilities</string>
+        <key>APP_DESTINATION</key>
+        <string>/Applications/Utilities</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.AppCleaner.download</string>
+    <string>com.github.d33t5.download.AppCleaner</string>
     <key>Process</key>
     <array>
         <dict>
