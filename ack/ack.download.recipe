@@ -10,33 +10,31 @@
     <dict>
         <key>NAME</key>
         <string>ack</string>
-        <key>DOWNLOAD_URL</key>
-        <string>https://beyondgrep.com</string>
-        <key>DOWNLOAD_PATTERN</key>
-       	<string>&lt;a href="(ack-.*-single-file)"</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>Process</key>
     <array>
-        	<dict>
-        	    <key>Processor</key>
-        	    <string>URLTextSearcher</string>
-        	    <key>Arguments</key>
-        	    <dict>
-        	        <key>url</key>
-        	        <string>%DOWNLOAD_URL%/install</string>
-        	        <key>re_pattern</key>
-        	        <string>%DOWNLOAD_PATTERN%</string>
-        	    </dict>
-        	</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://beyondgrep.com/install/</string>
+                <key>re_pattern</key>
+                <string>href="ack-v([\d\.]+)"&gt;single-file</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
+            </dict>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%/%match%</string>
+                <string>https://beyondgrep.com/ack-v%version%</string>
                 <key>filename</key>
                 <string>%NAME%.pl</string>
             </dict>
