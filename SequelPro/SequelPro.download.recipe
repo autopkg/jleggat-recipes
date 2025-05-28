@@ -19,6 +19,15 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Sequel Pro is no longer maintained (details: https://github.com/sequelpro/sequelpro/issues/3705). Consider switching to Sequel Ace recipes in the gerardkok-recipes repo. Sequel Pro recipes are deprecated and will be removed in the future.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>SparkleUpdateInfoProvider</string>
             <key>Arguments</key>
             <dict>
