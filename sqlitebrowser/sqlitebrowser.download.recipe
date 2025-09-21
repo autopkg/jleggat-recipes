@@ -9,7 +9,7 @@
         <key>NAME</key>
         <string>sqlitebrowser</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://sqlitebrowser.org</string>
+        <string>https://sqlitebrowser.org</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
