@@ -14,7 +14,7 @@
     <key>MinimumVersion</key>
     <string>0.4.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.jleggat.pkg.Monit</string>
+    <string>com.github.jleggat.download.Monit</string>
     <key>Process</key>
     <array>
         <dict>
@@ -23,7 +23,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%pkg_path%</string>
+                <string>%pathname%</string>
             </dict>
         </dict>
     </array>
