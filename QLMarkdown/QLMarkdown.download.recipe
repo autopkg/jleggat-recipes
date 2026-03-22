@@ -13,7 +13,7 @@
 		<key>SEARCH_PATTERN</key>
 		<string>href="(?P&lt;url&gt;[^"]+)" id="markdown-quicklook-plugin"</string>
 		<key>SEARCH_URL</key>
-		<string>http://inkmarkapp.com/markdown-quick-look-plugin-mac-os-x/</string>
+		<string>https://inkmarkapp.com/markdown-quick-look-plugin-mac-os-x/</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
