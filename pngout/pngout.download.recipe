@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>pngout</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://www.jonof.id.au/kenutils</string>
+        <string>https://www.jonof.id.au/kenutils</string>
         <key>DOWNLOAD_PATTERN</key>
        	<string>([^"]+pngout-(?P&lt;version&gt;[0-9]+)-darwin\.tar\.gz)</string>
     </dict>
