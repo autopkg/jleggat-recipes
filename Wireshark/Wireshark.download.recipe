@@ -21,7 +21,7 @@
                 <key>url</key>
                 <string>https://www.wireshark.org/download.html</string>
                 <key>re_pattern</key>
-                <string>href="https:\/\/[^"]*(?P&lt;match&gt;osx/Wireshark[^"]*Intel[^"]*64\.dmg)"</string>
+                <string>href="https:\/\/[^"]*(?P&lt;match&gt;osx/Wireshark[^"]*\.dmg)"</string>
                 <key>re_flags</key>
                 <array>
                     <string>IGNORECASE</string>
