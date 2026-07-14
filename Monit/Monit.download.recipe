@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>Monit</string>
-        <key>SEARCH_URL</key>
-        <string>https://mmonit.com/monit/</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -23,26 +21,39 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%</string>
+                <string>https://mmonit.com/monit/</string>
                 <key>re_pattern</key>
-                <string>dist/binary/.*/monit-.*-macosx-universal\.tar\.gz</string>
+                <string>href="(dist/binary/[\d\.]+/monit-[\d\.]+-macos-x64\.pkg)"</string>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-                <string>%SEARCH_URL%%match%</string>
-				<key>filename</key>
-				<string>%NAME%.tar.gz</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>https://mmonit.com/monit/%match%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Tildeslash (Z7D8RDKK69)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
+        </dict>
     </array>
 </dict>
 </plist>

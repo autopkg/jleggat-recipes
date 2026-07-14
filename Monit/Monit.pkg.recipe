@@ -8,8 +8,6 @@
     <dict>
         <key>NAME</key>
         <string>Monit</string>
-        <key>BUNDLEID</key>
-        <string>com.mmonit.Monit</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
@@ -17,196 +15,17 @@
     <string>com.github.jleggat.download.Monit</string>
     <key>Process</key>
     <array>
+    <dict>
+        <key>Processor</key>
+        <string>PkgCopier</string>
+        <key>Arguments</key>
         <dict>
-            <key>Processor</key>
-            <string>Unarchiver</string>
-            <key>Arguments</key>
-            <dict>
-                <key>archive_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/source</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
+            <key>source_pkg</key>
+            <string>%pathname%</string>
+            <key>destination_path</key>
+            <string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>FileFinder</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/source/monit-*</string>
-            </dict>
-        </dict>
-         <dict>
-            <key>Processor</key>
-            <string>MonitVersioner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>root_path</key>
-                <string>%found_filename%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PkgRootCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/build/%NAME%</string>
-                <key>pkgdirs</key>
-                <dict>
-                    <key>private</key>
-                    <string>0755</string>
-                    <key>private/etc</key>
-                    <string>0755</string>
-                    <key>private/etc/monit.d</key>
-                    <string>0700</string>
-                    <key>private/var</key>
-                    <string>0755</string>
-                    <key>private/var/monit</key>
-                    <string>0700</string>
-                    <key>usr</key>
-                    <string>0755</string>
-                    <key>usr/share</key>
-                    <string>0755</string>
-                    <key>Library</key>
-                    <string>0755</string>
-                    <key>Library/LaunchDaemons</key>
-                    <string>0755</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Copy monit bin folder to /usr/bin</string>
-            <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%found_filename%/bin</string>
-                <key>destination_path</key>
-                <string>%pkgroot%/usr/bin</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Copy monit man folder to /usr/share/man</string>
-            <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%found_filename%/man</string>
-                <key>destination_path</key>
-                <string>%pkgroot%/usr/share/man</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Copy monit conf/monitrc file to /private/etc/monitrc.default</string>
-            <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%found_filename%/conf/monitrc</string>
-                <key>destination_path</key>
-                <string>%pkgroot%/private/etc/monitrc.default</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>make launchd plist for monit at /Library/LaunchDaemons</string>
-            <key>Processor</key>
-            <string>PlistEditor</string>
-            <key>Arguments</key>
-            <dict>
-                <key>output_plist_path</key>
-                <string>%pkgroot%/Library/LaunchDaemons/com.mmonit.monit.plist</string>
-                <key>plist_data</key>
-				<dict>
-					<key>UserName</key>
-					<string>root</string>
-					<key>Label</key>
-					<string>com.mmonit.monit</string>
-					<key>OnDemand</key>
-					<false/>
-					<key>RunAtLoad</key>
-					<true/>
-					<key>ProgramArguments</key>
-					<array>
-						<string>/usr/bin/monit</string>
-						<string>-c</string>
-						<string>/etc/monitrc</string>
-						<string>-I</string>
-						<string>-l</string>
-						<string>/var/log/monit.log</string>
-					</array>
-				</dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>Build the package</string>
-            <key>Processor</key>
-            <string>PkgCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_request</key>
-                <dict>
-                <key>pkgname</key>
-                <string>%NAME%-%version%</string>
-                <key>version</key>
-                <string>%version%</string>
-                    <key>pkgdir</key>
-                    <string>%RECIPE_CACHE_DIR%</string>
-                    <key>id</key>
-                    <string>%BUNDLEID%</string>
-                    <key>scripts</key>
-                    <string>Scripts</string>
-                    <key>chown</key>
-                    <array>
-                        <dict>
-                            <key>path</key>
-                            <string>private</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>admin</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>Library</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-                        </dict>
-                        <dict>
-                            <key>path</key>
-                            <string>usr/bin/monit</string>
-                            <key>user</key>
-                            <string>root</string>
-                            <key>group</key>
-                            <string>wheel</string>
-				<key>mode</key>
-				<string>0755</string>
-                        </dict>
-                    </array>
-                </dict>
-            </dict>
-        </dict>
+    </dict>
     </array>
 </dict>
 </plist>
