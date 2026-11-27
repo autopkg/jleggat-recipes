@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>EasyFind</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://www.devontechnologies.com/apps/freeware</string>
+		<string>https://www.devontechnologies.com/apps/freeware/easyfind</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
